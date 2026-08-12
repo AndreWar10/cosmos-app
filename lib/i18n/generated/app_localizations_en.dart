@@ -45,6 +45,57 @@ class AppLocalizationsEn extends AppLocalizations {
   String get launchesTitle => 'Launches';
 
   @override
+  String get launchesUpcoming => 'Upcoming';
+
+  @override
+  String get launchesPast => 'Past';
+
+  @override
+  String get launchesAll => 'All';
+
+  @override
+  String get launchesFilterSuccess => 'Success';
+
+  @override
+  String get launchesFilterFailed => 'Failed';
+
+  @override
+  String get launchesEmpty => 'No launches found';
+
+  @override
+  String get launchesErrorGeneric => 'Failed to load launches';
+
+  @override
+  String get launchesErrorRetry => 'Try again';
+
+  @override
+  String get launchDetailRocket => 'Rocket';
+
+  @override
+  String get launchDetailLaunchpad => 'Launchpad';
+
+  @override
+  String get launchDetailDate => 'Date';
+
+  @override
+  String get launchDetailStatus => 'Status';
+
+  @override
+  String get launchDetailStatusSuccess => 'Success';
+
+  @override
+  String get launchDetailStatusFailed => 'Failed';
+
+  @override
+  String get launchDetailStatusUpcoming => 'Upcoming';
+
+  @override
+  String get launchDetailWatchWebcast => 'Watch Webcast';
+
+  @override
+  String get launchDetailNoDetails => 'No details available';
+
+  @override
   String get settingsTitle => 'Settings';
 
   @override

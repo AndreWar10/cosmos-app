@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../features/launches/domain/entities/launch.dart';
+import '../../features/launches/presentation/pages/launch_detail_page.dart';
 import '../navigation/presentation/pages/root_page.dart';
 
 class AppRoutes {
@@ -13,5 +15,14 @@ class AppRoutes {
 
   static Map<String, WidgetBuilder> routes = {
     initial: (context) => const RootPage(),
+    launchDetail: (context) {
+      final args = ModalRoute.of(context)?.settings.arguments;
+      if (args is Launch) {
+        return LaunchDetailPage(launch: args);
+      }
+      return const Scaffold(
+        body: Center(child: Text('Invalid launch data')),
+      );
+    },
   };
 }

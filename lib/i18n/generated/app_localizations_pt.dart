@@ -45,6 +45,57 @@ class AppLocalizationsPt extends AppLocalizations {
   String get launchesTitle => 'Lançamentos';
 
   @override
+  String get launchesUpcoming => 'Próximos';
+
+  @override
+  String get launchesPast => 'Anteriores';
+
+  @override
+  String get launchesAll => 'Todos';
+
+  @override
+  String get launchesFilterSuccess => 'Sucesso';
+
+  @override
+  String get launchesFilterFailed => 'Falhou';
+
+  @override
+  String get launchesEmpty => 'Nenhum lançamento encontrado';
+
+  @override
+  String get launchesErrorGeneric => 'Erro ao carregar lançamentos';
+
+  @override
+  String get launchesErrorRetry => 'Tentar novamente';
+
+  @override
+  String get launchDetailRocket => 'Foguete';
+
+  @override
+  String get launchDetailLaunchpad => 'Plataforma';
+
+  @override
+  String get launchDetailDate => 'Data';
+
+  @override
+  String get launchDetailStatus => 'Status';
+
+  @override
+  String get launchDetailStatusSuccess => 'Sucesso';
+
+  @override
+  String get launchDetailStatusFailed => 'Falhou';
+
+  @override
+  String get launchDetailStatusUpcoming => 'Próximo';
+
+  @override
+  String get launchDetailWatchWebcast => 'Assistir Webcast';
+
+  @override
+  String get launchDetailNoDetails => 'Sem detalhes disponíveis';
+
+  @override
   String get settingsTitle => 'Configurações';
 
   @override

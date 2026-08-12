@@ -170,6 +170,108 @@ abstract class AppLocalizations {
   /// **'Launches'**
   String get launchesTitle;
 
+  /// Launches filter: upcoming
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get launchesUpcoming;
+
+  /// Launches filter: past
+  ///
+  /// In en, this message translates to:
+  /// **'Past'**
+  String get launchesPast;
+
+  /// Launches filter: all
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get launchesAll;
+
+  /// Launches status filter: success
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get launchesFilterSuccess;
+
+  /// Launches status filter: failure
+  ///
+  /// In en, this message translates to:
+  /// **'Failed'**
+  String get launchesFilterFailed;
+
+  /// Launches empty state
+  ///
+  /// In en, this message translates to:
+  /// **'No launches found'**
+  String get launchesEmpty;
+
+  /// Launches error message
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load launches'**
+  String get launchesErrorGeneric;
+
+  /// Launches retry button
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get launchesErrorRetry;
+
+  /// Launch detail: rocket label
+  ///
+  /// In en, this message translates to:
+  /// **'Rocket'**
+  String get launchDetailRocket;
+
+  /// Launch detail: launchpad label
+  ///
+  /// In en, this message translates to:
+  /// **'Launchpad'**
+  String get launchDetailLaunchpad;
+
+  /// Launch detail: date label
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get launchDetailDate;
+
+  /// Launch detail: status label
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get launchDetailStatus;
+
+  /// Launch status: success
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get launchDetailStatusSuccess;
+
+  /// Launch status: failed
+  ///
+  /// In en, this message translates to:
+  /// **'Failed'**
+  String get launchDetailStatusFailed;
+
+  /// Launch status: upcoming
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get launchDetailStatusUpcoming;
+
+  /// Launch detail: webcast button
+  ///
+  /// In en, this message translates to:
+  /// **'Watch Webcast'**
+  String get launchDetailWatchWebcast;
+
+  /// Launch detail: no description
+  ///
+  /// In en, this message translates to:
+  /// **'No details available'**
+  String get launchDetailNoDetails;
+
   /// Settings page app bar title
   ///
   /// In en, this message translates to:
