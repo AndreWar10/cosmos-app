@@ -18,6 +18,14 @@
 
   "newsTitle": "News",
   "@newsTitle": { "description": "News page app bar title" },
+  "newsSearchHint": "Search news...",
+  "@newsSearchHint": { "description": "News search field placeholder" },
+  "newsEmpty": "No news found",
+  "@newsEmpty": { "description": "News empty state message" },
+  "newsErrorGeneric": "Failed to load news",
+  "@newsErrorGeneric": { "description": "News generic error message" },
+  "newsErrorRetry": "Try again",
+  "@newsErrorRetry": { "description": "News error retry button" },
 
   "launchesTitle": "Launches",
   "@launchesTitle": { "description": "Launches page app bar title" },

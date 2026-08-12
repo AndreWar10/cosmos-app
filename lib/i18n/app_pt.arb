@@ -11,6 +11,10 @@
   "homeTitle": "Cosmos",
 
   "newsTitle": "Notícias",
+  "newsSearchHint": "Buscar notícias...",
+  "newsEmpty": "Nenhuma notícia encontrada",
+  "newsErrorGeneric": "Erro ao carregar notícias",
+  "newsErrorRetry": "Tentar novamente",
 
   "launchesTitle": "Lançamentos",
 

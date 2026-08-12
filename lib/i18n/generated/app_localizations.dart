@@ -140,6 +140,30 @@ abstract class AppLocalizations {
   /// **'News'**
   String get newsTitle;
 
+  /// News search field placeholder
+  ///
+  /// In en, this message translates to:
+  /// **'Search news...'**
+  String get newsSearchHint;
+
+  /// News empty state message
+  ///
+  /// In en, this message translates to:
+  /// **'No news found'**
+  String get newsEmpty;
+
+  /// News generic error message
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load news'**
+  String get newsErrorGeneric;
+
+  /// News error retry button
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get newsErrorRetry;
+
   /// Launches page app bar title
   ///
   /// In en, this message translates to:

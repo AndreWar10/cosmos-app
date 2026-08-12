@@ -30,6 +30,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get newsTitle => 'News';
 
   @override
+  String get newsSearchHint => 'Search news...';
+
+  @override
+  String get newsEmpty => 'No news found';
+
+  @override
+  String get newsErrorGeneric => 'Failed to load news';
+
+  @override
+  String get newsErrorRetry => 'Try again';
+
+  @override
   String get launchesTitle => 'Launches';
 
   @override

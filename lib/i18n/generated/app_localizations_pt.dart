@@ -30,6 +30,18 @@ class AppLocalizationsPt extends AppLocalizations {
   String get newsTitle => 'Notícias';
 
   @override
+  String get newsSearchHint => 'Buscar notícias...';
+
+  @override
+  String get newsEmpty => 'Nenhuma notícia encontrada';
+
+  @override
+  String get newsErrorGeneric => 'Erro ao carregar notícias';
+
+  @override
+  String get newsErrorRetry => 'Tentar novamente';
+
+  @override
   String get launchesTitle => 'Lançamentos';
 
   @override
