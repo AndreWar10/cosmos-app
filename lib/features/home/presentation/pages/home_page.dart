@@ -170,8 +170,8 @@ class _HomeLoadingSkeleton extends StatelessWidget {
           _SkeletonTitle(width: 160, color: divider),
           const SizedBox(height: 12),
           _SkeletonCarousel(
-            height: 200,
-            cardWidth: 180,
+            height: 180,
+            cardWidth: 200,
             cardCount: 3,
             surface: surface,
             divider: divider,

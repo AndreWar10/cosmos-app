@@ -62,7 +62,7 @@ class LatestLaunchesSection extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         SizedBox(
-          height: 200,
+          height: 180,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -90,7 +90,7 @@ class _LaunchPreviewCard extends StatelessWidget {
         : AppColors.lightTextSecondary;
 
     return SizedBox(
-      width: 180,
+      width: 200,
       child: Container(
         decoration: BoxDecoration(
           color: theme.colorScheme.surface,
@@ -125,7 +125,7 @@ class _LaunchPreviewCard extends StatelessWidget {
                     style: theme.textTheme.labelMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
-                    maxLines: 2,
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 4),
