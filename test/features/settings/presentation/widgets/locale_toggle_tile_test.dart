@@ -9,9 +9,11 @@ void main() {
   group('LocaleToggleTile', () {
     testWidgets('should render language icon', (tester) async {
       await tester.pumpApp(
-        LocaleToggleTile(
-          isPortuguese: true,
-          onChanged: (_) {},
+        Scaffold(
+          body: LocaleToggleTile(
+            isPortuguese: true,
+            onChanged: (_) {},
+          ),
         ),
       );
 
@@ -21,9 +23,11 @@ void main() {
     testWidgets('should show PT selected when isPortuguese is true',
         (tester) async {
       await tester.pumpApp(
-        LocaleToggleTile(
-          isPortuguese: true,
-          onChanged: (_) {},
+        Scaffold(
+          body: LocaleToggleTile(
+            isPortuguese: true,
+            onChanged: (_) {},
+          ),
         ),
       );
 
@@ -35,14 +39,16 @@ void main() {
       Locale? newLocale;
 
       await tester.pumpApp(
-        LocaleToggleTile(
-          isPortuguese: true,
-          onChanged: (locale) => newLocale = locale,
+        Scaffold(
+          body: LocaleToggleTile(
+            isPortuguese: true,
+            onChanged: (locale) => newLocale = locale,
+          ),
         ),
       );
 
       await tester.tap(find.text('EN'));
-      await tester.pumpAndSettle();
+      await tester.pump();
 
       expect(newLocale, const Locale('en'));
     });

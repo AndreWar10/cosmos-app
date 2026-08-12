@@ -10,7 +10,7 @@ void main() {
     testWidgets('should show dark mode icon when isDark is true',
         (tester) async {
       await tester.pumpApp(
-        ThemeToggleTile(isDark: true, onChanged: (_) {}),
+        Scaffold(body: ThemeToggleTile(isDark: true, onChanged: (_) {})),
       );
 
       expect(find.byIcon(Icons.dark_mode), findsOneWidget);
@@ -19,7 +19,7 @@ void main() {
     testWidgets('should show light mode icon when isDark is false',
         (tester) async {
       await tester.pumpApp(
-        ThemeToggleTile(isDark: false, onChanged: (_) {}),
+        Scaffold(body: ThemeToggleTile(isDark: false, onChanged: (_) {})),
       );
 
       expect(find.byIcon(Icons.light_mode), findsOneWidget);
@@ -29,9 +29,11 @@ void main() {
       bool changed = false;
 
       await tester.pumpApp(
-        ThemeToggleTile(
-          isDark: true,
-          onChanged: (_) => changed = true,
+        Scaffold(
+          body: ThemeToggleTile(
+            isDark: true,
+            onChanged: (_) => changed = true,
+          ),
         ),
       );
 

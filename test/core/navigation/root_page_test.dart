@@ -1,12 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:bloc_test/bloc_test.dart';
+import 'package:get_it/get_it.dart';
 
 import 'package:cosmos_app/core/navigation/presentation/pages/root_page.dart';
 import 'package:cosmos_app/core/widgets/app_bottom_navigation.dart';
+import 'package:cosmos_app/features/home/presentation/cubit/home_cubit.dart';
+import 'package:cosmos_app/features/home/presentation/cubit/home_state.dart';
+import 'package:cosmos_app/features/news/presentation/bloc/news_bloc.dart';
+import 'package:cosmos_app/features/news/presentation/bloc/news_event.dart';
+import 'package:cosmos_app/features/news/presentation/bloc/news_state.dart';
 
 import '../../helpers/pump_app.dart';
 
+class MockHomeCubit extends MockCubit<HomeState> implements HomeCubit {}
+
+class MockNewsBloc extends MockBloc<NewsEvent, NewsState> implements NewsBloc {}
+
 void main() {
+  late MockHomeCubit mockHomeCubit;
+  late MockNewsBloc mockNewsBloc;
+
+  setUp(() {
+    mockHomeCubit = MockHomeCubit();
+    when(() => mockHomeCubit.state).thenReturn(HomeLoading());
+    when(() => mockHomeCubit.load()).thenAnswer((_) async {});
+
+    mockNewsBloc = MockNewsBloc();
+    when(() => mockNewsBloc.state).thenReturn(NewsInitial());
+
+    final sl = GetIt.instance;
+    if (sl.isRegistered<HomeCubit>()) sl.unregister<HomeCubit>();
+    if (sl.isRegistered<NewsBloc>()) sl.unregister<NewsBloc>();
+    sl.registerFactory<HomeCubit>(() => mockHomeCubit);
+    sl.registerFactory<NewsBloc>(() => mockNewsBloc);
+  });
+
+  tearDown(() {
+    final sl = GetIt.instance;
+    if (sl.isRegistered<HomeCubit>()) sl.unregister<HomeCubit>();
+    if (sl.isRegistered<NewsBloc>()) sl.unregister<NewsBloc>();
+  });
+
   group('RootPage', () {
     testWidgets('should render with bottom navigation bar', (tester) async {
       await tester.pumpApp(const RootPage());
@@ -27,7 +63,7 @@ void main() {
       await tester.pumpApp(const RootPage());
 
       await tester.tap(find.byIcon(Icons.article_outlined));
-      await tester.pumpAndSettle();
+      await tester.pump();
 
       final bottomNav =
           tester.widget<BottomNavigationBar>(find.byType(BottomNavigationBar));
@@ -38,7 +74,7 @@ void main() {
       await tester.pumpApp(const RootPage());
 
       await tester.tap(find.byIcon(Icons.quiz_outlined));
-      await tester.pumpAndSettle();
+      await tester.pump();
 
       final bottomNav =
           tester.widget<BottomNavigationBar>(find.byType(BottomNavigationBar));
@@ -49,7 +85,7 @@ void main() {
       await tester.pumpApp(const RootPage());
 
       await tester.tap(find.byIcon(Icons.settings_outlined));
-      await tester.pumpAndSettle();
+      await tester.pump();
 
       final bottomNav =
           tester.widget<BottomNavigationBar>(find.byType(BottomNavigationBar));

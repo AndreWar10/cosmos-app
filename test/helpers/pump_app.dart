@@ -16,6 +16,7 @@ extension PumpApp on WidgetTester {
     ThemeCubit? themeCubit,
     LocaleCubit? localeCubit,
     List<BlocProvider>? additionalProviders,
+    bool settle = false,
   }) async {
     final cache = MockAppCache();
     final providers = <BlocProvider>[
@@ -43,6 +44,10 @@ extension PumpApp on WidgetTester {
       ),
     );
 
-    await pumpAndSettle();
+    if (settle) {
+      await pumpAndSettle();
+    } else {
+      await pump();
+    }
   }
 }

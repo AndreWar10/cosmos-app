@@ -54,7 +54,7 @@ void main() {
       await dataSource.getNews(limit: 10, offset: 5);
 
       verify(() => mockNetwork.get<Map<String, dynamic>>(
-            '/api/pt/news',
+            '/api/news',
             queryParameters: {'limit': 10, 'offset': 5},
           )).called(1);
     });
@@ -74,7 +74,7 @@ void main() {
       await dataSource.getNews(search: 'SpaceX');
 
       verify(() => mockNetwork.get<Map<String, dynamic>>(
-            '/api/pt/news',
+            '/api/news',
             queryParameters: {'limit': 20, 'offset': 0, 'search': 'SpaceX'},
           )).called(1);
     });

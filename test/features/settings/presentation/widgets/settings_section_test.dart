@@ -9,12 +9,16 @@ void main() {
   group('SettingsSection', () {
     testWidgets('should render title and children', (tester) async {
       await tester.pumpApp(
-        const SettingsSection(
-          title: 'Test Section',
-          children: [
-            ListTile(title: Text('Item 1')),
-            ListTile(title: Text('Item 2')),
-          ],
+        const Scaffold(
+          body: SingleChildScrollView(
+            child: SettingsSection(
+              title: 'Test Section',
+              children: [
+                ListTile(title: Text('Item 1')),
+                ListTile(title: Text('Item 2')),
+              ],
+            ),
+          ),
         ),
       );
 

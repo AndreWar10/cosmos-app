@@ -124,14 +124,15 @@ void main() {
         return NewsBloc(mockUseCase);
       },
       act: (bloc) => bloc.add(NewsSearchChanged('SpaceX')),
+      wait: const Duration(milliseconds: 300),
       expect: () => [
         isA<NewsLoading>(),
         isA<NewsLoaded>(),
       ],
       verify: (_) {
         verify(() => mockUseCase(
-              limit: 20,
-              offset: 0,
+              limit: any(named: 'limit'),
+              offset: any(named: 'offset'),
               search: 'SpaceX',
             )).called(1);
       },

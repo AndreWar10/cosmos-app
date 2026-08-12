@@ -59,10 +59,18 @@ void main() {
                 ),
               LaunchesLoaded(:final launches) => launches.isEmpty
                   ? const LaunchesEmptyWidget()
-                  : ListView(
-                      children: launches
-                          .map((l) => LaunchCard(launch: l))
-                          .toList(),
+                  : GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 12,
+                        mainAxisSpacing: 12,
+                        childAspectRatio: 0.75,
+                      ),
+                      padding: const EdgeInsets.all(16),
+                      itemCount: launches.length,
+                      itemBuilder: (_, i) =>
+                          LaunchCard(launch: launches[i]),
                     ),
             };
           },

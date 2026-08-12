@@ -24,7 +24,7 @@ void main() {
       expect(switchTile.value, isTrue);
 
       await tester.tap(find.byType(SwitchListTile));
-      await tester.pumpAndSettle();
+      await tester.pump();
 
       final updatedSwitch = tester.widget<SwitchListTile>(
         find.byType(SwitchListTile),
@@ -36,10 +36,14 @@ void main() {
         (tester) async {
       await tester.pumpApp(const SettingsPage());
 
-      await tester.tap(find.text('EN'));
-      await tester.pumpAndSettle();
+      final enFinder = find.text('EN');
+      expect(enFinder, findsOneWidget);
 
-      expect(find.text('Settings'), findsOneWidget);
+      await tester.tap(enFinder);
+      await tester.pump();
+
+      final ptFinder = find.text('PT');
+      expect(ptFinder, findsOneWidget);
     });
   });
 }
