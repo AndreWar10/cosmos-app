@@ -114,21 +114,9 @@ class _LaunchesLoadedViewState extends State<_LaunchesLoadedView> {
       children: [
         LaunchFilterBar(
           upcomingFilter: widget.state.upcomingFilter,
-          statusFilter: widget.state.statusFilter,
           onUpcomingChanged: (filter) {
             context.read<LaunchesBloc>().add(
-                  LaunchesFilterChanged(
-                    upcoming: filter,
-                    status: widget.state.statusFilter,
-                  ),
-                );
-          },
-          onStatusChanged: (status) {
-            context.read<LaunchesBloc>().add(
-                  LaunchesFilterChanged(
-                    upcoming: widget.state.upcomingFilter,
-                    status: status,
-                  ),
+                  LaunchesFilterChanged(upcoming: filter),
                 );
           },
         ),

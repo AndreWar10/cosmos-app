@@ -21,6 +21,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get navLaunches => 'Lançamentos';
 
   @override
+  String get navQuiz => 'Quiz';
+
+  @override
   String get navSettings => 'Ajustes';
 
   @override
@@ -40,6 +43,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get homeSeeAll => 'Ver tudo';
+
+  @override
+  String get homeLatestLaunches => 'Próximos Lançamentos';
 
   @override
   String get planetMercury => 'Mercúrio';
@@ -82,6 +88,99 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get planetDetailWithRings => 'Com anéis';
+
+  @override
+  String get planetSunSubtitle => 'Estrela do sistema';
+
+  @override
+  String get planetSunDescription =>
+      'Uma estrela anã amarela no centro do Sistema Solar. Quase toda a massa do sistema está aqui, e a luz e o calor tornam a vida na Terra possível.';
+
+  @override
+  String get planetMercurySubtitle => 'O menor planeta';
+
+  @override
+  String get planetMercuryDescription =>
+      'O planeta mais próximo do Sol. Sem atmosfera densa, a temperatura oscila de extremo calor a extremo frio entre o dia e a noite.';
+
+  @override
+  String get planetVenusSubtitle => 'O planeta mais quente';
+
+  @override
+  String get planetVenusDescription =>
+      'Coberto por nuvens densas de ácido sulfúrico e com um efeito estufa intenso. É o planeta mais quente do Sistema Solar.';
+
+  @override
+  String get planetEarthSubtitle => 'Nosso lar';
+
+  @override
+  String get planetEarthDescription =>
+      'O único planeta conhecido com vida. Oceano líquido, atmosfera protetora e um campo magnético que nos protege do vento solar.';
+
+  @override
+  String get planetMarsSubtitle => 'O planeta vermelho';
+
+  @override
+  String get planetMarsDescription =>
+      'Um mundo frio e desértico com vulcões gigantes e o maior cânion do Sistema Solar. Destino principal da exploração espacial.';
+
+  @override
+  String get planetJupiterSubtitle => 'O gigante gasoso';
+
+  @override
+  String get planetJupiterDescription =>
+      'O maior planeta do Sistema Solar. Sua Grande Mancha Vermelha é uma tempestade maior que a Terra, ativa há séculos.';
+
+  @override
+  String get planetSaturnSubtitle => 'O senhor dos anéis';
+
+  @override
+  String get planetSaturnDescription =>
+      'Famoso pelos anéis de gelo e rocha. Apesar do tamanho, é o planeta menos denso — flutuaria se existisse um oceano grande o bastante.';
+
+  @override
+  String get planetUranusSubtitle => 'O gigante gelado';
+
+  @override
+  String get planetUranusDescription =>
+      'Um gigante de gelo que gira de lado. Sua atmosfera de hidrogênio, hélio e metano dá o tom azulado característico.';
+
+  @override
+  String get planetNeptuneSubtitle => 'O mais distante';
+
+  @override
+  String get planetNeptuneDescription =>
+      'O planeta mais distante do Sol (desde a reclassificação de Plutão). Ventos supersônicos atravessam sua atmosfera azul profunda.';
+
+  @override
+  String get planetInfoType => 'Tipo';
+
+  @override
+  String get planetInfoOrbitalPeriod => 'Período Orbital';
+
+  @override
+  String get planetInfoOrbitalSpeed => 'Velocidade Orbital';
+
+  @override
+  String get planetInfoRotation => 'Rotação';
+
+  @override
+  String get planetInfoRadius => 'Raio';
+
+  @override
+  String get planetInfoSunDistance => 'Distância do Sol';
+
+  @override
+  String get planetInfoTemperature => 'Temperatura';
+
+  @override
+  String get planetInfoGravity => 'Gravidade';
+
+  @override
+  String get planetInfoLightToSun => 'Luz até o Sol';
+
+  @override
+  String get planetInfoSatellites => 'Satélites';
 
   @override
   String get newsTitle => 'Notícias';

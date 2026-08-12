@@ -21,6 +21,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navLaunches => 'Launches';
 
   @override
+  String get navQuiz => 'Quiz';
+
+  @override
   String get navSettings => 'Settings';
 
   @override
@@ -40,6 +43,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeSeeAll => 'See all';
+
+  @override
+  String get homeLatestLaunches => 'Upcoming Launches';
 
   @override
   String get planetMercury => 'Mercury';
@@ -82,6 +88,99 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get planetDetailWithRings => 'With rings';
+
+  @override
+  String get planetSunSubtitle => 'System star';
+
+  @override
+  String get planetSunDescription =>
+      'A yellow dwarf star at the center of the Solar System. Nearly all of the system\'s mass is here, and its light and heat make life on Earth possible.';
+
+  @override
+  String get planetMercurySubtitle => 'The smallest planet';
+
+  @override
+  String get planetMercuryDescription =>
+      'The closest planet to the Sun. Without a dense atmosphere, temperatures swing from extreme heat to extreme cold between day and night.';
+
+  @override
+  String get planetVenusSubtitle => 'The hottest planet';
+
+  @override
+  String get planetVenusDescription =>
+      'Covered by dense clouds of sulfuric acid with an intense greenhouse effect. It is the hottest planet in the Solar System.';
+
+  @override
+  String get planetEarthSubtitle => 'Our home';
+
+  @override
+  String get planetEarthDescription =>
+      'The only known planet with life. Liquid ocean, protective atmosphere, and a magnetic field that shields us from solar wind.';
+
+  @override
+  String get planetMarsSubtitle => 'The red planet';
+
+  @override
+  String get planetMarsDescription =>
+      'A cold, desert world with giant volcanoes and the largest canyon in the Solar System. A primary destination for space exploration.';
+
+  @override
+  String get planetJupiterSubtitle => 'The gas giant';
+
+  @override
+  String get planetJupiterDescription =>
+      'The largest planet in the Solar System. Its Great Red Spot is a storm larger than Earth, active for centuries.';
+
+  @override
+  String get planetSaturnSubtitle => 'The lord of the rings';
+
+  @override
+  String get planetSaturnDescription =>
+      'Famous for its rings of ice and rock. Despite its size, it is the least dense planet — it would float if an ocean large enough existed.';
+
+  @override
+  String get planetUranusSubtitle => 'The ice giant';
+
+  @override
+  String get planetUranusDescription =>
+      'An ice giant that spins on its side. Its atmosphere of hydrogen, helium, and methane gives it its characteristic blue hue.';
+
+  @override
+  String get planetNeptuneSubtitle => 'The farthest';
+
+  @override
+  String get planetNeptuneDescription =>
+      'The farthest planet from the Sun (since Pluto\'s reclassification). Supersonic winds sweep through its deep blue atmosphere.';
+
+  @override
+  String get planetInfoType => 'Type';
+
+  @override
+  String get planetInfoOrbitalPeriod => 'Orbital Period';
+
+  @override
+  String get planetInfoOrbitalSpeed => 'Orbital Speed';
+
+  @override
+  String get planetInfoRotation => 'Rotation';
+
+  @override
+  String get planetInfoRadius => 'Radius';
+
+  @override
+  String get planetInfoSunDistance => 'Sun Distance';
+
+  @override
+  String get planetInfoTemperature => 'Temperature';
+
+  @override
+  String get planetInfoGravity => 'Gravity';
+
+  @override
+  String get planetInfoLightToSun => 'Light to Sun';
+
+  @override
+  String get planetInfoSatellites => 'Satellites';
 
   @override
   String get newsTitle => 'News';

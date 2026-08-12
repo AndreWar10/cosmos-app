@@ -4,6 +4,7 @@ import '../../features/home/domain/entities/planet.dart';
 import '../../features/home/presentation/pages/planet_detail_page.dart';
 import '../../features/launches/domain/entities/launch.dart';
 import '../../features/launches/presentation/pages/launch_detail_page.dart';
+import '../../features/launches/presentation/pages/launches_page.dart';
 import '../navigation/presentation/pages/root_page.dart';
 
 class AppRoutes {
@@ -17,6 +18,7 @@ class AppRoutes {
 
   static Map<String, WidgetBuilder> routes = {
     initial: (context) => const RootPage(),
+    launches: (context) => const LaunchesPage(),
     launchDetail: (context) {
       final args = ModalRoute.of(context)?.settings.arguments;
       if (args is Launch) {

@@ -1,3 +1,4 @@
+import '../../../launches/domain/entities/launch.dart';
 import '../../../news/domain/entities/article.dart';
 import '../../domain/entities/apod.dart';
 
@@ -11,10 +12,12 @@ class HomeLoaded extends HomeState {
   HomeLoaded({
     required this.apod,
     required this.latestNews,
+    required this.latestLaunches,
   });
 
   final Apod? apod;
   final List<Article> latestNews;
+  final List<Launch> latestLaunches;
 }
 
 class HomeError extends HomeState {

@@ -6,6 +6,8 @@ import 'package:cosmos_app/features/home/domain/entities/apod.dart';
 import 'package:cosmos_app/features/home/domain/usecases/get_apod_usecase.dart';
 import 'package:cosmos_app/features/home/presentation/cubit/home_cubit.dart';
 import 'package:cosmos_app/features/home/presentation/cubit/home_state.dart';
+import 'package:cosmos_app/features/launches/domain/entities/launch.dart';
+import 'package:cosmos_app/features/launches/domain/usecases/get_launches_usecase.dart';
 import 'package:cosmos_app/features/news/domain/entities/article.dart';
 import 'package:cosmos_app/features/news/domain/usecases/get_news_usecase.dart';
 
@@ -13,13 +15,17 @@ class MockGetApodUseCase extends Mock implements GetApodUseCase {}
 
 class MockGetNewsUseCase extends Mock implements GetNewsUseCase {}
 
+class MockGetLaunchesUseCase extends Mock implements GetLaunchesUseCase {}
+
 void main() {
   late MockGetApodUseCase mockApodUseCase;
   late MockGetNewsUseCase mockNewsUseCase;
+  late MockGetLaunchesUseCase mockLaunchesUseCase;
 
   setUp(() {
     mockApodUseCase = MockGetApodUseCase();
     mockNewsUseCase = MockGetNewsUseCase();
+    mockLaunchesUseCase = MockGetLaunchesUseCase();
   });
 
   final tApod = Apod(
@@ -43,9 +49,28 @@ void main() {
     ),
   ];
 
+  void stubSuccessAll() {
+    when(() => mockApodUseCase()).thenAnswer((_) async => tApod);
+    when(() => mockNewsUseCase(
+          limit: any(named: 'limit'),
+          offset: any(named: 'offset'),
+          search: any(named: 'search'),
+        )).thenAnswer((_) async => (articles: tArticles, count: 1));
+    when(() => mockLaunchesUseCase(
+          limit: any(named: 'limit'),
+          offset: any(named: 'offset'),
+          upcoming: any(named: 'upcoming'),
+          status: any(named: 'status'),
+        )).thenAnswer((_) async => (launches: <Launch>[], count: 0));
+  }
+
+  HomeCubit buildCubit() =>
+      HomeCubit(mockApodUseCase, mockNewsUseCase, mockLaunchesUseCase);
+
   group('HomeCubit', () {
     test('initial state should be HomeInitial', () {
-      final cubit = HomeCubit(mockApodUseCase, mockNewsUseCase);
+      stubSuccessAll();
+      final cubit = buildCubit();
       expect(cubit.state, isA<HomeInitial>());
       cubit.close();
     });
@@ -53,20 +78,16 @@ void main() {
     blocTest<HomeCubit, HomeState>(
       'should emit [Loading, Loaded] when load succeeds',
       build: () {
-        when(() => mockApodUseCase()).thenAnswer((_) async => tApod);
-        when(() => mockNewsUseCase(
-              limit: any(named: 'limit'),
-              offset: any(named: 'offset'),
-              search: any(named: 'search'),
-            )).thenAnswer((_) async => (articles: tArticles, count: 1));
-        return HomeCubit(mockApodUseCase, mockNewsUseCase);
+        stubSuccessAll();
+        return buildCubit();
       },
       act: (cubit) => cubit.load(),
       expect: () => [
         isA<HomeLoading>(),
         isA<HomeLoaded>()
             .having((s) => s.apod?.title, 'apod title', 'Test APOD')
-            .having((s) => s.latestNews.length, 'news length', 1),
+            .having((s) => s.latestNews.length, 'news length', 1)
+            .having((s) => s.latestLaunches, 'launches', isEmpty),
       ],
     );
 
@@ -79,7 +100,13 @@ void main() {
               offset: any(named: 'offset'),
               search: any(named: 'search'),
             )).thenAnswer((_) async => (articles: tArticles, count: 1));
-        return HomeCubit(mockApodUseCase, mockNewsUseCase);
+        when(() => mockLaunchesUseCase(
+              limit: any(named: 'limit'),
+              offset: any(named: 'offset'),
+              upcoming: any(named: 'upcoming'),
+              status: any(named: 'status'),
+            )).thenAnswer((_) async => (launches: <Launch>[], count: 0));
+        return buildCubit();
       },
       act: (cubit) => cubit.load(),
       expect: () => [
@@ -99,7 +126,13 @@ void main() {
               offset: any(named: 'offset'),
               search: any(named: 'search'),
             )).thenThrow(Exception('News error'));
-        return HomeCubit(mockApodUseCase, mockNewsUseCase);
+        when(() => mockLaunchesUseCase(
+              limit: any(named: 'limit'),
+              offset: any(named: 'offset'),
+              upcoming: any(named: 'upcoming'),
+              status: any(named: 'status'),
+            )).thenAnswer((_) async => (launches: <Launch>[], count: 0));
+        return buildCubit();
       },
       act: (cubit) => cubit.load(),
       expect: () => [
@@ -107,6 +140,33 @@ void main() {
         isA<HomeLoaded>()
             .having((s) => s.apod?.title, 'apod title', 'Test APOD')
             .having((s) => s.latestNews, 'news', isEmpty),
+      ],
+    );
+
+    blocTest<HomeCubit, HomeState>(
+      'should still load when launches fails',
+      build: () {
+        when(() => mockApodUseCase()).thenAnswer((_) async => tApod);
+        when(() => mockNewsUseCase(
+              limit: any(named: 'limit'),
+              offset: any(named: 'offset'),
+              search: any(named: 'search'),
+            )).thenAnswer((_) async => (articles: tArticles, count: 1));
+        when(() => mockLaunchesUseCase(
+              limit: any(named: 'limit'),
+              offset: any(named: 'offset'),
+              upcoming: any(named: 'upcoming'),
+              status: any(named: 'status'),
+            )).thenThrow(Exception('Launches error'));
+        return buildCubit();
+      },
+      act: (cubit) => cubit.load(),
+      expect: () => [
+        isA<HomeLoading>(),
+        isA<HomeLoaded>()
+            .having((s) => s.apod?.title, 'apod title', 'Test APOD')
+            .having((s) => s.latestNews.length, 'news length', 1)
+            .having((s) => s.latestLaunches, 'launches', isEmpty),
       ],
     );
   });

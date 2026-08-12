@@ -34,10 +34,10 @@ void main() {
       expect(bottomNav.currentIndex, 1);
     });
 
-    testWidgets('should switch to Launches tab when tapped', (tester) async {
+    testWidgets('should switch to Quiz tab when tapped', (tester) async {
       await tester.pumpApp(const RootPage());
 
-      await tester.tap(find.byIcon(Icons.rocket_launch_outlined));
+      await tester.tap(find.byIcon(Icons.quiz_outlined));
       await tester.pumpAndSettle();
 
       final bottomNav =

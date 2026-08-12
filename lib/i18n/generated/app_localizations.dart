@@ -122,6 +122,12 @@ abstract class AppLocalizations {
   /// **'Launches'**
   String get navLaunches;
 
+  /// Bottom nav: Quiz tab
+  ///
+  /// In en, this message translates to:
+  /// **'Quiz'**
+  String get navQuiz;
+
   /// Bottom nav: Settings tab
   ///
   /// In en, this message translates to:
@@ -163,6 +169,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'See all'**
   String get homeSeeAll;
+
+  /// Home: Upcoming Launches section title
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming Launches'**
+  String get homeLatestLaunches;
 
   /// Planet: Mercury
   ///
@@ -247,6 +259,174 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'With rings'**
   String get planetDetailWithRings;
+
+  /// Sun subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'System star'**
+  String get planetSunSubtitle;
+
+  /// Sun description
+  ///
+  /// In en, this message translates to:
+  /// **'A yellow dwarf star at the center of the Solar System. Nearly all of the system\'s mass is here, and its light and heat make life on Earth possible.'**
+  String get planetSunDescription;
+
+  /// Mercury subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'The smallest planet'**
+  String get planetMercurySubtitle;
+
+  /// Mercury description
+  ///
+  /// In en, this message translates to:
+  /// **'The closest planet to the Sun. Without a dense atmosphere, temperatures swing from extreme heat to extreme cold between day and night.'**
+  String get planetMercuryDescription;
+
+  /// Venus subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'The hottest planet'**
+  String get planetVenusSubtitle;
+
+  /// Venus description
+  ///
+  /// In en, this message translates to:
+  /// **'Covered by dense clouds of sulfuric acid with an intense greenhouse effect. It is the hottest planet in the Solar System.'**
+  String get planetVenusDescription;
+
+  /// Earth subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'Our home'**
+  String get planetEarthSubtitle;
+
+  /// Earth description
+  ///
+  /// In en, this message translates to:
+  /// **'The only known planet with life. Liquid ocean, protective atmosphere, and a magnetic field that shields us from solar wind.'**
+  String get planetEarthDescription;
+
+  /// Mars subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'The red planet'**
+  String get planetMarsSubtitle;
+
+  /// Mars description
+  ///
+  /// In en, this message translates to:
+  /// **'A cold, desert world with giant volcanoes and the largest canyon in the Solar System. A primary destination for space exploration.'**
+  String get planetMarsDescription;
+
+  /// Jupiter subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'The gas giant'**
+  String get planetJupiterSubtitle;
+
+  /// Jupiter description
+  ///
+  /// In en, this message translates to:
+  /// **'The largest planet in the Solar System. Its Great Red Spot is a storm larger than Earth, active for centuries.'**
+  String get planetJupiterDescription;
+
+  /// Saturn subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'The lord of the rings'**
+  String get planetSaturnSubtitle;
+
+  /// Saturn description
+  ///
+  /// In en, this message translates to:
+  /// **'Famous for its rings of ice and rock. Despite its size, it is the least dense planet — it would float if an ocean large enough existed.'**
+  String get planetSaturnDescription;
+
+  /// Uranus subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'The ice giant'**
+  String get planetUranusSubtitle;
+
+  /// Uranus description
+  ///
+  /// In en, this message translates to:
+  /// **'An ice giant that spins on its side. Its atmosphere of hydrogen, helium, and methane gives it its characteristic blue hue.'**
+  String get planetUranusDescription;
+
+  /// Neptune subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'The farthest'**
+  String get planetNeptuneSubtitle;
+
+  /// Neptune description
+  ///
+  /// In en, this message translates to:
+  /// **'The farthest planet from the Sun (since Pluto\'s reclassification). Supersonic winds sweep through its deep blue atmosphere.'**
+  String get planetNeptuneDescription;
+
+  /// Planet info: type label
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get planetInfoType;
+
+  /// Planet info: orbital period
+  ///
+  /// In en, this message translates to:
+  /// **'Orbital Period'**
+  String get planetInfoOrbitalPeriod;
+
+  /// Planet info: orbital speed
+  ///
+  /// In en, this message translates to:
+  /// **'Orbital Speed'**
+  String get planetInfoOrbitalSpeed;
+
+  /// Planet info: rotation duration
+  ///
+  /// In en, this message translates to:
+  /// **'Rotation'**
+  String get planetInfoRotation;
+
+  /// Planet info: radius
+  ///
+  /// In en, this message translates to:
+  /// **'Radius'**
+  String get planetInfoRadius;
+
+  /// Planet info: distance from sun
+  ///
+  /// In en, this message translates to:
+  /// **'Sun Distance'**
+  String get planetInfoSunDistance;
+
+  /// Planet info: temperature
+  ///
+  /// In en, this message translates to:
+  /// **'Temperature'**
+  String get planetInfoTemperature;
+
+  /// Planet info: gravity
+  ///
+  /// In en, this message translates to:
+  /// **'Gravity'**
+  String get planetInfoGravity;
+
+  /// Planet info: one-way light time
+  ///
+  /// In en, this message translates to:
+  /// **'Light to Sun'**
+  String get planetInfoLightToSun;
+
+  /// Planet info: satellites label
+  ///
+  /// In en, this message translates to:
+  /// **'Satellites'**
+  String get planetInfoSatellites;
 
   /// News page app bar title
   ///

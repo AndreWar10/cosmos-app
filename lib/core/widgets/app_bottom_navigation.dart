@@ -31,9 +31,9 @@ class AppBottomNavigation extends StatelessWidget {
           label: t.navNews,
         ),
         BottomNavigationBarItem(
-          icon: const Icon(Icons.rocket_launch_outlined),
-          activeIcon: const Icon(Icons.rocket_launch),
-          label: t.navLaunches,
+          icon: const Icon(Icons.quiz_outlined),
+          activeIcon: const Icon(Icons.quiz),
+          label: t.navQuiz,
         ),
         BottomNavigationBarItem(
           icon: const Icon(Icons.settings_outlined),
