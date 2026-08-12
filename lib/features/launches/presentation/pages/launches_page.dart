@@ -135,41 +135,52 @@ class _LaunchesLoadedViewState extends State<_LaunchesLoadedView> {
         Expanded(
           child: launches.isEmpty
               ? const LaunchesEmptyWidget()
-              : GridView.builder(
+              : CustomScrollView(
                   controller: _scrollController,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 8,
-                  ),
-                  gridDelegate:
-                      const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 12,
-                    mainAxisSpacing: 12,
-                    childAspectRatio: 0.75,
-                  ),
-                  itemCount: widget.state.hasReachedMax
-                      ? launches.length
-                      : launches.length + 2,
-                  itemBuilder: (context, index) {
-                    if (index >= launches.length) {
-                      return const Center(
-                        child: Padding(
-                          padding: EdgeInsets.all(16),
-                          child: CircularProgressIndicator(strokeWidth: 2),
-                        ),
-                      );
-                    }
-
-                    final launch = launches[index];
-                    return LaunchCard(
-                      launch: launch,
-                      onTap: () => Navigator.of(context).pushNamed(
-                        AppRoutes.launchDetail,
-                        arguments: launch,
+                  slivers: [
+                    SliverPadding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 8,
                       ),
-                    );
-                  },
+                      sliver: SliverGrid(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 12,
+                          mainAxisSpacing: 12,
+                          childAspectRatio: 0.75,
+                        ),
+                        delegate: SliverChildBuilderDelegate(
+                          (context, index) {
+                            final launch = launches[index];
+                            return LaunchCard(
+                              launch: launch,
+                              onTap: () => Navigator.of(context).pushNamed(
+                                AppRoutes.launchDetail,
+                                arguments: launch,
+                              ),
+                            );
+                          },
+                          childCount: launches.length,
+                        ),
+                      ),
+                    ),
+                    if (!widget.state.hasReachedMax)
+                      const SliverToBoxAdapter(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 24),
+                          child: Center(
+                            child: SizedBox(
+                              width: 28,
+                              height: 28,
+                              child:
+                                  CircularProgressIndicator(strokeWidth: 2.5),
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
                 ),
         ),
       ],
