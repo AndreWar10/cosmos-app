@@ -1,5 +1,8 @@
 class LocaleProvider {
-  String _languageCode = 'pt';
+  LocaleProvider([String initialCode = 'pt'])
+      : _languageCode = initialCode;
+
+  String _languageCode;
 
   String get languageCode => _languageCode;
 

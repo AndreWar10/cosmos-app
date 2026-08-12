@@ -8,6 +8,8 @@ import 'package:cosmos_app/core/theme/app_theme.dart';
 import 'package:cosmos_app/core/theme/theme_cubit.dart';
 import 'package:cosmos_app/i18n/generated/app_localizations.dart';
 
+import 'mock_app_cache.dart';
+
 extension PumpApp on WidgetTester {
   Future<void> pumpApp(
     Widget widget, {
@@ -15,12 +17,14 @@ extension PumpApp on WidgetTester {
     LocaleCubit? localeCubit,
     List<BlocProvider>? additionalProviders,
   }) async {
+    final cache = MockAppCache();
     final providers = <BlocProvider>[
       BlocProvider<ThemeCubit>(
-        create: (_) => themeCubit ?? ThemeCubit(),
+        create: (_) => themeCubit ?? ThemeCubit(cache),
       ),
       BlocProvider<LocaleCubit>(
-        create: (_) => localeCubit ?? LocaleCubit(LocaleProvider()),
+        create: (_) =>
+            localeCubit ?? LocaleCubit(LocaleProvider(), cache),
       ),
       ...?additionalProviders,
     ];
