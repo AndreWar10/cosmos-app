@@ -11,10 +11,12 @@ class LatestLaunchesSection extends StatelessWidget {
     super.key,
     required this.launches,
     this.onSeeAll,
+    this.onLaunchTap,
   });
 
   final List<Launch> launches;
   final VoidCallback? onSeeAll;
+  final ValueChanged<Launch>? onLaunchTap;
 
   @override
   Widget build(BuildContext context) {
@@ -68,8 +70,10 @@ class LatestLaunchesSection extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             itemCount: launches.length,
             separatorBuilder: (_, _) => const SizedBox(width: 12),
-            itemBuilder: (context, index) =>
-                _LaunchPreviewCard(launch: launches[index]),
+            itemBuilder: (context, index) => GestureDetector(
+                onTap: () => onLaunchTap?.call(launches[index]),
+                child: _LaunchPreviewCard(launch: launches[index]),
+              ),
           ),
         ),
       ],

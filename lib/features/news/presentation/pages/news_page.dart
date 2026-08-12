@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/di/injection_container.dart';
 import '../../../../core/extensions/build_context_extensions.dart';
 import '../../../../core/locale/locale_cubit.dart';
+import '../../../../core/routes/app_routes.dart';
 import '../bloc/news_bloc.dart';
 import '../bloc/news_event.dart';
 import '../bloc/news_state.dart';
@@ -133,7 +134,13 @@ class _NewsLoadedListState extends State<_NewsLoadedList> {
           );
         }
 
-        return NewsArticleCard(article: articles[index]);
+        return NewsArticleCard(
+          article: articles[index],
+          onTap: () => Navigator.of(context).pushNamed(
+            AppRoutes.newsDetail,
+            arguments: articles[index],
+          ),
+        );
       },
     );
   }

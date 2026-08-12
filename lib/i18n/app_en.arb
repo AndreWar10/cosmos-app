@@ -179,5 +179,12 @@
   "settingsLanguagePortuguese": "Portuguese",
   "@settingsLanguagePortuguese": { "description": "Settings: Portuguese option" },
   "settingsLanguageEnglish": "English",
-  "@settingsLanguageEnglish": { "description": "Settings: English option" }
+  "@settingsLanguageEnglish": { "description": "Settings: English option" },
+
+  "newsDetailReadFullArticle": "Read full article",
+  "@newsDetailReadFullArticle": { "description": "News detail: open original article" },
+  "newsDetailSource": "Source",
+  "@newsDetailSource": { "description": "News detail: source label" },
+  "newsDetailPublishedAt": "Published",
+  "@newsDetailPublishedAt": { "description": "News detail: published date label" }
 }

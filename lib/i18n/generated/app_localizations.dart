@@ -619,6 +619,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'English'**
   String get settingsLanguageEnglish;
+
+  /// News detail: open original article
+  ///
+  /// In en, this message translates to:
+  /// **'Read full article'**
+  String get newsDetailReadFullArticle;
+
+  /// News detail: source label
+  ///
+  /// In en, this message translates to:
+  /// **'Source'**
+  String get newsDetailSource;
+
+  /// News detail: published date label
+  ///
+  /// In en, this message translates to:
+  /// **'Published'**
+  String get newsDetailPublishedAt;
 }
 
 class _AppLocalizationsDelegate

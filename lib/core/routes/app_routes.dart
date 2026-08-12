@@ -5,6 +5,8 @@ import '../../features/home/presentation/pages/planet_detail_page.dart';
 import '../../features/launches/domain/entities/launch.dart';
 import '../../features/launches/presentation/pages/launch_detail_page.dart';
 import '../../features/launches/presentation/pages/launches_page.dart';
+import '../../features/news/domain/entities/article.dart';
+import '../../features/news/presentation/pages/news_detail_page.dart';
 import '../navigation/presentation/pages/root_page.dart';
 
 class AppRoutes {
@@ -13,12 +15,22 @@ class AppRoutes {
   static const String news = '/news';
   static const String launches = '/launches';
   static const String launchDetail = '/launches/detail';
+  static const String newsDetail = '/news/detail';
   static const String planetDetail = '/planets/detail';
   static const String settings = '/settings';
 
   static Map<String, WidgetBuilder> routes = {
     initial: (context) => const RootPage(),
     launches: (context) => const LaunchesPage(),
+    newsDetail: (context) {
+      final args = ModalRoute.of(context)?.settings.arguments;
+      if (args is Article) {
+        return NewsDetailPage(article: args);
+      }
+      return const Scaffold(
+        body: Center(child: Text('Invalid article data')),
+      );
+    },
     launchDetail: (context) {
       final args = ModalRoute.of(context)?.settings.arguments;
       if (args is Launch) {

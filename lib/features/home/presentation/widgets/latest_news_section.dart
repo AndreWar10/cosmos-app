@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/extensions/build_context_extensions.dart';
+import '../../../../core/routes/app_routes.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../news/domain/entities/article.dart';
 
@@ -10,10 +11,12 @@ class LatestNewsSection extends StatelessWidget {
     super.key,
     required this.articles,
     this.onSeeAll,
+    this.onArticleTap,
   });
 
   final List<Article> articles;
   final VoidCallback? onSeeAll;
+  final ValueChanged<Article>? onArticleTap;
 
   @override
   Widget build(BuildContext context) {
@@ -67,8 +70,15 @@ class LatestNewsSection extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             itemCount: articles.length,
             separatorBuilder: (_, _) => const SizedBox(width: 12),
-            itemBuilder: (context, index) =>
-                _NewsPreviewCard(article: articles[index]),
+            itemBuilder: (context, index) => GestureDetector(
+                onTap: () => onArticleTap != null
+                    ? onArticleTap!(articles[index])
+                    : Navigator.of(context).pushNamed(
+                        AppRoutes.newsDetail,
+                        arguments: articles[index],
+                      ),
+                child: _NewsPreviewCard(article: articles[index]),
+              ),
           ),
         ),
       ],

@@ -82,6 +82,13 @@ class _HomeContent extends StatelessWidget {
               onSeeAll: () {
                 context.read<NavigationCubit>().setTab(1);
               },
+              onArticleTap: (article) {
+                context.read<NavigationCubit>().setTab(1);
+                Navigator.of(context).pushNamed(
+                  AppRoutes.newsDetail,
+                  arguments: article,
+                );
+              },
             ),
             const SizedBox(height: 24),
             LatestLaunchesSection(
@@ -89,6 +96,13 @@ class _HomeContent extends StatelessWidget {
               onSeeAll: () => Navigator.of(context).pushNamed(
                 AppRoutes.launches,
               ),
+              onLaunchTap: (launch) {
+                Navigator.of(context).pushNamed(AppRoutes.launches);
+                Navigator.of(context).pushNamed(
+                  AppRoutes.launchDetail,
+                  arguments: launch,
+                );
+              },
             ),
           ],
         ),

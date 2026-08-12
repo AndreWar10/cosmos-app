@@ -277,4 +277,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsLanguageEnglish => 'English';
+
+  @override
+  String get newsDetailReadFullArticle => 'Read full article';
+
+  @override
+  String get newsDetailSource => 'Source';
+
+  @override
+  String get newsDetailPublishedAt => 'Published';
 }

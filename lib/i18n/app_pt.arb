@@ -92,5 +92,9 @@
   "settingsLanguage": "Idioma",
   "settingsLanguageLabel": "Idioma",
   "settingsLanguagePortuguese": "Português",
-  "settingsLanguageEnglish": "Inglês"
+  "settingsLanguageEnglish": "Inglês",
+
+  "newsDetailReadFullArticle": "Ler artigo completo",
+  "newsDetailSource": "Fonte",
+  "newsDetailPublishedAt": "Publicado"
 }
