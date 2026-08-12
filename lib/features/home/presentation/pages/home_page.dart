@@ -60,25 +60,29 @@ class _HomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.only(bottom: 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 8),
-          if (state.apod != null) ...[
-            ApodCard(apod: state.apod!),
+    return RefreshIndicator(
+      onRefresh: () => context.read<HomeCubit>().load(),
+      child: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        padding: const EdgeInsets.only(bottom: 24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 8),
+            if (state.apod != null) ...[
+              ApodCard(apod: state.apod!),
+              const SizedBox(height: 24),
+            ],
+            const SolarSystemSection(),
             const SizedBox(height: 24),
+            LatestNewsSection(
+              articles: state.latestNews,
+              onSeeAll: () {
+                context.read<NavigationCubit>().setTab(1);
+              },
+            ),
           ],
-          const SolarSystemSection(),
-          const SizedBox(height: 24),
-          LatestNewsSection(
-            articles: state.latestNews,
-            onSeeAll: () {
-              context.read<NavigationCubit>().setTab(1);
-            },
-          ),
-        ],
+        ),
       ),
     );
   }

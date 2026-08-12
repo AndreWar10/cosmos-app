@@ -64,6 +64,18 @@ class SolarSystemSection extends StatelessWidget {
   }
 }
 
+const _planetIcons = {
+  'sun': 'assets/planets-animated/Sol.png',
+  'mercury': 'assets/planets-animated/Mercúrio.png',
+  'venus': 'assets/planets-animated/Vênus.png',
+  'earth': 'assets/planets-animated/Terra.png',
+  'mars': 'assets/planets-animated/Marte.png',
+  'jupiter': 'assets/planets-animated/Júpiter.png',
+  'saturn': 'assets/planets-animated/Saturno.png',
+  'uranus': 'assets/planets-animated/Urano.png',
+  'neptune': 'assets/planets-animated/Netuno.png',
+};
+
 class _PlanetItem extends StatelessWidget {
   const _PlanetItem({required this.planet, required this.onTap});
 
@@ -73,9 +85,11 @@ class _PlanetItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final secondaryColor = theme.brightness == Brightness.dark
-        ? AppColors.darkTextSecondary
-        : AppColors.lightTextSecondary;
+    final isDark = theme.brightness == Brightness.dark;
+    final secondaryColor =
+        isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+    final name = _localizedPlanetName(context.translate, planet.id);
+    final iconPath = _planetIcons[planet.id];
 
     return GestureDetector(
       onTap: onTap,
@@ -83,35 +97,16 @@ class _PlanetItem extends StatelessWidget {
         width: 68,
         child: Column(
           children: [
-            Container(
+            SizedBox(
               width: 56,
               height: 56,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: planet.accent.withValues(alpha: 0.10),
-                border: Border.all(
-                  color: planet.accent.withValues(alpha: 0.30),
-                  width: 1.5,
-                ),
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: ClipOval(
-                child: Image.asset(
-                  planet.texturePreviewPath,
-                  width: 56,
-                  height: 56,
-                  fit: BoxFit.cover,
-                  errorBuilder: (_, _, _) => Icon(
-                    planet.isStar ? Icons.wb_sunny : Icons.public,
-                    color: planet.accent,
-                    size: 28,
-                  ),
-                ),
-              ),
+              child: iconPath != null
+                  ? Image.asset(iconPath, fit: BoxFit.contain)
+                  : Icon(Icons.public, color: planet.accent, size: 36),
             ),
-            const SizedBox(height: 6),
+            const SizedBox(height: 8),
             Text(
-              _localizedPlanetName(context.translate, planet.id),
+              name,
               style: theme.textTheme.labelSmall?.copyWith(
                 color: secondaryColor,
                 fontSize: 10,
