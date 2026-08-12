@@ -1,0 +1,83 @@
+---
+description: BLoC state management and GetIt dependency injection patterns
+globs: "**/*.dart"
+alwaysApply: false
+---
+
+# BLoC + GetIt Patterns
+
+## State management with BLoC
+
+Every feature's presentation layer uses BLoC or Cubit.
+
+```
+feature/
+  presentation/
+    bloc/
+      news_bloc.dart
+      news_event.dart
+      news_state.dart
+    pages/
+    widgets/
+```
+
+### State structure
+
+Always define explicit states — avoid generic/dynamic state:
+
+```dart
+sealed class NewsState {}
+class NewsInitial extends NewsState {}
+class NewsLoading extends NewsState {}
+class NewsLoaded extends NewsState {
+  final List<Article> articles;
+  NewsLoaded(this.articles);
+}
+class NewsError extends NewsState {
+  final String message;
+  NewsError(this.message);
+}
+```
+
+### BLoC depends on UseCases, not Repositories
+
+```dart
+// ✅ GOOD
+class NewsBloc extends Bloc<NewsEvent, NewsState> {
+  final GetNewsUseCase _getNewsUseCase;
+  NewsBloc(this._getNewsUseCase) : super(NewsInitial());
+}
+```
+
+## Dependency injection with GetIt
+
+Use `get_it` as service locator. Register dependencies per feature when it makes sense; otherwise use a default/global injection file.
+
+```
+core/
+  di/
+    injection_container.dart   # global setup + calls feature injectors
+features/
+  news/
+    di/
+      news_injection.dart      # feature-scoped registrations
+```
+
+### Registration order: external → core → data → domain → presentation
+
+```dart
+// news_injection.dart
+void registerNewsFeature(GetIt sl) {
+  // data
+  sl.registerLazySingleton<NewsRemoteDataSource>(
+    () => NewsRemoteDataSourceImpl(sl<AppNetwork>()),
+  );
+  sl.registerLazySingleton<NewsRepository>(
+    () => NewsRepositoryImpl(sl<NewsRemoteDataSource>()),
+  );
+  // domain
+  sl.registerLazySingleton(() => GetNewsUseCase(sl<NewsRepository>()));
+  // presentation
+  sl.registerFactory(() => NewsBloc(sl<GetNewsUseCase>()));
+}
+```

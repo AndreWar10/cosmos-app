@@ -1,0 +1,52 @@
+---
+description: Clean Architecture with feature-based structure for the Cosmos Flutter app
+alwaysApply: true
+---
+
+# Architecture — Feature-based Clean Architecture
+
+Every feature follows Clean Architecture with three layers:
+
+```
+lib/
+├── core/                    # Shared abstractions and utilities
+│   ├── network/             # AppNetwork (Dio wrapper, interceptors)
+│   ├── cache/               # AppCache (SharedPreferences / local cache)
+│   ├── env/                 # AppEnv (dotenv config)
+│   ├── di/                  # GetIt service locator setup
+│   ├── routes/              # Named routes definitions
+│   ├── theme/               # AppTheme, colors, typography
+│   └── widgets/             # Reusable widgets (AppButton, AppCard, etc.)
+│
+├── features/
+│   ├── home/
+│   │   ├── data/            # DataSources, Repositories impl, Models
+│   │   ├── domain/          # Entities, Repository contracts, UseCases
+│   │   └── presentation/    # Pages, Widgets, BLoCs
+│   ├── news/
+│   │   ├── data/
+│   │   ├── domain/
+│   │   └── presentation/
+│   └── ...
+```
+
+## Layer rules
+
+- **domain/** is pure Dart — no Flutter imports, no external packages.
+- **data/** implements domain contracts and depends on core abstractions (AppNetwork, AppCache).
+- **presentation/** depends on domain only (UseCases/Entities). Never import data layer directly.
+- Cross-feature communication goes through domain layer or shared core.
+
+## Naming conventions
+
+| Layer | Class suffix | Example |
+|-------|-------------|---------|
+| Entity | (none) | `Planet`, `Launch` |
+| Model | `Model` | `PlanetModel`, `LaunchModel` |
+| Repository contract | `Repository` | `NewsRepository` |
+| Repository impl | `RepositoryImpl` | `NewsRepositoryImpl` |
+| DataSource | `DataSource` | `NewsRemoteDataSource` |
+| UseCase | `UseCase` | `GetNewsUseCase` |
+| BLoC | `Bloc` / `Cubit` | `NewsBloc`, `ApodCubit` |
+| Page | `Page` | `NewsPage`, `HomePage` |
+| Widget | (descriptive) | `LaunchCard`, `PlanetCarousel` |

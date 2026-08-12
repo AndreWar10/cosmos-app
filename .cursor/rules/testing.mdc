@@ -1,0 +1,58 @@
+---
+description: Testing standards for every feature in Cosmos app
+globs: "**/*_test.dart"
+alwaysApply: false
+---
+
+# Testing Standards
+
+Every feature must have tests. Mirror the `lib/` structure inside `test/`:
+
+```
+test/
+├── features/
+│   ├── news/
+│   │   ├── data/
+│   │   │   ├── datasources/
+│   │   │   │   └── news_remote_datasource_test.dart
+│   │   │   └── repositories/
+│   │   │       └── news_repository_impl_test.dart
+│   │   ├── domain/
+│   │   │   └── usecases/
+│   │   │       └── get_news_usecase_test.dart
+│   │   └── presentation/
+│   │       └── bloc/
+│   │           └── news_bloc_test.dart
+```
+
+## Required coverage per feature
+
+| Layer | What to test | Tools |
+|-------|-------------|-------|
+| **DataSource** | API calls, JSON parsing, error handling | `mocktail`, `http_mock_adapter` or similar |
+| **Repository** | Delegates to DataSource, maps Model → Entity | `mocktail` |
+| **UseCase** | Business logic, delegates to Repository | `mocktail` |
+| **BLoC** | State transitions for every event | `bloc_test` |
+
+## Conventions
+
+- Use `mocktail` for mocks (not mockito).
+- Use `bloc_test` package for BLoC tests.
+- Group related tests with `group()`.
+- Test names describe behavior: `'should return list of articles when datasource succeeds'`.
+- Arrange / Act / Assert structure.
+
+```dart
+// ✅ GOOD
+blocTest<NewsBloc, NewsState>(
+  'should emit [Loading, Loaded] when GetNewsUseCase succeeds',
+  build: () {
+    when(() => mockGetNewsUseCase(any())).thenAnswer(
+      (_) async => Right(tArticles),
+    );
+    return NewsBloc(mockGetNewsUseCase);
+  },
+  act: (bloc) => bloc.add(FetchNewsEvent()),
+  expect: () => [NewsLoading(), NewsLoaded(tArticles)],
+);
+```

@@ -1,0 +1,79 @@
+---
+description: Flutter coding conventions for Cosmos app
+globs: "**/*.dart"
+alwaysApply: false
+---
+
+# Flutter Conventions
+
+## Widgets — always classes, never methods
+
+```dart
+// ❌ BAD — widget as method
+Widget _buildHeader() {
+  return Container(...);
+}
+
+// ✅ GOOD — widget as class
+class HeaderWidget extends StatelessWidget {
+  const HeaderWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(...);
+  }
+}
+```
+
+## Core abstractions
+
+Use app-level abstractions instead of direct package calls:
+
+| Abstraction | Wraps | Location |
+|-------------|-------|----------|
+| `AppNetwork` | Dio | `core/network/` |
+| `AppCache` | SharedPreferences | `core/cache/` |
+| `AppEnv` | flutter_dotenv | `core/env/` |
+
+```dart
+// ❌ BAD — direct Dio usage in feature
+final response = await Dio().get('/api/news');
+
+// ✅ GOOD — through abstraction
+final response = await appNetwork.get('/api/news');
+```
+
+## Environment variables
+
+Use `flutter_dotenv` via `AppEnv`. Store the base URL and sensitive keys in `.env`:
+
+```
+BASE_URL=https://cosmos-back.onrender.com
+```
+
+Never hardcode URLs or keys in Dart files.
+
+## Named routes
+
+All navigation uses named routes defined in `core/routes/`:
+
+```dart
+// ❌ BAD
+Navigator.push(context, MaterialPageRoute(builder: (_) => NewsPage()));
+
+// ✅ GOOD
+Navigator.pushNamed(context, AppRoutes.news);
+```
+
+## No unnecessary comments
+
+Do not add comments that just describe what code does. Only comment non-obvious intent or trade-offs.
+
+```dart
+// ❌ BAD
+// Creates a new instance of NewsBloc
+final bloc = NewsBloc(getNewsUseCase);
+
+// ✅ GOOD — no comment needed, the code is self-explanatory
+final bloc = NewsBloc(getNewsUseCase);
+```
