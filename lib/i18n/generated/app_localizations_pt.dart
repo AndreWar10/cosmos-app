@@ -27,6 +27,45 @@ class AppLocalizationsPt extends AppLocalizations {
   String get homeTitle => 'Cosmos';
 
   @override
+  String get homeApod => 'Imagem Astronômica do Dia';
+
+  @override
+  String get homeApodSeeMore => 'Ver mais';
+
+  @override
+  String get homeSolarSystem => 'Sistema Solar';
+
+  @override
+  String get homeLatestNews => 'Últimas Notícias';
+
+  @override
+  String get homeSeeAll => 'Ver tudo';
+
+  @override
+  String get planetMercury => 'Mercúrio';
+
+  @override
+  String get planetVenus => 'Vênus';
+
+  @override
+  String get planetEarth => 'Terra';
+
+  @override
+  String get planetMars => 'Marte';
+
+  @override
+  String get planetJupiter => 'Júpiter';
+
+  @override
+  String get planetSaturn => 'Saturno';
+
+  @override
+  String get planetUranus => 'Urano';
+
+  @override
+  String get planetNeptune => 'Netuno';
+
+  @override
   String get newsTitle => 'Notícias';
 
   @override

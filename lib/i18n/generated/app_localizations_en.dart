@@ -27,6 +27,45 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeTitle => 'Cosmos';
 
   @override
+  String get homeApod => 'Astronomy Picture of the Day';
+
+  @override
+  String get homeApodSeeMore => 'See more';
+
+  @override
+  String get homeSolarSystem => 'Solar System';
+
+  @override
+  String get homeLatestNews => 'Latest News';
+
+  @override
+  String get homeSeeAll => 'See all';
+
+  @override
+  String get planetMercury => 'Mercury';
+
+  @override
+  String get planetVenus => 'Venus';
+
+  @override
+  String get planetEarth => 'Earth';
+
+  @override
+  String get planetMars => 'Mars';
+
+  @override
+  String get planetJupiter => 'Jupiter';
+
+  @override
+  String get planetSaturn => 'Saturn';
+
+  @override
+  String get planetUranus => 'Uranus';
+
+  @override
+  String get planetNeptune => 'Neptune';
+
+  @override
   String get newsTitle => 'News';
 
   @override

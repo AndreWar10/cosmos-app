@@ -134,6 +134,84 @@ abstract class AppLocalizations {
   /// **'Cosmos'**
   String get homeTitle;
 
+  /// Home: APOD section title
+  ///
+  /// In en, this message translates to:
+  /// **'Astronomy Picture of the Day'**
+  String get homeApod;
+
+  /// Home: APOD see more link
+  ///
+  /// In en, this message translates to:
+  /// **'See more'**
+  String get homeApodSeeMore;
+
+  /// Home: Solar System section title
+  ///
+  /// In en, this message translates to:
+  /// **'Solar System'**
+  String get homeSolarSystem;
+
+  /// Home: Latest News section title
+  ///
+  /// In en, this message translates to:
+  /// **'Latest News'**
+  String get homeLatestNews;
+
+  /// Home: See all link
+  ///
+  /// In en, this message translates to:
+  /// **'See all'**
+  String get homeSeeAll;
+
+  /// Planet: Mercury
+  ///
+  /// In en, this message translates to:
+  /// **'Mercury'**
+  String get planetMercury;
+
+  /// Planet: Venus
+  ///
+  /// In en, this message translates to:
+  /// **'Venus'**
+  String get planetVenus;
+
+  /// Planet: Earth
+  ///
+  /// In en, this message translates to:
+  /// **'Earth'**
+  String get planetEarth;
+
+  /// Planet: Mars
+  ///
+  /// In en, this message translates to:
+  /// **'Mars'**
+  String get planetMars;
+
+  /// Planet: Jupiter
+  ///
+  /// In en, this message translates to:
+  /// **'Jupiter'**
+  String get planetJupiter;
+
+  /// Planet: Saturn
+  ///
+  /// In en, this message translates to:
+  /// **'Saturn'**
+  String get planetSaturn;
+
+  /// Planet: Uranus
+  ///
+  /// In en, this message translates to:
+  /// **'Uranus'**
+  String get planetUranus;
+
+  /// Planet: Neptune
+  ///
+  /// In en, this message translates to:
+  /// **'Neptune'**
+  String get planetNeptune;
+
   /// News page app bar title
   ///
   /// In en, this message translates to:
