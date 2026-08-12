@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
 
 abstract class AppTheme {
+  static TextTheme get _textTheme => GoogleFonts.exo2TextTheme();
+
   static ThemeData get dark => ThemeData(
         brightness: Brightness.dark,
         scaffoldBackgroundColor: AppColors.darkBackground,
+        textTheme: _textTheme.apply(
+          bodyColor: AppColors.darkTextPrimary,
+          displayColor: AppColors.darkTextPrimary,
+        ),
         colorScheme: const ColorScheme.dark(
           primary: AppColors.primary,
           secondary: AppColors.secondary,
           surface: AppColors.darkSurface,
         ),
-        appBarTheme: const AppBarTheme(
+        appBarTheme: AppBarTheme(
           backgroundColor: AppColors.darkBackground,
           elevation: 0,
           centerTitle: true,
-          titleTextStyle: TextStyle(
+          titleTextStyle: GoogleFonts.exo2(
             color: AppColors.darkTextPrimary,
             fontSize: 20,
             fontWeight: FontWeight.w600,
@@ -34,16 +41,20 @@ abstract class AppTheme {
   static ThemeData get light => ThemeData(
         brightness: Brightness.light,
         scaffoldBackgroundColor: AppColors.lightBackground,
+        textTheme: _textTheme.apply(
+          bodyColor: AppColors.lightTextPrimary,
+          displayColor: AppColors.lightTextPrimary,
+        ),
         colorScheme: const ColorScheme.light(
           primary: AppColors.primary,
           secondary: AppColors.secondary,
           surface: AppColors.lightSurface,
         ),
-        appBarTheme: const AppBarTheme(
+        appBarTheme: AppBarTheme(
           backgroundColor: AppColors.lightBackground,
           elevation: 0,
           centerTitle: true,
-          titleTextStyle: TextStyle(
+          titleTextStyle: GoogleFonts.exo2(
             color: AppColors.lightTextPrimary,
             fontSize: 20,
             fontWeight: FontWeight.w600,
