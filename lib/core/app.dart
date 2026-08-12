@@ -6,7 +6,6 @@ import 'locale/locale_cubit.dart';
 import 'routes/app_routes.dart';
 import 'theme/app_theme.dart';
 import 'theme/theme_cubit.dart';
-import 'main_page.dart';
 
 class CosmosApp extends StatelessWidget {
   const CosmosApp({super.key});
@@ -31,10 +30,8 @@ class CosmosApp extends StatelessWidget {
                 locale: locale,
                 supportedLocales: AppLocalizations.supportedLocales,
                 localizationsDelegates: AppLocalizations.localizationsDelegates,
-                initialRoute: AppRoutes.home,
-                routes: {
-                  AppRoutes.home: (_) => const MainPage(),
-                },
+                initialRoute: AppRoutes.initial,
+                routes: AppRoutes.routes,
               );
             },
           );

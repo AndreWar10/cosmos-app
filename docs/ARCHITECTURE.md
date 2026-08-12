@@ -14,6 +14,7 @@ Cosmos é um aplicativo Flutter que consome a [Cosmos API](https://github.com/An
 | HTTP | `dio` (via `AppNetwork`) |
 | Cache local | `shared_preferences` (via `AppCache`) |
 | Variáveis de ambiente | `flutter_dotenv` (via `AppEnv`) |
+| Fonte | Exo 2 (`google_fonts`) |
 | Internacionalização | ARB + `flutter gen-l10n` |
 | Testes | `flutter_test`, `bloc_test`, `mocktail` |
 
@@ -32,9 +33,12 @@ lib/
 │   ├── locale/                   # LocaleCubit
 │   ├── routes/                   # Rotas nomeadas
 │   ├── theme/                    # Tema, cores, ThemeCubit
-│   ├── widgets/                  # Widgets reutilizáveis
-│   ├── app.dart                  # MaterialApp + rotas + tema + i18n
-│   └── main_page.dart            # Scaffold + BottomNav + IndexedStack
+│   ├── navigation/               # Navegação principal
+│   │   └── presentation/
+│   │       ├── cubit/            # NavigationCubit
+│   │       └── pages/            # RootPage (Scaffold + BottomNav)
+│   ├── widgets/                  # Widgets reutilizáveis (AppBottomNavigation)
+│   └── app.dart                  # MaterialApp + rotas + tema + i18n
 │
 ├── i18n/                         # Internacionalização
 │   ├── app_en.arb                # Template (source of truth)
@@ -104,12 +108,44 @@ Documentação completa da API: [cosmos-back/docs/API.md](https://github.com/And
 
 Toda feature tem testes nas três camadas:
 
-| Camada | O que testar |
-|--------|-------------|
-| DataSource | Chamadas HTTP, parsing de JSON, tratamento de erros |
-| Repository | Delegação ao DataSource, mapeamento Model → Entity |
-| UseCase | Lógica de negócio |
-| BLoC | Transições de estado para cada evento |
+| Camada | O que testar | Ferramentas |
+|--------|-------------|-------------|
+| DataSource | Chamadas HTTP, parsing de JSON, tratamento de erros | `mocktail` |
+| Repository | Delegação ao DataSource, mapeamento Model → Entity | `mocktail` |
+| UseCase | Lógica de negócio | `mocktail` |
+| BLoC / Cubit | Transições de estado para cada evento | `bloc_test` |
+| Widgets | Renderização, interações, callbacks | `flutter_test` |
+
+### Estrutura de testes
+
+```
+test/
+├── helpers/
+│   └── pump_app.dart                  # Helper: wraps widget com MaterialApp + i18n + BLoCs
+├── core/
+│   ├── theme/
+│   │   └── theme_cubit_test.dart
+│   ├── locale/
+│   │   └── locale_cubit_test.dart
+│   ├── navigation/
+│   │   └── navigation_cubit_test.dart
+│   └── widgets/
+│       └── app_bottom_navigation_test.dart
+└── features/
+    ├── home/presentation/pages/
+    │   └── home_page_test.dart
+    ├── news/presentation/pages/
+    │   └── news_page_test.dart
+    ├── launches/presentation/pages/
+    │   └── launches_page_test.dart
+    └── settings/presentation/
+        ├── pages/
+        │   └── settings_page_test.dart
+        └── widgets/
+            ├── theme_toggle_tile_test.dart
+            ├── locale_toggle_tile_test.dart
+            └── settings_section_test.dart
+```
 
 ## Internacionalização (i18n)
 
