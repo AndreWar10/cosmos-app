@@ -1,0 +1,50 @@
+---
+description: Internationalization (i18n) conventions using ARB + gen-l10n
+globs: "**/*.dart"
+alwaysApply: false
+---
+
+# Internationalization (i18n)
+
+Uses Flutter's official ARB + `flutter gen-l10n`. No external packages.
+
+## Files
+
+- `lib/i18n/app_en.arb` — Template (source of truth)
+- `lib/i18n/app_pt.arb` — Portuguese translations
+- `lib/i18n/generated/` — Auto-generated (NEVER edit manually)
+
+## After editing ARB files
+
+Run `flutter gen-l10n` to regenerate `AppLocalizations`.
+
+## Accessing translations
+
+Always use the extension, never `AppLocalizations.of(context)!` directly:
+
+```dart
+import '../../core/extensions/build_context_extensions.dart';
+
+// In any widget:
+final t = context.translate;
+Text(t.settingsTitle);
+```
+
+## ARB key naming convention
+
+Keys follow `featureContext` pattern:
+
+```
+navHome              → nav feature, home label
+settingsDarkTheme    → settings feature, dark theme
+launchesTitle        → launches feature, page title
+errorNoConnection    → error (global), no connection
+```
+
+## Rules
+
+- **presentation/pages and widgets** → use `context.translate`
+- **domain and data layers** → NEVER import i18n (pure Dart)
+- **No hardcoded user-facing strings** in widgets — always use ARB keys
+- **English ARB is the template** — every key must exist in `app_en.arb` first
+- **Portuguese ARB must have all keys** from the English template

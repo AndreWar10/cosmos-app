@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../extensions/build_context_extensions.dart';
+
 class AppBottomNavigation extends StatelessWidget {
   const AppBottomNavigation({
     super.key,
@@ -12,29 +14,31 @@ class AppBottomNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = context.translate;
+
     return BottomNavigationBar(
       currentIndex: currentIndex,
       onTap: onTap,
-      items: const [
+      items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.explore_outlined),
-          activeIcon: Icon(Icons.explore),
-          label: 'Home',
+          icon: const Icon(Icons.explore_outlined),
+          activeIcon: const Icon(Icons.explore),
+          label: t.navHome,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.article_outlined),
-          activeIcon: Icon(Icons.article),
-          label: 'News',
+          icon: const Icon(Icons.article_outlined),
+          activeIcon: const Icon(Icons.article),
+          label: t.navNews,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.rocket_launch_outlined),
-          activeIcon: Icon(Icons.rocket_launch),
-          label: 'Launches',
+          icon: const Icon(Icons.rocket_launch_outlined),
+          activeIcon: const Icon(Icons.rocket_launch),
+          label: t.navLaunches,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings_outlined),
-          activeIcon: Icon(Icons.settings),
-          label: 'Settings',
+          icon: const Icon(Icons.settings_outlined),
+          activeIcon: const Icon(Icons.settings),
+          label: t.navSettings,
         ),
       ],
     );

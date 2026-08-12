@@ -1,0 +1,26 @@
+{
+  "@@locale": "pt",
+
+  "appTitle": "Cosmos",
+
+  "navHome": "Início",
+  "navNews": "Notícias",
+  "navLaunches": "Lançamentos",
+  "navSettings": "Ajustes",
+
+  "homeTitle": "Cosmos",
+
+  "newsTitle": "Notícias",
+
+  "launchesTitle": "Lançamentos",
+
+  "settingsTitle": "Configurações",
+  "settingsAppearance": "Aparência",
+  "settingsDarkTheme": "Tema escuro",
+  "settingsThemeEnabled": "Ativado",
+  "settingsThemeDisabled": "Desativado",
+  "settingsLanguage": "Idioma",
+  "settingsLanguageLabel": "Idioma",
+  "settingsLanguagePortuguese": "Português",
+  "settingsLanguageEnglish": "Inglês"
+}

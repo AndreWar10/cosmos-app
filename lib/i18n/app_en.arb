@@ -1,0 +1,43 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "Cosmos",
+  "@appTitle": { "description": "App title" },
+
+  "navHome": "Home",
+  "@navHome": { "description": "Bottom nav: Home tab" },
+  "navNews": "News",
+  "@navNews": { "description": "Bottom nav: News tab" },
+  "navLaunches": "Launches",
+  "@navLaunches": { "description": "Bottom nav: Launches tab" },
+  "navSettings": "Settings",
+  "@navSettings": { "description": "Bottom nav: Settings tab" },
+
+  "homeTitle": "Cosmos",
+  "@homeTitle": { "description": "Home page app bar title" },
+
+  "newsTitle": "News",
+  "@newsTitle": { "description": "News page app bar title" },
+
+  "launchesTitle": "Launches",
+  "@launchesTitle": { "description": "Launches page app bar title" },
+
+  "settingsTitle": "Settings",
+  "@settingsTitle": { "description": "Settings page app bar title" },
+  "settingsAppearance": "Appearance",
+  "@settingsAppearance": { "description": "Settings section: appearance" },
+  "settingsDarkTheme": "Dark theme",
+  "@settingsDarkTheme": { "description": "Settings: dark theme toggle label" },
+  "settingsThemeEnabled": "Enabled",
+  "@settingsThemeEnabled": { "description": "Settings: theme toggle on" },
+  "settingsThemeDisabled": "Disabled",
+  "@settingsThemeDisabled": { "description": "Settings: theme toggle off" },
+  "settingsLanguage": "Language",
+  "@settingsLanguage": { "description": "Settings section: language" },
+  "settingsLanguageLabel": "Language",
+  "@settingsLanguageLabel": { "description": "Settings: language selector label" },
+  "settingsLanguagePortuguese": "Portuguese",
+  "@settingsLanguagePortuguese": { "description": "Settings: Portuguese option" },
+  "settingsLanguageEnglish": "English",
+  "@settingsLanguageEnglish": { "description": "Settings: English option" }
+}

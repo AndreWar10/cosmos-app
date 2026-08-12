@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/extensions/build_context_extensions.dart';
+
 class NewsPage extends StatelessWidget {
   const NewsPage({super.key});
 
@@ -7,11 +9,11 @@ class NewsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('News'),
+        title: Text(context.translate.newsTitle),
       ),
       body: Center(
         child: Text(
-          'News',
+          context.translate.navNews,
           style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),

@@ -2,6 +2,5 @@ import 'package:flutter/material.dart';
 
 import 'core/app.dart';
 
-void main() {
-  runApp(const CosmosApp());
-}
+void main() => runApp(const CosmosApp());
+

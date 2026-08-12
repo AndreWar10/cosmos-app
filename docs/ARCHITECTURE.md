@@ -14,6 +14,7 @@ Cosmos é um aplicativo Flutter que consome a [Cosmos API](https://github.com/An
 | HTTP | `dio` (via `AppNetwork`) |
 | Cache local | `shared_preferences` (via `AppCache`) |
 | Variáveis de ambiente | `flutter_dotenv` (via `AppEnv`) |
+| Internacionalização | ARB + `flutter gen-l10n` |
 | Testes | `flutter_test`, `bloc_test`, `mocktail` |
 
 ## Arquitetura
@@ -27,9 +28,18 @@ lib/
 │   ├── network/                  # AppNetwork (Dio wrapper)
 │   ├── env/                      # AppEnv (dotenv)
 │   ├── di/                       # Injection container (GetIt)
+│   ├── extensions/               # BuildContext extensions (translate)
+│   ├── locale/                   # LocaleCubit
 │   ├── routes/                   # Rotas nomeadas
-│   ├── theme/                    # Tema, cores, tipografia
-│   └── widgets/                  # Widgets reutilizáveis
+│   ├── theme/                    # Tema, cores, ThemeCubit
+│   ├── widgets/                  # Widgets reutilizáveis
+│   ├── app.dart                  # MaterialApp + rotas + tema + i18n
+│   └── main_page.dart            # Scaffold + BottomNav + IndexedStack
+│
+├── i18n/                         # Internacionalização
+│   ├── app_en.arb                # Template (source of truth)
+│   ├── app_pt.arb                # Traduções português
+│   └── generated/                # Gerado por flutter gen-l10n (NÃO editar)
 │
 ├── features/
 │   ├── home/                     # APOD + Sistema Solar + previews
@@ -47,9 +57,9 @@ lib/
 │   │       └── widgets/          # Widgets da feature
 │   ├── news/
 │   ├── launches/
-│   └── planets/
+│   ├── planets/
+│   └── settings/                 # Tema e idioma
 │
-├── app.dart                      # MaterialApp + rotas + tema
 └── main.dart                     # Bootstrap (dotenv, DI, runApp)
 ```
 
@@ -100,6 +110,40 @@ Toda feature tem testes nas três camadas:
 | Repository | Delegação ao DataSource, mapeamento Model → Entity |
 | UseCase | Lógica de negócio |
 | BLoC | Transições de estado para cada evento |
+
+## Internacionalização (i18n)
+
+O app suporta **Português** (padrão) e **Inglês** via ARB + `flutter gen-l10n`.
+
+```
+app_en.arb + app_pt.arb
+        │
+        ▼
+  flutter gen-l10n
+        │
+        ▼
+  lib/i18n/generated/app_localizations.dart
+        │
+        ▼
+  MaterialApp (delegates + supportedLocales)
+        │
+        ▼
+  context.translate.chave
+```
+
+### Regras de uso por camada
+
+| Camada | Usa `context.translate`? |
+|--------|------------------------|
+| presentation/pages | Sim |
+| presentation/widgets | Sim |
+| domain/usecases | Não (Dart puro) |
+| data/datasources | Não |
+| data/models | Não |
+
+### Convenção de chaves ARB
+
+Keys seguem `featureContexto`: `navHome`, `settingsDarkTheme`, `launchesTitle`, `errorNoConnection`.
 
 ## Ferramentas de desenvolvimento
 
