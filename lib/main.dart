@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'core/app.dart';
-import 'core/di/injection_container.dart';
-import 'core/env/app_env.dart';
+import 'core/setup/app_setup.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await AppEnvImpl.load();
-  await setupDependencies();
+  await AppSetup.initialize();
   runApp(const CosmosApp());
 }
