@@ -66,6 +66,24 @@ class AppLocalizationsPt extends AppLocalizations {
   String get planetNeptune => 'Netuno';
 
   @override
+  String get planetSun => 'Sol';
+
+  @override
+  String get planetDetailDistance => 'Distância';
+
+  @override
+  String get planetDetailDiameter => 'Diâmetro';
+
+  @override
+  String get planetDetailDay => 'Dia';
+
+  @override
+  String get planetDetailYear => 'Ano';
+
+  @override
+  String get planetDetailWithRings => 'Com anéis';
+
+  @override
   String get newsTitle => 'Notícias';
 
   @override

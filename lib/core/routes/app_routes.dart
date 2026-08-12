@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../features/home/domain/entities/planet.dart';
+import '../../features/home/presentation/pages/planet_detail_page.dart';
 import '../../features/launches/domain/entities/launch.dart';
 import '../../features/launches/presentation/pages/launch_detail_page.dart';
 import '../navigation/presentation/pages/root_page.dart';
@@ -22,6 +24,15 @@ class AppRoutes {
       }
       return const Scaffold(
         body: Center(child: Text('Invalid launch data')),
+      );
+    },
+    planetDetail: (context) {
+      final args = ModalRoute.of(context)?.settings.arguments;
+      if (args is Planet) {
+        return PlanetDetailPage(planet: args);
+      }
+      return const Scaffold(
+        body: Center(child: Text('Invalid planet data')),
       );
     },
   };

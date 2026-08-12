@@ -212,6 +212,42 @@ abstract class AppLocalizations {
   /// **'Neptune'**
   String get planetNeptune;
 
+  /// Planet: Sun
+  ///
+  /// In en, this message translates to:
+  /// **'Sun'**
+  String get planetSun;
+
+  /// Planet detail: distance label
+  ///
+  /// In en, this message translates to:
+  /// **'Distance'**
+  String get planetDetailDistance;
+
+  /// Planet detail: diameter label
+  ///
+  /// In en, this message translates to:
+  /// **'Diameter'**
+  String get planetDetailDiameter;
+
+  /// Planet detail: day length label
+  ///
+  /// In en, this message translates to:
+  /// **'Day'**
+  String get planetDetailDay;
+
+  /// Planet detail: year length label
+  ///
+  /// In en, this message translates to:
+  /// **'Year'**
+  String get planetDetailYear;
+
+  /// Planet detail: has rings chip
+  ///
+  /// In en, this message translates to:
+  /// **'With rings'**
+  String get planetDetailWithRings;
+
   /// News page app bar title
   ///
   /// In en, this message translates to:

@@ -22,6 +22,12 @@
   "planetSaturn": "Saturno",
   "planetUranus": "Urano",
   "planetNeptune": "Netuno",
+  "planetSun": "Sol",
+  "planetDetailDistance": "Distância",
+  "planetDetailDiameter": "Diâmetro",
+  "planetDetailDay": "Dia",
+  "planetDetailYear": "Ano",
+  "planetDetailWithRings": "Com anéis",
 
   "newsTitle": "Notícias",
   "newsSearchHint": "Buscar notícias...",

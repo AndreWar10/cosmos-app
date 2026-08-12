@@ -1,7 +1,26 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/extensions/build_context_extensions.dart';
+import '../../../../core/routes/app_routes.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../i18n/generated/app_localizations.dart';
+import '../../data/planets_data.dart';
+import '../../domain/entities/planet.dart';
+
+String _localizedPlanetName(AppLocalizations t, String id) {
+  return switch (id) {
+    'sun' => t.planetSun,
+    'mercury' => t.planetMercury,
+    'venus' => t.planetVenus,
+    'earth' => t.planetEarth,
+    'mars' => t.planetMars,
+    'jupiter' => t.planetJupiter,
+    'saturn' => t.planetSaturn,
+    'uranus' => t.planetUranus,
+    'neptune' => t.planetNeptune,
+    _ => id,
+  };
+}
 
 class SolarSystemSection extends StatelessWidget {
   const SolarSystemSection({super.key});
@@ -10,17 +29,6 @@ class SolarSystemSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = context.translate;
     final theme = Theme.of(context);
-
-    final planets = [
-      _PlanetData(t.planetMercury, '☿', const Color(0xFFB0A090)),
-      _PlanetData(t.planetVenus, '♀', const Color(0xFFE8C06A)),
-      _PlanetData(t.planetEarth, '🌍', const Color(0xFF4A90D9)),
-      _PlanetData(t.planetMars, '♂', const Color(0xFFD46A4A)),
-      _PlanetData(t.planetJupiter, '♃', const Color(0xFFC4A46A)),
-      _PlanetData(t.planetSaturn, '♄', const Color(0xFFD4B878)),
-      _PlanetData(t.planetUranus, '♅', const Color(0xFF7EC8E3)),
-      _PlanetData(t.planetNeptune, '♆', const Color(0xFF4169E1)),
-    ];
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,14 +44,19 @@ class SolarSystemSection extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         SizedBox(
-          height: 90,
+          height: 96,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 16),
             itemCount: planets.length,
             separatorBuilder: (_, _) => const SizedBox(width: 16),
-            itemBuilder: (context, index) =>
-                _PlanetItem(planet: planets[index]),
+            itemBuilder: (context, index) => _PlanetItem(
+              planet: planets[index],
+              onTap: () => Navigator.of(context).pushNamed(
+                AppRoutes.planetDetail,
+                arguments: planets[index],
+              ),
+            ),
           ),
         ),
       ],
@@ -51,17 +64,11 @@ class SolarSystemSection extends StatelessWidget {
   }
 }
 
-class _PlanetData {
-  const _PlanetData(this.name, this.symbol, this.color);
-  final String name;
-  final String symbol;
-  final Color color;
-}
-
 class _PlanetItem extends StatelessWidget {
-  const _PlanetItem({required this.planet});
+  const _PlanetItem({required this.planet, required this.onTap});
 
-  final _PlanetData planet;
+  final Planet planet;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -70,40 +77,51 @@ class _PlanetItem extends StatelessWidget {
         ? AppColors.darkTextSecondary
         : AppColors.lightTextSecondary;
 
-    return SizedBox(
-      width: 64,
-      child: Column(
-        children: [
-          Container(
-            width: 52,
-            height: 52,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: planet.color.withValues(alpha: 0.15),
-              border: Border.all(
-                color: planet.color.withValues(alpha: 0.3),
-                width: 1.5,
+    return GestureDetector(
+      onTap: onTap,
+      child: SizedBox(
+        width: 68,
+        child: Column(
+          children: [
+            Container(
+              width: 56,
+              height: 56,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: planet.accent.withValues(alpha: 0.10),
+                border: Border.all(
+                  color: planet.accent.withValues(alpha: 0.30),
+                  width: 1.5,
+                ),
+              ),
+              clipBehavior: Clip.antiAlias,
+              child: ClipOval(
+                child: Image.asset(
+                  planet.texturePreviewPath,
+                  width: 56,
+                  height: 56,
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, _, _) => Icon(
+                    planet.isStar ? Icons.wb_sunny : Icons.public,
+                    color: planet.accent,
+                    size: 28,
+                  ),
+                ),
               ),
             ),
-            child: Center(
-              child: Text(
-                planet.symbol,
-                style: const TextStyle(fontSize: 22),
+            const SizedBox(height: 6),
+            Text(
+              _localizedPlanetName(context.translate, planet.id),
+              style: theme.textTheme.labelSmall?.copyWith(
+                color: secondaryColor,
+                fontSize: 10,
               ),
+              textAlign: TextAlign.center,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
-          ),
-          const SizedBox(height: 6),
-          Text(
-            planet.name,
-            style: theme.textTheme.labelSmall?.copyWith(
-              color: secondaryColor,
-              fontSize: 10,
-            ),
-            textAlign: TextAlign.center,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
