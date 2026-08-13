@@ -92,6 +92,13 @@ O app suporta **Português** e **Inglês**, configurável em Settings.
 - Idioma padrão: idioma do sistema (se suportado), senão inglês
 - Interceptor Dio adiciona prefixo `/pt/` automaticamente quando necessário
 
+## Requisitos
+
+| | Versão |
+|---|---|
+| Flutter | 3.44.6 (stable) |
+| Dart | 3.12.2 |
+
 ## Setup
 
 ```bash
