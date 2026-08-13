@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/di/injection_container.dart';
@@ -51,19 +52,39 @@ class _GameView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<QuizGameCubit, QuizGameState>(
-      listener: (context, state) {
-        if (state is QuizGameFinished) {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(
-              builder: (_) => QuizResultPage(
-                result: state.result,
-                isNewRecord: state.isNewRecord,
-              ),
-            ),
-          );
-        }
-      },
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<QuizGameCubit, QuizGameState>(
+          listener: (context, state) {
+            if (state is QuizGameFinished) {
+              HapticFeedback.heavyImpact();
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (_) => QuizResultPage(
+                    result: state.result,
+                    isNewRecord: state.isNewRecord,
+                  ),
+                ),
+              );
+            }
+            if (state is QuizGamePlaying && state.answered) {
+              final correct =
+                  state.selectedIndex == state.currentQuestion.correctIndex;
+              if (correct) {
+                HapticFeedback.lightImpact();
+              } else {
+                HapticFeedback.heavyImpact();
+              }
+            }
+            if (state is QuizGamePlaying &&
+                state.answered &&
+                state.secondsLeft == 0 &&
+                state.selectedIndex == null) {
+              HapticFeedback.vibrate();
+            }
+          },
+        ),
+      ],
       child: PopScope(
         canPop: false,
         onPopInvokedWithResult: (didPop, _) {
@@ -135,8 +156,10 @@ class _PlayingView extends StatelessWidget {
                   state: state,
                   onTap: state.answered
                       ? null
-                      : () =>
-                          context.read<QuizGameCubit>().selectAnswer(i),
+                      : () {
+                          HapticFeedback.mediumImpact();
+                          context.read<QuizGameCubit>().selectAnswer(i);
+                        },
                 ),
               );
             }),
@@ -150,8 +173,10 @@ class _PlayingView extends StatelessWidget {
               SizedBox(
                 height: 52,
                 child: FilledButton(
-                  onPressed: () =>
-                      context.read<QuizGameCubit>().nextQuestion(),
+                  onPressed: () {
+                    HapticFeedback.lightImpact();
+                    context.read<QuizGameCubit>().nextQuestion();
+                  },
                   style: FilledButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),

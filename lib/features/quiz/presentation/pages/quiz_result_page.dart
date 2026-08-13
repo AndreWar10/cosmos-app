@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../../core/extensions/build_context_extensions.dart';
 import '../../../../core/theme/app_colors.dart';
@@ -168,6 +169,7 @@ class _QuizResultPageState extends State<QuizResultPage>
                         height: 52,
                         child: FilledButton.icon(
                           onPressed: () {
+                            HapticFeedback.selectionClick();
                             Navigator.of(context).pop();
                           },
                           icon: const Icon(Icons.replay_rounded),
