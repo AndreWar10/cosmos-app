@@ -33,8 +33,10 @@ class _PlanetDetailView extends StatelessWidget {
     final name = planetName(t, planet.id);
     final subtitle = planetSubtitle(t, planet.id);
 
+    const spaceBg = Color(0xFF05070F);
+
     return Scaffold(
-      backgroundColor: const Color(0xFF05070F),
+      backgroundColor: spaceBg,
       body: Stack(
         children: [
           const StarField(),
@@ -65,8 +67,7 @@ class _PlanetDetailView extends StatelessWidget {
                               end: Alignment.bottomCenter,
                               colors: [
                                 Colors.transparent,
-                                const Color(0xFF05070F)
-                                    .withValues(alpha: 0.85),
+                                spaceBg.withValues(alpha: 0.85),
                               ],
                             ),
                           ),

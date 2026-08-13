@@ -112,20 +112,26 @@ class PlanetInfoPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 20),
       decoration: BoxDecoration(
-        color: const Color(0xFF0B1020),
+        color: isDark ? const Color(0xFF0B1020) : Colors.white,
         borderRadius: const BorderRadius.vertical(
           top: Radius.circular(28),
         ),
         border: Border.all(
-          color: planet.accent.withValues(alpha: 0.25),
+          color: isDark
+              ? planet.accent.withValues(alpha: 0.25)
+              : Colors.grey.withValues(alpha: 0.15),
         ),
         boxShadow: [
           BoxShadow(
-            color: planet.accent.withValues(alpha: 0.12),
+            color: isDark
+                ? planet.accent.withValues(alpha: 0.12)
+                : Colors.black.withValues(alpha: 0.08),
             blurRadius: 28,
             offset: const Offset(0, -8),
           ),
@@ -145,7 +151,11 @@ class PlanetApiInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.translate;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     final f = info.features;
+    final textColor = isDark
+        ? Colors.white.withValues(alpha: 0.88)
+        : Colors.black.withValues(alpha: 0.8);
 
     return SingleChildScrollView(
       child: Column(
@@ -157,7 +167,7 @@ class PlanetApiInfo extends StatelessWidget {
           Text(
             info.resume,
             style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.88),
+              color: textColor,
               height: 1.45,
               fontSize: 14,
             ),
@@ -246,7 +256,11 @@ class PlanetFallbackInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.translate;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     final id = planet.id;
+    final textColor = isDark
+        ? Colors.white.withValues(alpha: 0.88)
+        : Colors.black.withValues(alpha: 0.8);
 
     final description = switch (id) {
       'sun' => t.planetSunDescription,
@@ -269,7 +283,7 @@ class PlanetFallbackInfo extends StatelessWidget {
           Text(
             description,
             style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.88),
+              color: textColor,
               height: 1.45,
               fontSize: 15,
             ),
@@ -316,13 +330,16 @@ class DragHandle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Center(
       child: Container(
         width: 42,
         height: 4,
         margin: const EdgeInsets.only(bottom: 16),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.2),
+          color: isDark
+              ? Colors.white.withValues(alpha: 0.2)
+              : Colors.black.withValues(alpha: 0.12),
           borderRadius: BorderRadius.circular(99),
         ),
       ),
@@ -370,6 +387,13 @@ class SatellitesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.translate;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final labelColor = isDark
+        ? Colors.white.withValues(alpha: 0.75)
+        : Colors.black.withValues(alpha: 0.65);
+    final chipTextColor = isDark
+        ? Colors.white.withValues(alpha: 0.8)
+        : Colors.black.withValues(alpha: 0.7);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -381,7 +405,7 @@ class SatellitesSection extends StatelessWidget {
             Text(
               '${t.planetInfoSatellites} (${satellites.number})',
               style: TextStyle(
-                color: Colors.white.withValues(alpha: 0.75),
+                color: labelColor,
                 fontSize: 13,
                 fontWeight: FontWeight.w600,
               ),
@@ -405,7 +429,7 @@ class SatellitesSection extends StatelessWidget {
                 child: Text(
                   name,
                   style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.8),
+                    color: chipTextColor,
                     fontSize: 11,
                     fontWeight: FontWeight.w500,
                   ),
@@ -427,22 +451,26 @@ class FeatureChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final fgColor = Colors.white.withValues(alpha: 0.85);
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.08),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.white.withValues(alpha: 0.14)),
+        border: Border.all(
+          color: Colors.white.withValues(alpha: 0.14),
+        ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 14, color: Colors.white.withValues(alpha: 0.85)),
+          Icon(icon, size: 14, color: fgColor),
           const SizedBox(width: 6),
           Text(
             label,
             style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.85),
+              color: fgColor,
               fontSize: 12,
               fontWeight: FontWeight.w500,
             ),
@@ -469,6 +497,15 @@ class StatChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final labelColor = isDark
+        ? Colors.white.withValues(alpha: 0.55)
+        : Colors.black.withValues(alpha: 0.45);
+    final valueColor = isDark ? Colors.white : Colors.black87;
+    final iconColor = isDark
+        ? Colors.white.withValues(alpha: 0.5)
+        : Colors.black.withValues(alpha: 0.4);
+
     return Container(
       width: 150,
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
@@ -482,13 +519,13 @@ class StatChip extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(icon, size: 12, color: Colors.white.withValues(alpha: 0.5)),
+              Icon(icon, size: 12, color: iconColor),
               const SizedBox(width: 4),
               Expanded(
                 child: Text(
                   label,
                   style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.55),
+                    color: labelColor,
                     fontSize: 10,
                   ),
                   overflow: TextOverflow.ellipsis,
@@ -499,8 +536,8 @@ class StatChip extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             value,
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: valueColor,
               fontWeight: FontWeight.w600,
               fontSize: 13,
             ),
