@@ -261,6 +261,13 @@
   "quizExitConfirm": "Leave",
   "@quizExitConfirm": { "description": "Quiz exit dialog confirm" },
 
+  "settingsSoundEffects": "Sound effects",
+  "@settingsSoundEffects": { "description": "Settings: sound effects toggle label" },
+  "settingsSoundEnabled": "Enabled",
+  "@settingsSoundEnabled": { "description": "Settings: sound enabled" },
+  "settingsSoundDisabled": "Disabled",
+  "@settingsSoundDisabled": { "description": "Settings: sound disabled" },
+
   "settingsAppVersion": "App version",
   "@settingsAppVersion": { "description": "Settings: app version label" },
   "settingsDeveloper": "Developed by",

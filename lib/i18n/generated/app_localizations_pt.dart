@@ -405,6 +405,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String get quizExitConfirm => 'Sair';
 
   @override
+  String get settingsSoundEffects => 'Efeitos sonoros';
+
+  @override
+  String get settingsSoundEnabled => 'Ativado';
+
+  @override
+  String get settingsSoundDisabled => 'Desativado';
+
+  @override
   String get settingsAppVersion => 'Versão do app';
 
   @override

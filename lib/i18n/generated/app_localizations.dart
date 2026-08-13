@@ -854,6 +854,24 @@ abstract class AppLocalizations {
   /// **'Leave'**
   String get quizExitConfirm;
 
+  /// Settings: sound effects toggle label
+  ///
+  /// In en, this message translates to:
+  /// **'Sound effects'**
+  String get settingsSoundEffects;
+
+  /// Settings: sound enabled
+  ///
+  /// In en, this message translates to:
+  /// **'Enabled'**
+  String get settingsSoundEnabled;
+
+  /// Settings: sound disabled
+  ///
+  /// In en, this message translates to:
+  /// **'Disabled'**
+  String get settingsSoundDisabled;
+
   /// Settings: app version label
   ///
   /// In en, this message translates to:

@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../data/services/quiz_sound_service.dart';
 import '../../domain/entities/quiz_question.dart';
 import '../../domain/entities/quiz_result.dart';
 import '../../domain/usecases/get_quiz_questions_usecase.dart';
@@ -44,11 +45,15 @@ class QuizGameFinished extends QuizGameState {
 }
 
 class QuizGameCubit extends Cubit<QuizGameState> {
-  QuizGameCubit(this._getQuestionsUseCase, this._saveResultUseCase)
-      : super(QuizGameLoading());
+  QuizGameCubit(
+    this._getQuestionsUseCase,
+    this._saveResultUseCase,
+    this._soundService,
+  ) : super(QuizGameLoading());
 
   final GetQuizQuestionsUseCase _getQuestionsUseCase;
   final SaveQuizResultUseCase _saveResultUseCase;
+  final QuizSoundService _soundService;
 
   Timer? _timer;
   int _correctCount = 0;
@@ -87,7 +92,12 @@ class QuizGameCubit extends Cubit<QuizGameState> {
 
     _timer?.cancel();
     final isCorrect = index == s.currentQuestion.correctIndex;
-    if (isCorrect) _correctCount++;
+    if (isCorrect) {
+      _correctCount++;
+      _soundService.playCorrect();
+    } else {
+      _soundService.playWrong();
+    }
 
     emit(QuizGamePlaying(
       questions: s.questions,
@@ -105,6 +115,8 @@ class QuizGameCubit extends Cubit<QuizGameState> {
     if (s is! QuizGamePlaying || s.answered) return;
 
     _timer?.cancel();
+    _soundService.playWrong();
+
     emit(QuizGamePlaying(
       questions: s.questions,
       currentIndex: s.currentIndex,
@@ -158,6 +170,7 @@ class QuizGameCubit extends Cubit<QuizGameState> {
       isNewRecord = true;
     } catch (_) {}
 
+    _soundService.playComplete();
     emit(QuizGameFinished(result: result, isNewRecord: isNewRecord));
   }
 
@@ -177,6 +190,8 @@ class QuizGameCubit extends Cubit<QuizGameState> {
         timeUp();
         return;
       }
+
+      if (left <= 5) _soundService.playTick();
 
       emit(QuizGamePlaying(
         questions: s.questions,

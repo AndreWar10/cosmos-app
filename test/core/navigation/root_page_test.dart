@@ -4,6 +4,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:get_it/get_it.dart';
 
+import 'package:cosmos_app/core/cache/app_cache.dart';
 import 'package:cosmos_app/core/navigation/presentation/pages/root_page.dart';
 import 'package:cosmos_app/core/widgets/app_bottom_navigation.dart';
 import 'package:cosmos_app/features/home/presentation/cubit/home_cubit.dart';
@@ -11,12 +12,19 @@ import 'package:cosmos_app/features/home/presentation/cubit/home_state.dart';
 import 'package:cosmos_app/features/news/presentation/bloc/news_bloc.dart';
 import 'package:cosmos_app/features/news/presentation/bloc/news_event.dart';
 import 'package:cosmos_app/features/news/presentation/bloc/news_state.dart';
+import 'package:cosmos_app/features/quiz/data/services/quiz_sound_service.dart';
+import 'package:cosmos_app/features/quiz/presentation/cubit/quiz_hub_cubit.dart';
 
 import '../../helpers/pump_app.dart';
 
 class MockHomeCubit extends MockCubit<HomeState> implements HomeCubit {}
 
 class MockNewsBloc extends MockBloc<NewsEvent, NewsState> implements NewsBloc {}
+
+class MockQuizHubCubit extends MockCubit<QuizHubState>
+    implements QuizHubCubit {}
+
+class MockAppCache extends Mock implements AppCache {}
 
 void main() {
   late MockHomeCubit mockHomeCubit;
@@ -30,17 +38,32 @@ void main() {
     mockNewsBloc = MockNewsBloc();
     when(() => mockNewsBloc.state).thenReturn(NewsInitial());
 
+    final mockQuizHubCubit = MockQuizHubCubit();
+    when(() => mockQuizHubCubit.state).thenReturn(QuizHubInitial());
+    when(() => mockQuizHubCubit.load()).thenAnswer((_) async {});
+
+    final mockCache = MockAppCache();
+    when(() => mockCache.getString(any())).thenReturn(null);
+
     final sl = GetIt.instance;
     if (sl.isRegistered<HomeCubit>()) sl.unregister<HomeCubit>();
     if (sl.isRegistered<NewsBloc>()) sl.unregister<NewsBloc>();
+    if (sl.isRegistered<QuizHubCubit>()) sl.unregister<QuizHubCubit>();
+    if (sl.isRegistered<QuizSoundService>()) sl.unregister<QuizSoundService>();
     sl.registerFactory<HomeCubit>(() => mockHomeCubit);
     sl.registerFactory<NewsBloc>(() => mockNewsBloc);
+    sl.registerFactory<QuizHubCubit>(() => mockQuizHubCubit);
+    sl.registerLazySingleton<QuizSoundService>(
+      () => QuizSoundService(mockCache),
+    );
   });
 
   tearDown(() {
     final sl = GetIt.instance;
     if (sl.isRegistered<HomeCubit>()) sl.unregister<HomeCubit>();
     if (sl.isRegistered<NewsBloc>()) sl.unregister<NewsBloc>();
+    if (sl.isRegistered<QuizHubCubit>()) sl.unregister<QuizHubCubit>();
+    if (sl.isRegistered<QuizSoundService>()) sl.unregister<QuizSoundService>();
   });
 
   group('RootPage', () {

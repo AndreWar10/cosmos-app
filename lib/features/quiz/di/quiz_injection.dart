@@ -4,6 +4,7 @@ import '../../../core/cache/app_cache.dart';
 import '../../../core/locale/locale_provider.dart';
 import '../data/datasources/quiz_local_datasource.dart';
 import '../data/repositories/quiz_repository_impl.dart';
+import '../data/services/quiz_sound_service.dart';
 import '../domain/repositories/quiz_repository.dart';
 import '../domain/usecases/get_quiz_categories_usecase.dart';
 import '../domain/usecases/get_quiz_questions_usecase.dart';
@@ -19,6 +20,7 @@ void registerQuizFeature(GetIt sl) {
   sl.registerLazySingleton<QuizRepository>(
     () => QuizRepositoryImpl(sl<QuizLocalDataSource>()),
   );
+  sl.registerLazySingleton(() => QuizSoundService(sl<AppCache>()));
 
   sl.registerLazySingleton(
     () => GetQuizCategoriesUseCase(sl<QuizRepository>()),
@@ -39,6 +41,7 @@ void registerQuizFeature(GetIt sl) {
     () => QuizGameCubit(
       sl<GetQuizQuestionsUseCase>(),
       sl<SaveQuizResultUseCase>(),
+      sl<QuizSoundService>(),
     ),
   );
 }

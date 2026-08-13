@@ -136,6 +136,10 @@
   "quizExitCancel": "Cancelar",
   "quizExitConfirm": "Sair",
 
+  "settingsSoundEffects": "Efeitos sonoros",
+  "settingsSoundEnabled": "Ativado",
+  "settingsSoundDisabled": "Desativado",
+
   "settingsAppVersion": "Versão do app",
   "settingsDeveloper": "Desenvolvido por"
 }

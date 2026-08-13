@@ -404,6 +404,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get quizExitConfirm => 'Leave';
 
   @override
+  String get settingsSoundEffects => 'Sound effects';
+
+  @override
+  String get settingsSoundEnabled => 'Enabled';
+
+  @override
+  String get settingsSoundDisabled => 'Disabled';
+
+  @override
   String get settingsAppVersion => 'App version';
 
   @override

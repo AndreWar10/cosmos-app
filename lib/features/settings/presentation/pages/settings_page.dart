@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/di/injection_container.dart';
 import '../../../../core/extensions/build_context_extensions.dart';
 import '../../../../core/locale/locale_cubit.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/theme_cubit.dart';
+import '../../../quiz/data/services/quiz_sound_service.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -105,6 +107,11 @@ class SettingsPage extends StatelessWidget {
           ),
 
           const SizedBox(height: 24),
+          _SectionLabel(label: t.settingsSoundEffects),
+          const SizedBox(height: 8),
+          _SoundToggleCard(surface: surface, isDark: isDark),
+
+          const SizedBox(height: 24),
           _SectionLabel(label: 'App'),
           const SizedBox(height: 8),
           Container(
@@ -159,6 +166,63 @@ class _SectionLabel extends StatelessWidget {
           fontWeight: FontWeight.w700,
           color: Theme.of(context).colorScheme.primary,
           letterSpacing: 0.3,
+        ),
+      ),
+    );
+  }
+}
+
+class _SoundToggleCard extends StatefulWidget {
+  const _SoundToggleCard({required this.surface, required this.isDark});
+
+  final Color surface;
+  final bool isDark;
+
+  @override
+  State<_SoundToggleCard> createState() => _SoundToggleCardState();
+}
+
+class _SoundToggleCardState extends State<_SoundToggleCard> {
+  late bool _enabled;
+
+  @override
+  void initState() {
+    super.initState();
+    _enabled = sl<QuizSoundService>().isEnabled;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.translate;
+
+    return Container(
+      decoration: BoxDecoration(
+        color: widget.surface,
+        borderRadius: BorderRadius.circular(14),
+        boxShadow: widget.isDark
+            ? null
+            : [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.06),
+                  blurRadius: 8,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+      ),
+      child: _SettingsTile(
+        icon: _enabled
+            ? Icons.volume_up_rounded
+            : Icons.volume_off_rounded,
+        title: t.settingsSoundEffects,
+        subtitle: _enabled
+            ? t.settingsSoundEnabled
+            : t.settingsSoundDisabled,
+        trailing: Switch(
+          value: _enabled,
+          onChanged: (value) {
+            sl<QuizSoundService>().setEnabled(value);
+            setState(() => _enabled = value);
+          },
         ),
       ),
     );
