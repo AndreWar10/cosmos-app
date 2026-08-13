@@ -11,6 +11,7 @@ import '../cubit/home_state.dart';
 import '../widgets/apod_card.dart';
 import '../widgets/latest_launches_section.dart';
 import '../widgets/latest_news_section.dart';
+import '../widgets/observatories_section.dart';
 import '../widgets/solar_system_section.dart';
 
 class HomePage extends StatelessWidget {
@@ -79,7 +80,7 @@ class _HomeContent extends StatelessWidget {
                 ),
                 child: ApodCard(apod: state.apod!),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 32),
             ],
             const SolarSystemSection(),
             const SizedBox(height: 24),
@@ -96,7 +97,11 @@ class _HomeContent extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox(height: 24),
+            if (state.observatories.isNotEmpty) ...[
+              const SizedBox(height: 32),
+              ObservatoriesSection(observatories: state.observatories),
+            ],
+            const SizedBox(height: 32),
             LatestLaunchesSection(
               launches: state.latestLaunches,
               onSeeAll: () => Navigator.of(context).pushNamed(
@@ -180,7 +185,18 @@ class _HomeLoadingSkeleton extends StatelessWidget {
           const SizedBox(height: 12),
           _SkeletonCarousel(
             height: 180,
-            cardWidth: 200,
+            cardWidth: 220,
+            cardCount: 3,
+            surface: surface,
+            divider: divider,
+          ),
+          const SizedBox(height: 24),
+          // Observatories
+          _SkeletonTitle(width: 180, color: divider),
+          const SizedBox(height: 14),
+          _SkeletonCarousel(
+            height: 260,
+            cardWidth: 220,
             cardCount: 3,
             surface: surface,
             divider: divider,
@@ -191,7 +207,7 @@ class _HomeLoadingSkeleton extends StatelessWidget {
           const SizedBox(height: 12),
           _SkeletonCarousel(
             height: 180,
-            cardWidth: 200,
+            cardWidth: 220,
             cardCount: 3,
             surface: surface,
             divider: divider,

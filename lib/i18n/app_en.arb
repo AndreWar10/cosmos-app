@@ -181,6 +181,17 @@
   "settingsLanguageEnglish": "English",
   "@settingsLanguageEnglish": { "description": "Settings: English option" },
 
+  "homeObservatories": "Observatories in Brazil",
+  "@homeObservatories": { "description": "Home: Observatories section title" },
+  "homeObservatoriesExplore": "Explore",
+  "@homeObservatoriesExplore": { "description": "Home: Observatories explore button" },
+  "observatoryDetailTitle": "Observatory",
+  "@observatoryDetailTitle": { "description": "Observatory detail: app bar title" },
+  "observatoryWebsite": "Visit website",
+  "@observatoryWebsite": { "description": "Observatory detail: website button" },
+  "observatoryOpenMaps": "Open in Maps",
+  "@observatoryOpenMaps": { "description": "Observatory detail: maps button" },
+
   "newsDetailReadFullArticle": "Read full article",
   "@newsDetailReadFullArticle": { "description": "News detail: open original article" },
   "newsDetailSource": "Source",

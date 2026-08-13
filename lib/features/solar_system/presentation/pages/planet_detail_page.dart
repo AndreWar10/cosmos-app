@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/di/injection_container.dart';
 import '../../../../core/extensions/build_context_extensions.dart';
 import '../../../../i18n/generated/app_localizations.dart';
-import '../../domain/entities/planet.dart';
-import '../../domain/entities/planet_info.dart';
+import '../../../home/domain/entities/planet.dart';
+import '../../../home/domain/entities/planet_info.dart';
 import '../cubit/planet_detail_cubit.dart';
 import '../widgets/planet_cube.dart';
 

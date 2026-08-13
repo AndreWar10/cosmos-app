@@ -279,6 +279,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsLanguageEnglish => 'English';
 
   @override
+  String get homeObservatories => 'Observatories in Brazil';
+
+  @override
+  String get homeObservatoriesExplore => 'Explore';
+
+  @override
+  String get observatoryDetailTitle => 'Observatory';
+
+  @override
+  String get observatoryWebsite => 'Visit website';
+
+  @override
+  String get observatoryOpenMaps => 'Open in Maps';
+
+  @override
   String get newsDetailReadFullArticle => 'Read full article';
 
   @override

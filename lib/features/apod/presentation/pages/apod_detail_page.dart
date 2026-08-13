@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/di/injection_container.dart';
 import '../../../../core/extensions/build_context_extensions.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../domain/entities/apod.dart';
+import '../../../home/domain/entities/apod.dart';
 import '../cubit/apod_detail_cubit.dart';
 
 class ApodDetailPage extends StatelessWidget {
@@ -47,14 +47,12 @@ class _ApodDetailView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Date nav
                     _DateNavBar(
                       date: state.currentDate,
                       canGoForward: state.canGoForward,
                       onPrevious: cubit.goToPreviousDay,
                       onNext: cubit.goToNextDay,
                     ),
-                    // Image
                     if (apod.isImage)
                       AspectRatio(
                         aspectRatio: 16 / 9,
@@ -76,7 +74,6 @@ class _ApodDetailView extends StatelessWidget {
                           ),
                         ),
                       ),
-                    // Content
                     Padding(
                       padding: const EdgeInsets.all(16),
                       child: Column(

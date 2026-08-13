@@ -94,7 +94,7 @@ class _LaunchPreviewCard extends StatelessWidget {
         : AppColors.lightTextSecondary;
 
     return SizedBox(
-      width: 200,
+      width: 220,
       child: Container(
         decoration: BoxDecoration(
           color: theme.colorScheme.surface,

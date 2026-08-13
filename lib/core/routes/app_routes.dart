@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../features/home/domain/entities/apod.dart';
+import '../../features/home/domain/entities/observatory.dart';
 import '../../features/home/domain/entities/planet.dart';
-import '../../features/home/presentation/pages/apod_detail_page.dart';
-import '../../features/home/presentation/pages/planet_detail_page.dart';
+import '../../features/apod/presentation/pages/apod_detail_page.dart';
+import '../../features/observatories/presentation/pages/observatory_detail_page.dart';
+import '../../features/solar_system/presentation/pages/planet_detail_page.dart';
 import '../../features/launches/domain/entities/launch.dart';
 import '../../features/launches/presentation/pages/launch_detail_page.dart';
 import '../../features/launches/presentation/pages/launches_page.dart';
@@ -20,6 +22,7 @@ class AppRoutes {
   static const String launchDetail = '/launches/detail';
   static const String newsDetail = '/news/detail';
   static const String planetDetail = '/planets/detail';
+  static const String observatoryDetail = '/observatories/detail';
   static const String settings = '/settings';
 
   static Map<String, WidgetBuilder> routes = {
@@ -59,6 +62,15 @@ class AppRoutes {
       }
       return const Scaffold(
         body: Center(child: Text('Invalid planet data')),
+      );
+    },
+    observatoryDetail: (context) {
+      final args = ModalRoute.of(context)?.settings.arguments;
+      if (args is Observatory) {
+        return ObservatoryDetailPage(observatory: args);
+      }
+      return const Scaffold(
+        body: Center(child: Text('Invalid observatory data')),
       );
     },
   };

@@ -620,6 +620,36 @@ abstract class AppLocalizations {
   /// **'English'**
   String get settingsLanguageEnglish;
 
+  /// Home: Observatories section title
+  ///
+  /// In en, this message translates to:
+  /// **'Observatories in Brazil'**
+  String get homeObservatories;
+
+  /// Home: Observatories explore button
+  ///
+  /// In en, this message translates to:
+  /// **'Explore'**
+  String get homeObservatoriesExplore;
+
+  /// Observatory detail: app bar title
+  ///
+  /// In en, this message translates to:
+  /// **'Observatory'**
+  String get observatoryDetailTitle;
+
+  /// Observatory detail: website button
+  ///
+  /// In en, this message translates to:
+  /// **'Visit website'**
+  String get observatoryWebsite;
+
+  /// Observatory detail: maps button
+  ///
+  /// In en, this message translates to:
+  /// **'Open in Maps'**
+  String get observatoryOpenMaps;
+
   /// News detail: open original article
   ///
   /// In en, this message translates to:

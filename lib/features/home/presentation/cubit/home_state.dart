@@ -1,6 +1,7 @@
 import '../../../launches/domain/entities/launch.dart';
 import '../../../news/domain/entities/article.dart';
 import '../../domain/entities/apod.dart';
+import '../../domain/entities/observatory.dart';
 
 sealed class HomeState {}
 
@@ -13,11 +14,13 @@ class HomeLoaded extends HomeState {
     required this.apod,
     required this.latestNews,
     required this.latestLaunches,
+    required this.observatories,
   });
 
   final Apod? apod;
   final List<Article> latestNews;
   final List<Launch> latestLaunches;
+  final List<Observatory> observatories;
 }
 
 class HomeError extends HomeState {

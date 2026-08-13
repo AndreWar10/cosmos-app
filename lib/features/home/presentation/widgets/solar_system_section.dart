@@ -109,7 +109,7 @@ class _PlanetItem extends StatelessWidget {
               name,
               style: theme.textTheme.labelSmall?.copyWith(
                 color: secondaryColor,
-                fontSize: 10,
+                fontSize: 11,
               ),
               textAlign: TextAlign.center,
               maxLines: 1,

@@ -279,6 +279,21 @@ class AppLocalizationsPt extends AppLocalizations {
   String get settingsLanguageEnglish => 'Inglês';
 
   @override
+  String get homeObservatories => 'Observatórios no Brasil';
+
+  @override
+  String get homeObservatoriesExplore => 'Explorar';
+
+  @override
+  String get observatoryDetailTitle => 'Observatório';
+
+  @override
+  String get observatoryWebsite => 'Visitar site';
+
+  @override
+  String get observatoryOpenMaps => 'Abrir no Mapa';
+
+  @override
   String get newsDetailReadFullArticle => 'Ler artigo completo';
 
   @override

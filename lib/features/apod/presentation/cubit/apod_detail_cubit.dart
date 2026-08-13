@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../domain/entities/apod.dart';
-import '../../domain/usecases/get_apod_usecase.dart';
+import '../../../home/domain/entities/apod.dart';
+import '../../../home/domain/usecases/get_apod_usecase.dart';
 
 class ApodDetailState {
   const ApodDetailState({

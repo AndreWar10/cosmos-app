@@ -4,7 +4,9 @@ import '../../../launches/domain/entities/launch.dart';
 import '../../../launches/domain/usecases/get_launches_usecase.dart';
 import '../../../news/domain/entities/article.dart';
 import '../../../news/domain/usecases/get_news_usecase.dart';
+import '../../data/datasources/observatory_local_datasource.dart';
 import '../../domain/entities/apod.dart';
+import '../../domain/entities/observatory.dart';
 import '../../domain/usecases/get_apod_usecase.dart';
 import 'home_state.dart';
 
@@ -13,11 +15,13 @@ class HomeCubit extends Cubit<HomeState> {
     this._getApodUseCase,
     this._getNewsUseCase,
     this._getLaunchesUseCase,
+    this._observatoryDataSource,
   ) : super(HomeInitial());
 
   final GetApodUseCase _getApodUseCase;
   final GetNewsUseCase _getNewsUseCase;
   final GetLaunchesUseCase _getLaunchesUseCase;
+  final ObservatoryLocalDataSource _observatoryDataSource;
 
   Future<void> load() async {
     emit(HomeLoading());
@@ -25,6 +29,7 @@ class HomeCubit extends Cubit<HomeState> {
       Apod? apod;
       List<Article> news = [];
       List<Launch> launches = [];
+      List<Observatory> observatories = [];
 
       try {
         apod = await _getApodUseCase();
@@ -40,10 +45,15 @@ class HomeCubit extends Cubit<HomeState> {
         launches = result.launches;
       } catch (_) {}
 
+      try {
+        observatories = await _observatoryDataSource.getAll();
+      } catch (_) {}
+
       emit(HomeLoaded(
         apod: apod,
         latestNews: news,
         latestLaunches: launches,
+        observatories: observatories,
       ));
     } catch (_) {
       emit(HomeError('Failed to load home'));

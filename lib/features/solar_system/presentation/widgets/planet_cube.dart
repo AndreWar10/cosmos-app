@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cube/flutter_cube.dart';
 
-import '../../domain/entities/planet.dart';
+import '../../../home/domain/entities/planet.dart';
 
 class PlanetCube extends StatefulWidget {
   const PlanetCube({super.key, required this.planet});

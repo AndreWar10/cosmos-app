@@ -94,6 +94,12 @@
   "settingsLanguagePortuguese": "Português",
   "settingsLanguageEnglish": "Inglês",
 
+  "homeObservatories": "Observatórios no Brasil",
+  "homeObservatoriesExplore": "Explorar",
+  "observatoryDetailTitle": "Observatório",
+  "observatoryWebsite": "Visitar site",
+  "observatoryOpenMaps": "Abrir no Mapa",
+
   "newsDetailReadFullArticle": "Ler artigo completo",
   "newsDetailSource": "Fonte",
   "newsDetailPublishedAt": "Publicado"

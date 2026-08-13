@@ -79,6 +79,8 @@ flutter:
     - assets/planets/uranus/
     - assets/planets/neptune/
     - assets/planets-animated/
+    - assets/data/
+    - assets/observatorios/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

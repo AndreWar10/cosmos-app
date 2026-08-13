@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../domain/entities/planet_info.dart';
-import '../../domain/usecases/get_planet_info_usecase.dart';
+import '../../../home/domain/entities/planet_info.dart';
+import '../../../home/domain/usecases/get_planet_info_usecase.dart';
 
 sealed class PlanetDetailState {}
 
