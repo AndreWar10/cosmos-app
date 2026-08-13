@@ -4,6 +4,7 @@ import '../../../../core/extensions/build_context_extensions.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/app_webview_page.dart';
 import '../../../home/domain/entities/observatory.dart';
+import '../widgets/observatory_info_tile.dart';
 
 class ObservatoryDetailPage extends StatelessWidget {
   const ObservatoryDetailPage({super.key, required this.observatory});
@@ -117,12 +118,12 @@ class ObservatoryDetailPage extends StatelessWidget {
                     style: theme.textTheme.bodyLarge?.copyWith(height: 1.6),
                   ),
                   const SizedBox(height: 24),
-                  _InfoTile(
+                  ObservatoryInfoTile(
                     icon: Icons.place_outlined,
                     label: observatory.address,
                   ),
                   if (observatory.phone.isNotEmpty)
-                    _InfoTile(
+                    ObservatoryInfoTile(
                       icon: Icons.phone_outlined,
                       label: observatory.phone,
                     ),
@@ -164,40 +165,6 @@ class ObservatoryDetailPage extends StatelessWidget {
                   ],
                   const SizedBox(height: 24),
                 ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _InfoTile extends StatelessWidget {
-  const _InfoTile({required this.icon, required this.label});
-
-  final IconData icon;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
-    final secondaryColor =
-        isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
-
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(icon, size: 18, color: secondaryColor),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Text(
-              label,
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: secondaryColor,
               ),
             ),
           ),
