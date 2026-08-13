@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/extensions/build_context_extensions.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/widgets/app_webview_page.dart';
 import '../../domain/entities/article.dart';
 
 class NewsDetailPage extends StatelessWidget {
@@ -109,7 +109,14 @@ class NewsDetailPage extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: FilledButton.icon(
-                      onPressed: () => _openUrl(article.url),
+                      onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => AppWebViewPage(
+                            url: article.url,
+                            title: article.newsSite,
+                          ),
+                        ),
+                      ),
                       icon: const Icon(Icons.open_in_new),
                       label: Text(t.newsDetailReadFullArticle),
                     ),
@@ -128,12 +135,6 @@ class NewsDetailPage extends StatelessWidget {
     return '${date.day.toString().padLeft(2, '0')}/${date.month.toString().padLeft(2, '0')}/${date.year}';
   }
 
-  Future<void> _openUrl(String url) async {
-    final uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    }
-  }
 }
 
 class _ImagePlaceholder extends StatelessWidget {

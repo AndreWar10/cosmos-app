@@ -21,16 +21,11 @@ class PlanetDetailCubit extends Cubit<PlanetDetailState> {
 
   final GetPlanetInfoUseCase _getPlanetInfoUseCase;
 
-  Future<void> load(String planetName) async {
-    emit(PlanetDetailLoading());
-    try {
-      final info = await _getPlanetInfoUseCase(planetName);
-      if (info != null) {
-        emit(PlanetDetailLoaded(info));
-      } else {
-        emit(PlanetDetailError());
-      }
-    } catch (_) {
+  void load(String planetKey) {
+    final info = _getPlanetInfoUseCase(planetKey);
+    if (info != null) {
+      emit(PlanetDetailLoaded(info));
+    } else {
       emit(PlanetDetailError());
     }
   }

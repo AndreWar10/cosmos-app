@@ -1,10 +1,11 @@
 import 'package:get_it/get_it.dart';
 
+import '../../../core/locale/locale_provider.dart';
 import '../../../core/network/app_network.dart';
 import '../../../features/launches/domain/usecases/get_launches_usecase.dart';
 import '../../../features/news/domain/usecases/get_news_usecase.dart';
 import '../data/datasources/home_remote_datasource.dart';
-import '../data/datasources/planet_remote_datasource.dart';
+import '../data/datasources/planet_local_datasource.dart';
 import '../data/repositories/home_repository_impl.dart';
 import '../data/repositories/planet_repository_impl.dart';
 import '../domain/repositories/home_repository.dart';
@@ -23,11 +24,11 @@ void registerHomeFeature(GetIt sl) {
   sl.registerLazySingleton<HomeRepository>(
     () => HomeRepositoryImpl(sl<HomeRemoteDataSource>()),
   );
-  sl.registerLazySingleton<PlanetRemoteDataSource>(
-    () => PlanetRemoteDataSourceImpl(sl<AppNetwork>()),
+  sl.registerLazySingleton<PlanetLocalDataSource>(
+    () => PlanetLocalDataSourceImpl(sl<LocaleProvider>()),
   );
   sl.registerLazySingleton<PlanetRepository>(
-    () => PlanetRepositoryImpl(sl<PlanetRemoteDataSource>()),
+    () => PlanetRepositoryImpl(sl<PlanetLocalDataSource>()),
   );
 
   // Domain

@@ -9,7 +9,6 @@ import '../bloc/launches_bloc.dart';
 import '../bloc/launches_event.dart';
 import '../bloc/launches_state.dart';
 import '../widgets/launch_card.dart';
-import '../widgets/launch_filter_bar.dart';
 import '../widgets/launches_empty_widget.dart';
 import '../widgets/launches_error_widget.dart';
 import '../widgets/launches_loading_indicator.dart';
@@ -110,20 +109,9 @@ class _LaunchesLoadedViewState extends State<_LaunchesLoadedView> {
   Widget build(BuildContext context) {
     final launches = widget.state.launches;
 
-    return Column(
-      children: [
-        LaunchFilterBar(
-          upcomingFilter: widget.state.upcomingFilter,
-          onUpcomingChanged: (filter) {
-            context.read<LaunchesBloc>().add(
-                  LaunchesFilterChanged(upcoming: filter),
-                );
-          },
-        ),
-        Expanded(
-          child: launches.isEmpty
-              ? const LaunchesEmptyWidget()
-              : CustomScrollView(
+    if (launches.isEmpty) return const LaunchesEmptyWidget();
+
+    return CustomScrollView(
                   controller: _scrollController,
                   slivers: [
                     SliverPadding(
@@ -168,10 +156,7 @@ class _LaunchesLoadedViewState extends State<_LaunchesLoadedView> {
                           ),
                         ),
                       ),
-                  ],
-                ),
-        ),
-      ],
-    );
+          ],
+        );
   }
 }

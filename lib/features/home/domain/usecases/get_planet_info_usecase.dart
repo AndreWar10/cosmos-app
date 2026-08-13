@@ -6,5 +6,5 @@ class GetPlanetInfoUseCase {
 
   final PlanetRepository _repository;
 
-  Future<PlanetInfo?> call(String name) => _repository.getPlanetInfo(name);
+  PlanetInfo? call(String planetKey) => _repository.getPlanetInfo(planetKey);
 }

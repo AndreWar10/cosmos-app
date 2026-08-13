@@ -43,7 +43,7 @@ class PlanetDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => sl<PlanetDetailCubit>()..load(planet.name),
+      create: (_) => sl<PlanetDetailCubit>()..load(planet.id),
       child: _PlanetDetailView(planet: planet),
     );
   }
@@ -79,7 +79,10 @@ class _PlanetDetailView extends StatelessWidget {
                   child: Stack(
                     alignment: Alignment.bottomCenter,
                     children: [
-                      PlanetCube(planet: planet),
+                      if (planet.modelPath.isNotEmpty)
+                        PlanetCube(planet: planet)
+                      else
+                        _AnimatedIcon(planet: planet),
                       IgnorePointer(
                         child: Container(
                           height: 72,
@@ -587,6 +590,34 @@ class _StatChip extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+const _planetIcons = <String, String>{
+  'sun': 'assets/planets-animated/Sol.png',
+  'mercury': 'assets/planets-animated/Mercúrio.png',
+  'venus': 'assets/planets-animated/Vênus.png',
+  'earth': 'assets/planets-animated/Terra.png',
+  'mars': 'assets/planets-animated/Marte.png',
+  'jupiter': 'assets/planets-animated/Júpiter.png',
+  'saturn': 'assets/planets-animated/Saturno.png',
+  'uranus': 'assets/planets-animated/Urano.png',
+  'neptune': 'assets/planets-animated/Netuno.png',
+};
+
+class _AnimatedIcon extends StatelessWidget {
+  const _AnimatedIcon({required this.planet});
+
+  final Planet planet;
+
+  @override
+  Widget build(BuildContext context) {
+    final iconPath = _planetIcons[planet.id];
+    return Center(
+      child: iconPath != null
+          ? Image.asset(iconPath, width: 180, height: 180, fit: BoxFit.contain)
+          : Icon(Icons.public, color: planet.accent, size: 120),
     );
   }
 }
