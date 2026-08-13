@@ -123,11 +123,11 @@ class _HubContent extends StatelessWidget {
   }
 }
 
-const _categoryIcons = <String, IconData>{
-  'public': Icons.public_rounded,
-  'rocket_launch': Icons.rocket_launch_rounded,
-  'auto_awesome': Icons.auto_awesome_rounded,
-  'psychology': Icons.psychology_rounded,
+const _categoryEmojis = <String, String>{
+  'solar_system': '🪐',
+  'exploration': '🚀',
+  'stars_galaxies': '✨',
+  'curiosities': '🔭',
 };
 
 const _categoryColors = <String, Color>{
@@ -356,7 +356,7 @@ class _CategoryCard extends StatelessWidget {
     final isDark = theme.brightness == Brightness.dark;
     final surface = isDark ? AppColors.darkSurface : AppColors.lightSurface;
     final color = _categoryColors[category.id] ?? AppColors.primary;
-    final icon = _categoryIcons[category.icon] ?? Icons.quiz_rounded;
+    final emoji = _categoryEmojis[category.id] ?? '❓';
 
     return GestureDetector(
       onTap: onTap,
@@ -376,7 +376,9 @@ class _CategoryCard extends StatelessWidget {
                 color: color.withValues(alpha: 0.12),
                 borderRadius: BorderRadius.circular(14),
               ),
-              child: Icon(icon, color: color, size: 24),
+              child: Center(
+                child: Text(emoji, style: const TextStyle(fontSize: 24)),
+              ),
             ),
             const SizedBox(width: 14),
             Expanded(
