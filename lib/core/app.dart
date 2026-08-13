@@ -20,9 +20,7 @@ class CosmosApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => ThemeCubit(cache)),
-        BlocProvider(
-          create: (_) => LocaleCubit(sl<LocaleProvider>(), cache),
-        ),
+        BlocProvider(create: (_) => LocaleCubit(sl<LocaleProvider>(), cache)),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, themeMode) {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../features/home/domain/entities/apod.dart';
 import '../../features/home/domain/entities/observatory.dart';
 import '../../features/home/domain/entities/planet.dart';
