@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../../../core/extensions/build_context_extensions.dart';
 import '../../../../core/locale/locale_cubit.dart';
@@ -9,8 +10,28 @@ import '../widgets/settings_section_label.dart';
 import '../widgets/settings_tile.dart';
 import '../widgets/sound_toggle_card.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
+
+  @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+  String _version = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadVersion();
+  }
+
+  Future<void> _loadVersion() async {
+    final info = await PackageInfo.fromPlatform();
+    if (mounted) {
+      setState(() => _version = 'v${info.version}');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -134,7 +155,7 @@ class SettingsPage extends StatelessWidget {
                 SettingsTile(
                   icon: Icons.info_outline_rounded,
                   title: t.settingsAppVersion,
-                  subtitle: 'v1.0.0',
+                  subtitle: _version,
                 ),
                 Divider(height: 1, indent: 56, endIndent: 16, color: divider),
                 SettingsTile(

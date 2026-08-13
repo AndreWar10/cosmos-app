@@ -124,28 +124,33 @@ class _NewsLoadedListState extends State<_NewsLoadedList> {
 
     if (articles.isEmpty) return const NewsEmptyWidget();
 
-    return ListView.builder(
-      controller: _scrollController,
-      padding: const EdgeInsets.only(top: 4, bottom: 16),
-      itemCount: widget.state.hasReachedMax
-          ? articles.length
-          : articles.length + 1,
-      itemBuilder: (context, index) {
-        if (index >= articles.length) {
-          return const Padding(
-            padding: EdgeInsets.symmetric(vertical: 16),
-            child: Center(child: CircularProgressIndicator()),
-          );
-        }
-
-        return NewsArticleCard(
-          article: articles[index],
-          onTap: () => Navigator.of(context).pushNamed(
-            AppRoutes.newsDetail,
-            arguments: articles[index],
-          ),
-        );
+    return RefreshIndicator(
+      onRefresh: () async {
+        context.read<NewsBloc>().add(NewsFetched());
       },
+      child: ListView.builder(
+        controller: _scrollController,
+        padding: const EdgeInsets.only(top: 4, bottom: 16),
+        itemCount: widget.state.hasReachedMax
+            ? articles.length
+            : articles.length + 1,
+        itemBuilder: (context, index) {
+          if (index >= articles.length) {
+            return const Padding(
+              padding: EdgeInsets.symmetric(vertical: 16),
+              child: Center(child: CircularProgressIndicator()),
+            );
+          }
+
+          return NewsArticleCard(
+            article: articles[index],
+            onTap: () => Navigator.of(context).pushNamed(
+              AppRoutes.newsDetail,
+              arguments: articles[index],
+            ),
+          );
+        },
+      ),
     );
   }
 }
