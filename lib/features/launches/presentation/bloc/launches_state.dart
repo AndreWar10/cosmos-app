@@ -41,6 +41,7 @@ class LaunchesLoaded extends LaunchesState {
 }
 
 class LaunchesError extends LaunchesState {
-  LaunchesError(this.message);
+  LaunchesError(this.message, {this.isNoInternet = false});
   final String message;
+  final bool isNoInternet;
 }

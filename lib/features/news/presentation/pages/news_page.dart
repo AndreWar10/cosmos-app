@@ -5,6 +5,7 @@ import '../../../../core/di/injection_container.dart';
 import '../../../../core/extensions/build_context_extensions.dart';
 import '../../../../core/locale/locale_cubit.dart';
 import '../../../../core/routes/app_routes.dart';
+import '../../../../core/widgets/no_internet_widget.dart';
 import '../bloc/news_bloc.dart';
 import '../bloc/news_event.dart';
 import '../bloc/news_state.dart';
@@ -64,6 +65,9 @@ class _NewsBody extends StatelessWidget {
         return switch (state) {
           NewsInitial() => const SizedBox.shrink(),
           NewsLoading() => const NewsLoadingIndicator(),
+          NewsError(isNoInternet: true) => NoInternetWidget(
+              onRetry: () => context.read<NewsBloc>().add(NewsFetched()),
+            ),
           NewsError(:final message) => NewsErrorWidget(
               message: message,
               onRetry: () => context.read<NewsBloc>().add(NewsFetched()),

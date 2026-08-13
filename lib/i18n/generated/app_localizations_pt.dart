@@ -418,4 +418,13 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get settingsDeveloper => 'Desenvolvido por';
+
+  @override
+  String get noInternetTitle => 'Sem conexão com a internet';
+
+  @override
+  String get noInternetMessage => 'Verifique sua conexão e tente novamente';
+
+  @override
+  String get noInternetRetry => 'Tentar novamente';
 }

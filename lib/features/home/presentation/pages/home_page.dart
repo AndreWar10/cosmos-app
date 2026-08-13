@@ -6,6 +6,7 @@ import '../../../../core/extensions/build_context_extensions.dart';
 import '../../../../core/locale/locale_cubit.dart';
 import '../../../../core/navigation/presentation/cubit/navigation_cubit.dart';
 import '../../../../core/routes/app_routes.dart';
+import '../../../../core/widgets/no_internet_widget.dart';
 import '../cubit/home_cubit.dart';
 import '../cubit/home_state.dart';
 import '../widgets/apod_card.dart';
@@ -44,6 +45,9 @@ class _HomeView extends StatelessWidget {
             return switch (state) {
               HomeInitial() => const SizedBox.shrink(),
               HomeLoading() => const _HomeLoadingSkeleton(),
+              HomeError(isNoInternet: true) => NoInternetWidget(
+                  onRetry: () => context.read<HomeCubit>().load(),
+                ),
               HomeError() => _HomeErrorView(
                   onRetry: () => context.read<HomeCubit>().load(),
                 ),

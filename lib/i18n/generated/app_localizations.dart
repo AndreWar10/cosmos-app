@@ -883,6 +883,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Developed by'**
   String get settingsDeveloper;
+
+  /// No internet: title
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection'**
+  String get noInternetTitle;
+
+  /// No internet: subtitle message
+  ///
+  /// In en, this message translates to:
+  /// **'Check your connection and try again'**
+  String get noInternetMessage;
+
+  /// No internet: retry button
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get noInternetRetry;
 }
 
 class _AppLocalizationsDelegate

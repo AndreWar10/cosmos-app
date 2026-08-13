@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/network/network_error_helper.dart';
 import '../../../launches/domain/entities/launch.dart';
 import '../../../launches/domain/usecases/get_launches_usecase.dart';
 import '../../../news/domain/entities/article.dart';
@@ -30,24 +31,40 @@ class HomeCubit extends Cubit<HomeState> {
       List<Article> news = [];
       List<Launch> launches = [];
       List<Observatory> observatories = [];
+      bool hasConnectionError = false;
+      int remoteFailures = 0;
 
       try {
         apod = await _getApodUseCase();
-      } catch (_) {}
+      } catch (e) {
+        remoteFailures++;
+        if (isConnectionError(e)) hasConnectionError = true;
+      }
 
       try {
         final result = await _getNewsUseCase(limit: 6);
         news = result.articles;
-      } catch (_) {}
+      } catch (e) {
+        remoteFailures++;
+        if (isConnectionError(e)) hasConnectionError = true;
+      }
 
       try {
         final result = await _getLaunchesUseCase(limit: 6, upcoming: true);
         launches = result.launches;
-      } catch (_) {}
+      } catch (e) {
+        remoteFailures++;
+        if (isConnectionError(e)) hasConnectionError = true;
+      }
 
       try {
         observatories = await _observatoryDataSource.getAll();
       } catch (_) {}
+
+      if (remoteFailures >= 3 && hasConnectionError) {
+        emit(HomeError('No internet', isNoInternet: true));
+        return;
+      }
 
       emit(HomeLoaded(
         apod: apod,

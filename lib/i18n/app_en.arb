@@ -271,5 +271,12 @@
   "settingsAppVersion": "App version",
   "@settingsAppVersion": { "description": "Settings: app version label" },
   "settingsDeveloper": "Developed by",
-  "@settingsDeveloper": { "description": "Settings: developer label" }
+  "@settingsDeveloper": { "description": "Settings: developer label" },
+
+  "noInternetTitle": "No internet connection",
+  "@noInternetTitle": { "description": "No internet: title" },
+  "noInternetMessage": "Check your connection and try again",
+  "@noInternetMessage": { "description": "No internet: subtitle message" },
+  "noInternetRetry": "Try again",
+  "@noInternetRetry": { "description": "No internet: retry button" }
 }

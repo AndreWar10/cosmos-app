@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/network/network_error_helper.dart';
 import '../../domain/usecases/get_news_usecase.dart';
 import 'news_event.dart';
 import 'news_state.dart';
@@ -31,8 +32,11 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         count: result.count,
         hasReachedMax: result.articles.length >= result.count,
       ));
-    } catch (_) {
-      emit(NewsError('Failed to load news'));
+    } catch (e) {
+      emit(NewsError(
+        'Failed to load news',
+        isNoInternet: isConnectionError(e),
+      ));
     }
   }
 

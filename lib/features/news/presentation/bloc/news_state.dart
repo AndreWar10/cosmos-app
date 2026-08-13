@@ -35,6 +35,7 @@ class NewsLoaded extends NewsState {
 }
 
 class NewsError extends NewsState {
-  NewsError(this.message);
+  NewsError(this.message, {this.isNoInternet = false});
   final String message;
+  final bool isNoInternet;
 }

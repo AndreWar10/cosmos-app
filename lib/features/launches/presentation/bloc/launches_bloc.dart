@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/network/network_error_helper.dart';
 import '../../domain/usecases/get_launches_usecase.dart';
 import 'launches_event.dart';
 import 'launches_state.dart';
@@ -35,8 +36,11 @@ class LaunchesBloc extends Bloc<LaunchesEvent, LaunchesState> {
         statusFilter: _statusFilter,
         hasReachedMax: result.launches.length >= result.count,
       ));
-    } catch (_) {
-      emit(LaunchesError('Failed to load launches'));
+    } catch (e) {
+      emit(LaunchesError(
+        'Failed to load launches',
+        isNoInternet: isConnectionError(e),
+      ));
     }
   }
 

@@ -24,6 +24,7 @@ class HomeLoaded extends HomeState {
 }
 
 class HomeError extends HomeState {
-  HomeError(this.message);
+  HomeError(this.message, {this.isNoInternet = false});
   final String message;
+  final bool isNoInternet;
 }

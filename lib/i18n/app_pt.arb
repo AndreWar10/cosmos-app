@@ -141,5 +141,9 @@
   "settingsSoundDisabled": "Desativado",
 
   "settingsAppVersion": "Versão do app",
-  "settingsDeveloper": "Desenvolvido por"
+  "settingsDeveloper": "Desenvolvido por",
+
+  "noInternetTitle": "Sem conexão com a internet",
+  "noInternetMessage": "Verifique sua conexão e tente novamente",
+  "noInternetRetry": "Tentar novamente"
 }

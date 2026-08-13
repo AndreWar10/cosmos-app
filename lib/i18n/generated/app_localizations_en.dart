@@ -417,4 +417,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsDeveloper => 'Developed by';
+
+  @override
+  String get noInternetTitle => 'No internet connection';
+
+  @override
+  String get noInternetMessage => 'Check your connection and try again';
+
+  @override
+  String get noInternetRetry => 'Try again';
 }

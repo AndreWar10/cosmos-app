@@ -5,6 +5,7 @@ import '../../../../core/di/injection_container.dart';
 import '../../../../core/extensions/build_context_extensions.dart';
 import '../../../../core/locale/locale_cubit.dart';
 import '../../../../core/routes/app_routes.dart';
+import '../../../../core/widgets/no_internet_widget.dart';
 import '../bloc/launches_bloc.dart';
 import '../bloc/launches_event.dart';
 import '../bloc/launches_state.dart';
@@ -54,6 +55,10 @@ class _LaunchesBody extends StatelessWidget {
         return switch (state) {
           LaunchesInitial() => const SizedBox.shrink(),
           LaunchesLoading() => const LaunchesLoadingIndicator(),
+          LaunchesError(isNoInternet: true) => NoInternetWidget(
+              onRetry: () =>
+                  context.read<LaunchesBloc>().add(LaunchesFetched()),
+            ),
           LaunchesError(:final message) => LaunchesErrorWidget(
               message: message,
               onRetry: () =>
