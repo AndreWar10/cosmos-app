@@ -41,6 +41,7 @@ class _NewsSearchBarState extends State<NewsSearchBar> {
       child: TextField(
         controller: _controller,
         onChanged: _onChanged,
+        onTapOutside: (_) => FocusScope.of(context).unfocus(),
         decoration: InputDecoration(
           hintText: context.translate.newsSearchHint,
           prefixIcon: const Icon(Icons.search),
