@@ -667,6 +667,192 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Published'**
   String get newsDetailPublishedAt;
+
+  /// Quiz page title
+  ///
+  /// In en, this message translates to:
+  /// **'Space Quiz'**
+  String get quizTitle;
+
+  /// Quiz: quick play card title
+  ///
+  /// In en, this message translates to:
+  /// **'Quick Quiz'**
+  String get quizQuickPlay;
+
+  /// Quiz: quick play description
+  ///
+  /// In en, this message translates to:
+  /// **'10 random questions from all categories'**
+  String get quizQuickPlayDesc;
+
+  /// Quiz: categories section title
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get quizCategories;
+
+  /// Quiz: question count label
+  ///
+  /// In en, this message translates to:
+  /// **'{count} questions'**
+  String quizQuestions(int count);
+
+  /// Quiz: high score label
+  ///
+  /// In en, this message translates to:
+  /// **'Best: {score}/{total}'**
+  String quizHighScore(int score, int total);
+
+  /// Quiz: no high score yet
+  ///
+  /// In en, this message translates to:
+  /// **'No record'**
+  String get quizNoHighScore;
+
+  /// Quiz: start button
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get quizStart;
+
+  /// Quiz: next question button
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get quizNext;
+
+  /// Quiz: finish button
+  ///
+  /// In en, this message translates to:
+  /// **'Finish'**
+  String get quizFinish;
+
+  /// Quiz: question progress
+  ///
+  /// In en, this message translates to:
+  /// **'Question {current} of {total}'**
+  String quizQuestionOf(int current, int total);
+
+  /// Quiz: timer expired
+  ///
+  /// In en, this message translates to:
+  /// **'Time\'s up!'**
+  String get quizTimeUp;
+
+  /// Quiz: correct answer feedback
+  ///
+  /// In en, this message translates to:
+  /// **'Correct!'**
+  String get quizCorrect;
+
+  /// Quiz: wrong answer feedback
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong!'**
+  String get quizWrong;
+
+  /// Quiz: result page title
+  ///
+  /// In en, this message translates to:
+  /// **'Result'**
+  String get quizResultTitle;
+
+  /// Quiz: result score
+  ///
+  /// In en, this message translates to:
+  /// **'{correct} of {total}'**
+  String quizResultScore(int correct, int total);
+
+  /// Quiz: excellent result
+  ///
+  /// In en, this message translates to:
+  /// **'Excellent! You\'re an expert!'**
+  String get quizResultExcellent;
+
+  /// Quiz: great result
+  ///
+  /// In en, this message translates to:
+  /// **'Great job!'**
+  String get quizResultGreat;
+
+  /// Quiz: good result
+  ///
+  /// In en, this message translates to:
+  /// **'Good, keep practicing!'**
+  String get quizResultGood;
+
+  /// Quiz: low result
+  ///
+  /// In en, this message translates to:
+  /// **'Keep trying!'**
+  String get quizResultKeepTrying;
+
+  /// Quiz: new high score
+  ///
+  /// In en, this message translates to:
+  /// **'New record!'**
+  String get quizResultNewRecord;
+
+  /// Quiz: play again button
+  ///
+  /// In en, this message translates to:
+  /// **'Play again'**
+  String get quizPlayAgain;
+
+  /// Quiz: return to hub button
+  ///
+  /// In en, this message translates to:
+  /// **'Back to Quiz'**
+  String get quizBackToHub;
+
+  /// Quiz: stats section title
+  ///
+  /// In en, this message translates to:
+  /// **'Your Statistics'**
+  String get quizStatsTitle;
+
+  /// Quiz: total answered stat
+  ///
+  /// In en, this message translates to:
+  /// **'Answered'**
+  String get quizStatsAnswered;
+
+  /// Quiz: correct rate stat
+  ///
+  /// In en, this message translates to:
+  /// **'Accuracy'**
+  String get quizStatsCorrectRate;
+
+  /// No description provided for @quizAllCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get quizAllCategories;
+
+  /// Quiz exit dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Leave Quiz?'**
+  String get quizExitTitle;
+
+  /// Quiz exit dialog message
+  ///
+  /// In en, this message translates to:
+  /// **'Your progress will be lost.'**
+  String get quizExitMessage;
+
+  /// Quiz exit dialog cancel
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get quizExitCancel;
+
+  /// Quiz exit dialog confirm
+  ///
+  /// In en, this message translates to:
+  /// **'Leave'**
+  String get quizExitConfirm;
 }
 
 class _AppLocalizationsDelegate

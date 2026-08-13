@@ -301,4 +301,106 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get newsDetailPublishedAt => 'Publicado';
+
+  @override
+  String get quizTitle => 'Quiz Espacial';
+
+  @override
+  String get quizQuickPlay => 'Quiz Rápido';
+
+  @override
+  String get quizQuickPlayDesc =>
+      '10 perguntas aleatórias de todas as categorias';
+
+  @override
+  String get quizCategories => 'Categorias';
+
+  @override
+  String quizQuestions(int count) {
+    return '$count perguntas';
+  }
+
+  @override
+  String quizHighScore(int score, int total) {
+    return 'Recorde: $score/$total';
+  }
+
+  @override
+  String get quizNoHighScore => 'Sem recorde';
+
+  @override
+  String get quizStart => 'Iniciar';
+
+  @override
+  String get quizNext => 'Próxima';
+
+  @override
+  String get quizFinish => 'Finalizar';
+
+  @override
+  String quizQuestionOf(int current, int total) {
+    return 'Pergunta $current de $total';
+  }
+
+  @override
+  String get quizTimeUp => 'Tempo esgotado!';
+
+  @override
+  String get quizCorrect => 'Correto!';
+
+  @override
+  String get quizWrong => 'Errado!';
+
+  @override
+  String get quizResultTitle => 'Resultado';
+
+  @override
+  String quizResultScore(int correct, int total) {
+    return '$correct de $total';
+  }
+
+  @override
+  String get quizResultExcellent => 'Excelente! Você é um expert!';
+
+  @override
+  String get quizResultGreat => 'Ótimo trabalho!';
+
+  @override
+  String get quizResultGood => 'Bom, continue praticando!';
+
+  @override
+  String get quizResultKeepTrying => 'Continue tentando!';
+
+  @override
+  String get quizResultNewRecord => 'Novo recorde!';
+
+  @override
+  String get quizPlayAgain => 'Jogar novamente';
+
+  @override
+  String get quizBackToHub => 'Voltar ao Quiz';
+
+  @override
+  String get quizStatsTitle => 'Suas Estatísticas';
+
+  @override
+  String get quizStatsAnswered => 'Respondidas';
+
+  @override
+  String get quizStatsCorrectRate => 'Taxa de acerto';
+
+  @override
+  String get quizAllCategories => 'Todas';
+
+  @override
+  String get quizExitTitle => 'Sair do Quiz?';
+
+  @override
+  String get quizExitMessage => 'Seu progresso será perdido.';
+
+  @override
+  String get quizExitCancel => 'Cancelar';
+
+  @override
+  String get quizExitConfirm => 'Sair';
 }

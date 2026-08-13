@@ -1,0 +1,798 @@
+{
+  "categories": [
+    {
+      "id": "solar_system",
+      "icon": "public",
+      "pt": { "name": "Sistema Solar" },
+      "en": { "name": "Solar System" }
+    },
+    {
+      "id": "exploration",
+      "icon": "rocket_launch",
+      "pt": { "name": "Exploração Espacial" },
+      "en": { "name": "Space Exploration" }
+    },
+    {
+      "id": "stars_galaxies",
+      "icon": "auto_awesome",
+      "pt": { "name": "Estrelas & Galáxias" },
+      "en": { "name": "Stars & Galaxies" }
+    },
+    {
+      "id": "curiosities",
+      "icon": "psychology",
+      "pt": { "name": "Curiosidades" },
+      "en": { "name": "Curiosities" }
+    }
+  ],
+  "questions": [
+    {
+      "id": "ss_01",
+      "category": "solar_system",
+      "pt": {
+        "question": "Qual é o maior planeta do Sistema Solar?",
+        "options": ["Saturno", "Júpiter", "Netuno", "Urano"],
+        "correct": 1,
+        "explanation": "Júpiter é o maior planeta do Sistema Solar, com diâmetro de ~139.820 km — mais de 11 vezes o da Terra."
+      },
+      "en": {
+        "question": "What is the largest planet in the Solar System?",
+        "options": ["Saturn", "Jupiter", "Neptune", "Uranus"],
+        "correct": 1,
+        "explanation": "Jupiter is the largest planet in the Solar System, with a diameter of ~139,820 km — over 11 times Earth's."
+      }
+    },
+    {
+      "id": "ss_02",
+      "category": "solar_system",
+      "pt": {
+        "question": "Qual planeta é conhecido como 'Planeta Vermelho'?",
+        "options": ["Vênus", "Júpiter", "Marte", "Mercúrio"],
+        "correct": 2,
+        "explanation": "Marte é chamado de Planeta Vermelho por causa do óxido de ferro (ferrugem) em sua superfície."
+      },
+      "en": {
+        "question": "Which planet is known as the 'Red Planet'?",
+        "options": ["Venus", "Jupiter", "Mars", "Mercury"],
+        "correct": 2,
+        "explanation": "Mars is called the Red Planet because of the iron oxide (rust) on its surface."
+      }
+    },
+    {
+      "id": "ss_03",
+      "category": "solar_system",
+      "pt": {
+        "question": "Qual é o planeta mais quente do Sistema Solar?",
+        "options": ["Mercúrio", "Vênus", "Marte", "Júpiter"],
+        "correct": 1,
+        "explanation": "Vênus é o mais quente (~465°C) graças ao intenso efeito estufa causado por sua atmosfera densa de CO₂."
+      },
+      "en": {
+        "question": "What is the hottest planet in the Solar System?",
+        "options": ["Mercury", "Venus", "Mars", "Jupiter"],
+        "correct": 1,
+        "explanation": "Venus is the hottest (~465°C) thanks to the intense greenhouse effect caused by its dense CO₂ atmosphere."
+      }
+    },
+    {
+      "id": "ss_04",
+      "category": "solar_system",
+      "pt": {
+        "question": "Quantos anéis principais Saturno possui?",
+        "options": ["3", "5", "7", "9"],
+        "correct": 2,
+        "explanation": "Saturno tem 7 anéis principais (A a G), compostos por bilhões de partículas de gelo e rocha."
+      },
+      "en": {
+        "question": "How many main rings does Saturn have?",
+        "options": ["3", "5", "7", "9"],
+        "correct": 2,
+        "explanation": "Saturn has 7 main rings (A through G), made up of billions of ice and rock particles."
+      }
+    },
+    {
+      "id": "ss_05",
+      "category": "solar_system",
+      "pt": {
+        "question": "Qual planeta gira de lado, com inclinação axial de ~98°?",
+        "options": ["Netuno", "Saturno", "Urano", "Júpiter"],
+        "correct": 2,
+        "explanation": "Urano tem uma inclinação axial de ~98°, possivelmente causada por uma colisão com um objeto do tamanho da Terra."
+      },
+      "en": {
+        "question": "Which planet rotates on its side, with an axial tilt of ~98°?",
+        "options": ["Neptune", "Saturn", "Uranus", "Jupiter"],
+        "correct": 2,
+        "explanation": "Uranus has an axial tilt of ~98°, possibly caused by a collision with an Earth-sized object."
+      }
+    },
+    {
+      "id": "ss_06",
+      "category": "solar_system",
+      "pt": {
+        "question": "Qual é a lua mais conhecida de Júpiter que pode ter oceano subterrâneo?",
+        "options": ["Io", "Calisto", "Europa", "Ganimedes"],
+        "correct": 2,
+        "explanation": "Europa possui um oceano de água líquida sob sua crosta de gelo, tornando-a candidata a abrigar vida."
+      },
+      "en": {
+        "question": "Which famous moon of Jupiter may have a subsurface ocean?",
+        "options": ["Io", "Callisto", "Europa", "Ganymede"],
+        "correct": 2,
+        "explanation": "Europa has a liquid water ocean beneath its icy crust, making it a candidate for harboring life."
+      }
+    },
+    {
+      "id": "ss_07",
+      "category": "solar_system",
+      "pt": {
+        "question": "Qual é o menor planeta do Sistema Solar?",
+        "options": ["Marte", "Vênus", "Mercúrio", "Terra"],
+        "correct": 2,
+        "explanation": "Mercúrio é o menor planeta, com diâmetro de ~4.879 km — pouco maior que a Lua da Terra."
+      },
+      "en": {
+        "question": "What is the smallest planet in the Solar System?",
+        "options": ["Mars", "Venus", "Mercury", "Earth"],
+        "correct": 2,
+        "explanation": "Mercury is the smallest planet, with a diameter of ~4,879 km — just slightly larger than Earth's Moon."
+      }
+    },
+    {
+      "id": "ss_08",
+      "category": "solar_system",
+      "pt": {
+        "question": "Qual planeta possui a Grande Mancha Vermelha?",
+        "options": ["Marte", "Saturno", "Júpiter", "Netuno"],
+        "correct": 2,
+        "explanation": "A Grande Mancha Vermelha de Júpiter é uma tempestade gigante ativa há mais de 350 anos."
+      },
+      "en": {
+        "question": "Which planet has the Great Red Spot?",
+        "options": ["Mars", "Saturn", "Jupiter", "Neptune"],
+        "correct": 2,
+        "explanation": "Jupiter's Great Red Spot is a giant storm that has been active for over 350 years."
+      }
+    },
+    {
+      "id": "ss_09",
+      "category": "solar_system",
+      "pt": {
+        "question": "Qual o maior vulcão do Sistema Solar?",
+        "options": ["Monte Everest", "Olympus Mons", "Mauna Kea", "Vesúvio"],
+        "correct": 1,
+        "explanation": "Olympus Mons em Marte tem ~22 km de altura e ~600 km de diâmetro — 3x a altura do Everest."
+      },
+      "en": {
+        "question": "What is the largest volcano in the Solar System?",
+        "options": ["Mount Everest", "Olympus Mons", "Mauna Kea", "Vesuvius"],
+        "correct": 1,
+        "explanation": "Olympus Mons on Mars is ~22 km tall and ~600 km wide — 3x the height of Everest."
+      }
+    },
+    {
+      "id": "ss_10",
+      "category": "solar_system",
+      "pt": {
+        "question": "Quanto tempo a luz do Sol leva para chegar à Terra?",
+        "options": ["~1 minuto", "~8 minutos", "~30 minutos", "~1 hora"],
+        "correct": 1,
+        "explanation": "A luz viaja a ~300.000 km/s e leva aproximadamente 8 minutos e 20 segundos do Sol à Terra."
+      },
+      "en": {
+        "question": "How long does sunlight take to reach Earth?",
+        "options": ["~1 minute", "~8 minutes", "~30 minutes", "~1 hour"],
+        "correct": 1,
+        "explanation": "Light travels at ~300,000 km/s and takes about 8 minutes and 20 seconds from the Sun to Earth."
+      }
+    },
+    {
+      "id": "ss_11",
+      "category": "solar_system",
+      "pt": {
+        "question": "Qual planeta possui ventos mais rápidos que a velocidade do som?",
+        "options": ["Júpiter", "Saturno", "Urano", "Netuno"],
+        "correct": 3,
+        "explanation": "Netuno tem ventos de até ~2.100 km/h, os mais rápidos registrados no Sistema Solar."
+      },
+      "en": {
+        "question": "Which planet has winds faster than the speed of sound?",
+        "options": ["Jupiter", "Saturn", "Uranus", "Neptune"],
+        "correct": 3,
+        "explanation": "Neptune has winds up to ~2,100 km/h, the fastest recorded in the Solar System."
+      }
+    },
+    {
+      "id": "ss_12",
+      "category": "solar_system",
+      "pt": {
+        "question": "Qual lua de Saturno possui atmosfera densa e lagos de metano?",
+        "options": ["Encélado", "Mimas", "Titã", "Reia"],
+        "correct": 2,
+        "explanation": "Titã é a única lua com atmosfera densa e possui lagos e rios de metano e etano líquidos."
+      },
+      "en": {
+        "question": "Which moon of Saturn has a dense atmosphere and methane lakes?",
+        "options": ["Enceladus", "Mimas", "Titan", "Rhea"],
+        "correct": 2,
+        "explanation": "Titan is the only moon with a dense atmosphere and has lakes and rivers of liquid methane and ethane."
+      }
+    },
+    {
+      "id": "ss_13",
+      "category": "solar_system",
+      "pt": {
+        "question": "Qual é o maior satélite natural do Sistema Solar?",
+        "options": ["Titã", "Lua", "Europa", "Ganimedes"],
+        "correct": 3,
+        "explanation": "Ganimedes, lua de Júpiter, é o maior satélite natural — maior até que Mercúrio."
+      },
+      "en": {
+        "question": "What is the largest natural satellite in the Solar System?",
+        "options": ["Titan", "Moon", "Europa", "Ganymede"],
+        "correct": 3,
+        "explanation": "Ganymede, a moon of Jupiter, is the largest natural satellite — even larger than Mercury."
+      }
+    },
+    {
+      "id": "ex_01",
+      "category": "exploration",
+      "pt": {
+        "question": "Quem foi o primeiro ser humano a ir ao espaço?",
+        "options": ["Neil Armstrong", "Yuri Gagarin", "John Glenn", "Buzz Aldrin"],
+        "correct": 1,
+        "explanation": "Yuri Gagarin, cosmonauta soviético, foi o primeiro humano no espaço em 12 de abril de 1961."
+      },
+      "en": {
+        "question": "Who was the first human to go to space?",
+        "options": ["Neil Armstrong", "Yuri Gagarin", "John Glenn", "Buzz Aldrin"],
+        "correct": 1,
+        "explanation": "Yuri Gagarin, a Soviet cosmonaut, was the first human in space on April 12, 1961."
+      }
+    },
+    {
+      "id": "ex_02",
+      "category": "exploration",
+      "pt": {
+        "question": "Em que ano o homem pisou na Lua pela primeira vez?",
+        "options": ["1965", "1969", "1972", "1975"],
+        "correct": 1,
+        "explanation": "Neil Armstrong e Buzz Aldrin pousaram na Lua em 20 de julho de 1969, na missão Apollo 11."
+      },
+      "en": {
+        "question": "In what year did humans first walk on the Moon?",
+        "options": ["1965", "1969", "1972", "1975"],
+        "correct": 1,
+        "explanation": "Neil Armstrong and Buzz Aldrin landed on the Moon on July 20, 1969, during the Apollo 11 mission."
+      }
+    },
+    {
+      "id": "ex_03",
+      "category": "exploration",
+      "pt": {
+        "question": "Qual rover da NASA pousou em Marte em 2021?",
+        "options": ["Curiosity", "Spirit", "Perseverance", "Opportunity"],
+        "correct": 2,
+        "explanation": "O Perseverance pousou na cratera Jezero em fevereiro de 2021 para buscar sinais de vida microbiana."
+      },
+      "en": {
+        "question": "Which NASA rover landed on Mars in 2021?",
+        "options": ["Curiosity", "Spirit", "Perseverance", "Opportunity"],
+        "correct": 2,
+        "explanation": "Perseverance landed in Jezero Crater in February 2021 to search for signs of microbial life."
+      }
+    },
+    {
+      "id": "ex_04",
+      "category": "exploration",
+      "pt": {
+        "question": "Qual telescópio espacial substituiu o Hubble como principal observatório?",
+        "options": ["Spitzer", "Chandra", "James Webb", "Kepler"],
+        "correct": 2,
+        "explanation": "O James Webb Space Telescope (JWST) foi lançado em dezembro de 2021, observando o universo em infravermelho."
+      },
+      "en": {
+        "question": "Which space telescope succeeded Hubble as the premier observatory?",
+        "options": ["Spitzer", "Chandra", "James Webb", "Kepler"],
+        "correct": 2,
+        "explanation": "The James Webb Space Telescope (JWST) launched in December 2021, observing the universe in infrared."
+      }
+    },
+    {
+      "id": "ex_05",
+      "category": "exploration",
+      "pt": {
+        "question": "Qual sonda espacial é o objeto humano mais distante da Terra?",
+        "options": ["Pioneer 10", "New Horizons", "Voyager 1", "Voyager 2"],
+        "correct": 2,
+        "explanation": "A Voyager 1, lançada em 1977, está a mais de 24 bilhões de km da Terra no espaço interestelar."
+      },
+      "en": {
+        "question": "Which spacecraft is the farthest human-made object from Earth?",
+        "options": ["Pioneer 10", "New Horizons", "Voyager 1", "Voyager 2"],
+        "correct": 2,
+        "explanation": "Voyager 1, launched in 1977, is over 24 billion km from Earth in interstellar space."
+      }
+    },
+    {
+      "id": "ex_06",
+      "category": "exploration",
+      "pt": {
+        "question": "Qual empresa fez o primeiro pouso vertical de um foguete orbital reutilizável?",
+        "options": ["Blue Origin", "SpaceX", "NASA", "Roscosmos"],
+        "correct": 1,
+        "explanation": "A SpaceX pousou o primeiro estágio do Falcon 9 verticalmente em dezembro de 2015, revolucionando a indústria."
+      },
+      "en": {
+        "question": "Which company achieved the first vertical landing of a reusable orbital rocket?",
+        "options": ["Blue Origin", "SpaceX", "NASA", "Roscosmos"],
+        "correct": 1,
+        "explanation": "SpaceX vertically landed a Falcon 9 first stage in December 2015, revolutionizing the industry."
+      }
+    },
+    {
+      "id": "ex_07",
+      "category": "exploration",
+      "pt": {
+        "question": "Qual estação espacial está em órbita terrestre desde 1998?",
+        "options": ["Mir", "Tiangong", "ISS", "Skylab"],
+        "correct": 2,
+        "explanation": "A Estação Espacial Internacional (ISS) está em órbita desde 1998 e já recebeu astronautas de 19 países."
+      },
+      "en": {
+        "question": "Which space station has been in Earth's orbit since 1998?",
+        "options": ["Mir", "Tiangong", "ISS", "Skylab"],
+        "correct": 2,
+        "explanation": "The International Space Station (ISS) has been in orbit since 1998 and has hosted astronauts from 19 countries."
+      }
+    },
+    {
+      "id": "ex_08",
+      "category": "exploration",
+      "pt": {
+        "question": "Qual missão trouxe as primeiras amostras de solo lunar para a Terra?",
+        "options": ["Apollo 8", "Apollo 11", "Gemini 4", "Apollo 13"],
+        "correct": 1,
+        "explanation": "A Apollo 11 trouxe 21,5 kg de amostras lunares em 1969 — as primeiras coletadas por humanos."
+      },
+      "en": {
+        "question": "Which mission brought the first lunar soil samples to Earth?",
+        "options": ["Apollo 8", "Apollo 11", "Gemini 4", "Apollo 13"],
+        "correct": 1,
+        "explanation": "Apollo 11 brought back 21.5 kg of lunar samples in 1969 — the first collected by humans."
+      }
+    },
+    {
+      "id": "ex_09",
+      "category": "exploration",
+      "pt": {
+        "question": "Qual sonda fez o primeiro sobrevoo de Plutão?",
+        "options": ["Voyager 2", "Cassini", "New Horizons", "Juno"],
+        "correct": 2,
+        "explanation": "A New Horizons fez o primeiro sobrevoo de Plutão em julho de 2015, revelando montanhas de gelo e um coração gigante."
+      },
+      "en": {
+        "question": "Which probe performed the first flyby of Pluto?",
+        "options": ["Voyager 2", "Cassini", "New Horizons", "Juno"],
+        "correct": 2,
+        "explanation": "New Horizons performed the first flyby of Pluto in July 2015, revealing ice mountains and a giant heart-shaped plain."
+      }
+    },
+    {
+      "id": "ex_10",
+      "category": "exploration",
+      "pt": {
+        "question": "Qual foi o primeiro animal a orbitar a Terra?",
+        "options": ["Ham (chimpanzé)", "Laika (cão)", "Enos (chimpanzé)", "Félicette (gata)"],
+        "correct": 1,
+        "explanation": "Laika, uma cadela soviética, foi o primeiro animal a orbitar a Terra em novembro de 1957 na Sputnik 2."
+      },
+      "en": {
+        "question": "What was the first animal to orbit the Earth?",
+        "options": ["Ham (chimpanzee)", "Laika (dog)", "Enos (chimpanzee)", "Félicette (cat)"],
+        "correct": 1,
+        "explanation": "Laika, a Soviet dog, was the first animal to orbit Earth in November 1957 aboard Sputnik 2."
+      }
+    },
+    {
+      "id": "ex_11",
+      "category": "exploration",
+      "pt": {
+        "question": "Qual o nome do primeiro satélite artificial da história?",
+        "options": ["Explorer 1", "Sputnik 1", "Vanguard 1", "Luna 1"],
+        "correct": 1,
+        "explanation": "O Sputnik 1 foi lançado pela URSS em 4 de outubro de 1957, inaugurando a era espacial."
+      },
+      "en": {
+        "question": "What was the name of the first artificial satellite?",
+        "options": ["Explorer 1", "Sputnik 1", "Vanguard 1", "Luna 1"],
+        "correct": 1,
+        "explanation": "Sputnik 1 was launched by the USSR on October 4, 1957, ushering in the Space Age."
+      }
+    },
+    {
+      "id": "ex_12",
+      "category": "exploration",
+      "pt": {
+        "question": "Quem foi a primeira mulher a ir ao espaço?",
+        "options": ["Sally Ride", "Valentina Tereshkova", "Mae Jemison", "Svetlana Savitskaya"],
+        "correct": 1,
+        "explanation": "Valentina Tereshkova, cosmonauta soviética, foi a primeira mulher no espaço em junho de 1963."
+      },
+      "en": {
+        "question": "Who was the first woman to go to space?",
+        "options": ["Sally Ride", "Valentina Tereshkova", "Mae Jemison", "Svetlana Savitskaya"],
+        "correct": 1,
+        "explanation": "Valentina Tereshkova, a Soviet cosmonaut, was the first woman in space in June 1963."
+      }
+    },
+    {
+      "id": "sg_01",
+      "category": "stars_galaxies",
+      "pt": {
+        "question": "Qual é a estrela mais próxima da Terra (além do Sol)?",
+        "options": ["Sirius", "Proxima Centauri", "Alpha Centauri A", "Betelgeuse"],
+        "correct": 1,
+        "explanation": "Proxima Centauri está a ~4,24 anos-luz da Terra. É uma anã vermelha do sistema Alpha Centauri."
+      },
+      "en": {
+        "question": "What is the nearest star to Earth (besides the Sun)?",
+        "options": ["Sirius", "Proxima Centauri", "Alpha Centauri A", "Betelgeuse"],
+        "correct": 1,
+        "explanation": "Proxima Centauri is ~4.24 light-years from Earth. It's a red dwarf in the Alpha Centauri system."
+      }
+    },
+    {
+      "id": "sg_02",
+      "category": "stars_galaxies",
+      "pt": {
+        "question": "Qual é o nome da nossa galáxia?",
+        "options": ["Andrômeda", "Via Láctea", "Centaurus A", "Sombrero"],
+        "correct": 1,
+        "explanation": "A Via Láctea é uma galáxia espiral barrada com ~200-400 bilhões de estrelas e ~100.000 anos-luz de diâmetro."
+      },
+      "en": {
+        "question": "What is the name of our galaxy?",
+        "options": ["Andromeda", "Milky Way", "Centaurus A", "Sombrero"],
+        "correct": 1,
+        "explanation": "The Milky Way is a barred spiral galaxy with ~200-400 billion stars and ~100,000 light-years in diameter."
+      }
+    },
+    {
+      "id": "sg_03",
+      "category": "stars_galaxies",
+      "pt": {
+        "question": "O que acontece quando uma estrela massiva morre em uma explosão?",
+        "options": ["Nebulosa solar", "Supernova", "Aurora boreal", "Eclipse total"],
+        "correct": 1,
+        "explanation": "Uma supernova é a explosão espetacular de uma estrela massiva, podendo brilhar mais que uma galáxia inteira."
+      },
+      "en": {
+        "question": "What happens when a massive star dies in an explosion?",
+        "options": ["Solar nebula", "Supernova", "Northern lights", "Total eclipse"],
+        "correct": 1,
+        "explanation": "A supernova is the spectacular explosion of a massive star, which can outshine an entire galaxy."
+      }
+    },
+    {
+      "id": "sg_04",
+      "category": "stars_galaxies",
+      "pt": {
+        "question": "O que é um buraco negro?",
+        "options": ["Uma estrela fria", "Uma região sem gravidade", "Um ponto de gravidade tão forte que nada escapa", "Um vazio no espaço"],
+        "correct": 2,
+        "explanation": "Um buraco negro é uma região do espaço-tempo com gravidade tão intensa que nem a luz consegue escapar."
+      },
+      "en": {
+        "question": "What is a black hole?",
+        "options": ["A cold star", "A region with no gravity", "A point of gravity so strong nothing escapes", "A void in space"],
+        "correct": 2,
+        "explanation": "A black hole is a region of spacetime with gravity so intense that not even light can escape."
+      }
+    },
+    {
+      "id": "sg_05",
+      "category": "stars_galaxies",
+      "pt": {
+        "question": "Qual é a galáxia mais próxima da Via Láctea de tamanho similar?",
+        "options": ["Galáxia do Triângulo", "Andrômeda", "Nuvem de Magalhães", "Galáxia Sombrero"],
+        "correct": 1,
+        "explanation": "Andrômeda (M31) está a ~2,5 milhões de anos-luz e colidirá com a Via Láctea em ~4,5 bilhões de anos."
+      },
+      "en": {
+        "question": "What is the nearest large galaxy to the Milky Way?",
+        "options": ["Triangulum Galaxy", "Andromeda", "Magellanic Cloud", "Sombrero Galaxy"],
+        "correct": 1,
+        "explanation": "Andromeda (M31) is ~2.5 million light-years away and will collide with the Milky Way in ~4.5 billion years."
+      }
+    },
+    {
+      "id": "sg_06",
+      "category": "stars_galaxies",
+      "pt": {
+        "question": "Qual estrela é a mais brilhante no céu noturno?",
+        "options": ["Polaris", "Sirius", "Betelgeuse", "Vega"],
+        "correct": 1,
+        "explanation": "Sirius (Alfa Canis Majoris) é a estrela mais brilhante no céu, a ~8,6 anos-luz da Terra."
+      },
+      "en": {
+        "question": "Which star is the brightest in the night sky?",
+        "options": ["Polaris", "Sirius", "Betelgeuse", "Vega"],
+        "correct": 1,
+        "explanation": "Sirius (Alpha Canis Majoris) is the brightest star in the sky, ~8.6 light-years from Earth."
+      }
+    },
+    {
+      "id": "sg_07",
+      "category": "stars_galaxies",
+      "pt": {
+        "question": "O que são nebulosas?",
+        "options": ["Estrelas mortas", "Nuvens de gás e poeira no espaço", "Galáxias distantes", "Planetas em formação"],
+        "correct": 1,
+        "explanation": "Nebulosas são nuvens gigantes de gás e poeira onde novas estrelas nascem ou restos de estrelas que morreram."
+      },
+      "en": {
+        "question": "What are nebulae?",
+        "options": ["Dead stars", "Clouds of gas and dust in space", "Distant galaxies", "Forming planets"],
+        "correct": 1,
+        "explanation": "Nebulae are giant clouds of gas and dust where new stars are born or remnants of stars that have died."
+      }
+    },
+    {
+      "id": "sg_08",
+      "category": "stars_galaxies",
+      "pt": {
+        "question": "Qual tipo de estrela se torna um buraco negro ao morrer?",
+        "options": ["Anã vermelha", "Anã branca", "Supergigante", "Estrela de nêutrons"],
+        "correct": 2,
+        "explanation": "Estrelas supergigantes (~25+ massas solares) colapsam em buracos negros após a supernova."
+      },
+      "en": {
+        "question": "What type of star becomes a black hole when it dies?",
+        "options": ["Red dwarf", "White dwarf", "Supergiant", "Neutron star"],
+        "correct": 2,
+        "explanation": "Supergiant stars (~25+ solar masses) collapse into black holes after going supernova."
+      }
+    },
+    {
+      "id": "sg_09",
+      "category": "stars_galaxies",
+      "pt": {
+        "question": "Qual é o nome do buraco negro supermassivo no centro da Via Láctea?",
+        "options": ["Cygnus X-1", "Sagittarius A*", "M87*", "TON 618"],
+        "correct": 1,
+        "explanation": "Sagittarius A* tem ~4 milhões de massas solares e foi fotografado pelo Event Horizon Telescope em 2022."
+      },
+      "en": {
+        "question": "What is the supermassive black hole at the center of the Milky Way called?",
+        "options": ["Cygnus X-1", "Sagittarius A*", "M87*", "TON 618"],
+        "correct": 1,
+        "explanation": "Sagittarius A* has ~4 million solar masses and was imaged by the Event Horizon Telescope in 2022."
+      }
+    },
+    {
+      "id": "sg_10",
+      "category": "stars_galaxies",
+      "pt": {
+        "question": "O que é um ano-luz?",
+        "options": ["O tempo que a luz leva para cruzar o Sistema Solar", "A distância que a luz percorre em um ano", "A velocidade da luz por segundo", "O brilho de uma estrela em um ano"],
+        "correct": 1,
+        "explanation": "Um ano-luz equivale a ~9,46 trilhões de km — a distância que a luz percorre em um ano no vácuo."
+      },
+      "en": {
+        "question": "What is a light-year?",
+        "options": ["The time light takes to cross the Solar System", "The distance light travels in one year", "The speed of light per second", "The brightness of a star in one year"],
+        "correct": 1,
+        "explanation": "A light-year equals ~9.46 trillion km — the distance light travels in one year in a vacuum."
+      }
+    },
+    {
+      "id": "sg_11",
+      "category": "stars_galaxies",
+      "pt": {
+        "question": "Betelgeuse é uma estrela que pode explodir como supernova. Em qual constelação ela está?",
+        "options": ["Ursa Maior", "Órion", "Escorpião", "Cassiopeia"],
+        "correct": 1,
+        "explanation": "Betelgeuse é uma supergigante vermelha no ombro de Órion, a ~700 anos-luz da Terra."
+      },
+      "en": {
+        "question": "Betelgeuse is a star that may explode as a supernova. In which constellation is it?",
+        "options": ["Ursa Major", "Orion", "Scorpius", "Cassiopeia"],
+        "correct": 1,
+        "explanation": "Betelgeuse is a red supergiant on Orion's shoulder, ~700 light-years from Earth."
+      }
+    },
+    {
+      "id": "cu_01",
+      "category": "curiosities",
+      "pt": {
+        "question": "Se você pudesse dirigir até o Sol a 100 km/h, quanto tempo levaria?",
+        "options": ["~17 anos", "~170 anos", "~1.700 anos", "~17.000 anos"],
+        "correct": 1,
+        "explanation": "O Sol está a ~150 milhões de km. A 100 km/h, levaria ~171 anos sem parar!"
+      },
+      "en": {
+        "question": "If you could drive to the Sun at 100 km/h, how long would it take?",
+        "options": ["~17 years", "~170 years", "~1,700 years", "~17,000 years"],
+        "correct": 1,
+        "explanation": "The Sun is ~150 million km away. At 100 km/h, it would take ~171 years non-stop!"
+      }
+    },
+    {
+      "id": "cu_02",
+      "category": "curiosities",
+      "pt": {
+        "question": "Quantas Terras caberiam dentro do Sol?",
+        "options": ["~130", "~1.300", "~130.000", "~1.300.000"],
+        "correct": 3,
+        "explanation": "Cerca de 1,3 milhão de Terras caberiam dentro do volume do Sol!"
+      },
+      "en": {
+        "question": "How many Earths could fit inside the Sun?",
+        "options": ["~130", "~1,300", "~130,000", "~1,300,000"],
+        "correct": 3,
+        "explanation": "About 1.3 million Earths could fit inside the Sun's volume!"
+      }
+    },
+    {
+      "id": "cu_03",
+      "category": "curiosities",
+      "pt": {
+        "question": "Um dia em Vênus é mais longo que um ano em Vênus. Verdadeiro ou falso?",
+        "options": ["Verdadeiro", "Falso", "Depende da estação", "São iguais"],
+        "correct": 0,
+        "explanation": "Vênus leva 243 dias terrestres para girar, mas apenas 225 dias para orbitar o Sol. Então sim, um dia é mais longo que um ano!"
+      },
+      "en": {
+        "question": "A day on Venus is longer than a year on Venus. True or false?",
+        "options": ["True", "False", "Depends on the season", "They are equal"],
+        "correct": 0,
+        "explanation": "Venus takes 243 Earth days to rotate but only 225 Earth days to orbit the Sun. So yes, a day is longer than a year!"
+      }
+    },
+    {
+      "id": "cu_04",
+      "category": "curiosities",
+      "pt": {
+        "question": "No espaço, se dois pedaços de metal se tocarem, o que acontece?",
+        "options": ["Nada", "Se fundem permanentemente", "Criam eletricidade", "Se repelem"],
+        "correct": 1,
+        "explanation": "No vácuo do espaço, sem oxidação, átomos metálicos se unem espontaneamente — fenômeno chamado 'cold welding'."
+      },
+      "en": {
+        "question": "In space, if two pieces of metal touch, what happens?",
+        "options": ["Nothing", "They fuse permanently", "They create electricity", "They repel each other"],
+        "correct": 1,
+        "explanation": "In the vacuum of space, without oxidation, metal atoms bond spontaneously — a phenomenon called 'cold welding'."
+      }
+    },
+    {
+      "id": "cu_05",
+      "category": "curiosities",
+      "pt": {
+        "question": "Qual a temperatura do espaço profundo?",
+        "options": ["~0°C", "~-100°C", "~-200°C", "~-270°C"],
+        "correct": 3,
+        "explanation": "O espaço profundo tem ~2,7 Kelvin (-270,45°C), a temperatura da radiação cósmica de fundo."
+      },
+      "en": {
+        "question": "What is the temperature of deep space?",
+        "options": ["~0°C", "~-100°C", "~-200°C", "~-270°C"],
+        "correct": 3,
+        "explanation": "Deep space is ~2.7 Kelvin (-270.45°C), the temperature of the cosmic microwave background radiation."
+      }
+    },
+    {
+      "id": "cu_06",
+      "category": "curiosities",
+      "pt": {
+        "question": "Qual percentual do universo observável é matéria comum (átomos)?",
+        "options": ["~5%", "~25%", "~50%", "~75%"],
+        "correct": 0,
+        "explanation": "Apenas ~5% do universo é matéria comum. O resto é matéria escura (~27%) e energia escura (~68%)."
+      },
+      "en": {
+        "question": "What percentage of the observable universe is ordinary matter (atoms)?",
+        "options": ["~5%", "~25%", "~50%", "~75%"],
+        "correct": 0,
+        "explanation": "Only ~5% of the universe is ordinary matter. The rest is dark matter (~27%) and dark energy (~68%)."
+      }
+    },
+    {
+      "id": "cu_07",
+      "category": "curiosities",
+      "pt": {
+        "question": "Qual é a idade estimada do universo?",
+        "options": ["~4,5 bilhões de anos", "~8 bilhões de anos", "~13,8 bilhões de anos", "~20 bilhões de anos"],
+        "correct": 2,
+        "explanation": "O universo tem ~13,8 bilhões de anos, datado a partir da radiação cósmica de fundo do Big Bang."
+      },
+      "en": {
+        "question": "What is the estimated age of the universe?",
+        "options": ["~4.5 billion years", "~8 billion years", "~13.8 billion years", "~20 billion years"],
+        "correct": 2,
+        "explanation": "The universe is ~13.8 billion years old, dated from the cosmic microwave background of the Big Bang."
+      }
+    },
+    {
+      "id": "cu_08",
+      "category": "curiosities",
+      "pt": {
+        "question": "Existe som no espaço?",
+        "options": ["Sim, mas muito baixo", "Não, o espaço é um vácuo", "Apenas perto de estrelas", "Sim, em todas as frequências"],
+        "correct": 1,
+        "explanation": "O som precisa de um meio (ar, água) para se propagar. No vácuo do espaço, não há moléculas para transmitir ondas sonoras."
+      },
+      "en": {
+        "question": "Is there sound in space?",
+        "options": ["Yes, but very quiet", "No, space is a vacuum", "Only near stars", "Yes, at all frequencies"],
+        "correct": 1,
+        "explanation": "Sound needs a medium (air, water) to travel. In the vacuum of space, there are no molecules to carry sound waves."
+      }
+    },
+    {
+      "id": "cu_09",
+      "category": "curiosities",
+      "pt": {
+        "question": "Se Saturno fosse colocado em água, o que aconteceria?",
+        "options": ["Afundaria imediatamente", "Flutuaria", "Derreteria", "Explodiria"],
+        "correct": 1,
+        "explanation": "Saturno tem densidade de ~0,687 g/cm³, menor que a da água. Se existisse um oceano grande o suficiente, ele flutuaria!"
+      },
+      "en": {
+        "question": "If Saturn were placed in water, what would happen?",
+        "options": ["It would sink immediately", "It would float", "It would melt", "It would explode"],
+        "correct": 1,
+        "explanation": "Saturn has a density of ~0.687 g/cm³, less than water. If an ocean large enough existed, it would float!"
+      }
+    },
+    {
+      "id": "cu_10",
+      "category": "curiosities",
+      "pt": {
+        "question": "Quantas estrelas existem aproximadamente na Via Láctea?",
+        "options": ["~1 milhão", "~1 bilhão", "~200 bilhões", "~1 trilhão"],
+        "correct": 2,
+        "explanation": "A Via Láctea contém entre 200 e 400 bilhões de estrelas — e cada uma pode ter seus próprios planetas."
+      },
+      "en": {
+        "question": "Approximately how many stars are in the Milky Way?",
+        "options": ["~1 million", "~1 billion", "~200 billion", "~1 trillion"],
+        "correct": 2,
+        "explanation": "The Milky Way contains between 200 and 400 billion stars — and each one may have its own planets."
+      }
+    },
+    {
+      "id": "cu_11",
+      "category": "curiosities",
+      "pt": {
+        "question": "O que acontece com a altura de um astronauta no espaço?",
+        "options": ["Diminui ~2 cm", "Permanece igual", "Aumenta ~5 cm", "Varia de acordo com o planeta"],
+        "correct": 2,
+        "explanation": "Sem a gravidade comprimindo a coluna, os discos vertebrais se expandem e o astronauta fica ~5 cm mais alto!"
+      },
+      "en": {
+        "question": "What happens to an astronaut's height in space?",
+        "options": ["Decreases ~2 cm", "Stays the same", "Increases ~5 cm", "Varies by planet"],
+        "correct": 2,
+        "explanation": "Without gravity compressing the spine, vertebral discs expand and the astronaut grows ~5 cm taller!"
+      }
+    },
+    {
+      "id": "cu_12",
+      "category": "curiosities",
+      "pt": {
+        "question": "Uma colher de chá de estrela de nêutrons pesaria aproximadamente quanto na Terra?",
+        "options": ["~1 tonelada", "~1 mil toneladas", "~1 bilhão de toneladas", "~6 bilhões de toneladas"],
+        "correct": 3,
+        "explanation": "A matéria de uma estrela de nêutrons é extremamente densa: uma colher de chá pesaria ~6 bilhões de toneladas!"
+      },
+      "en": {
+        "question": "A teaspoon of neutron star material would weigh approximately how much on Earth?",
+        "options": ["~1 ton", "~1,000 tons", "~1 billion tons", "~6 billion tons"],
+        "correct": 3,
+        "explanation": "Neutron star matter is extremely dense: a teaspoon would weigh ~6 billion tons!"
+      }
+    }
+  ]
+}

@@ -10,6 +10,7 @@ import '../network/app_network.dart';
 import '../../features/home/di/home_injection.dart';
 import '../../features/launches/di/launches_injection.dart';
 import '../../features/news/di/news_injection.dart';
+import '../../features/quiz/di/quiz_injection.dart';
 
 final sl = GetIt.instance;
 
@@ -37,6 +38,7 @@ Future<void> setupDependencies() async {
   registerNewsFeature(sl);
   registerLaunchesFeature(sl);
   registerHomeFeature(sl);
+  registerQuizFeature(sl);
 }
 
 String _resolveInitialLocale(AppCache cache) {
