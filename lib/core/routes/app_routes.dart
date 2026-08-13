@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../features/home/domain/entities/apod.dart';
 import '../../features/home/domain/entities/planet.dart';
+import '../../features/home/presentation/pages/apod_detail_page.dart';
 import '../../features/home/presentation/pages/planet_detail_page.dart';
 import '../../features/launches/domain/entities/launch.dart';
 import '../../features/launches/presentation/pages/launch_detail_page.dart';
@@ -13,6 +15,7 @@ class AppRoutes {
   static const String initial = '/';
   static const String home = '/home';
   static const String news = '/news';
+  static const String apodDetail = '/apod/detail';
   static const String launches = '/launches';
   static const String launchDetail = '/launches/detail';
   static const String newsDetail = '/news/detail';
@@ -21,6 +24,15 @@ class AppRoutes {
 
   static Map<String, WidgetBuilder> routes = {
     initial: (context) => const RootPage(),
+    apodDetail: (context) {
+      final args = ModalRoute.of(context)?.settings.arguments;
+      if (args is Apod) {
+        return ApodDetailPage(apod: args);
+      }
+      return const Scaffold(
+        body: Center(child: Text('Invalid APOD data')),
+      );
+    },
     launches: (context) => const LaunchesPage(),
     newsDetail: (context) {
       final args = ModalRoute.of(context)?.settings.arguments;

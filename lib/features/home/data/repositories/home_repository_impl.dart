@@ -8,5 +8,5 @@ class HomeRepositoryImpl implements HomeRepository {
   final HomeRemoteDataSource _dataSource;
 
   @override
-  Future<Apod> getApod() => _dataSource.getApod();
+  Future<Apod> getApod({String? date}) => _dataSource.getApod(date: date);
 }

@@ -11,6 +11,7 @@ import '../domain/repositories/home_repository.dart';
 import '../domain/repositories/planet_repository.dart';
 import '../domain/usecases/get_apod_usecase.dart';
 import '../domain/usecases/get_planet_info_usecase.dart';
+import '../presentation/cubit/apod_detail_cubit.dart';
 import '../presentation/cubit/home_cubit.dart';
 import '../presentation/cubit/planet_detail_cubit.dart';
 
@@ -42,6 +43,9 @@ void registerHomeFeature(GetIt sl) {
       sl<GetNewsUseCase>(),
       sl<GetLaunchesUseCase>(),
     ),
+  );
+  sl.registerFactory(
+    () => ApodDetailCubit(sl<GetApodUseCase>()),
   );
   sl.registerFactory(
     () => PlanetDetailCubit(sl<GetPlanetInfoUseCase>()),

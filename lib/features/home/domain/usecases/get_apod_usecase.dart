@@ -6,5 +6,5 @@ class GetApodUseCase {
 
   final HomeRepository _repository;
 
-  Future<Apod> call() => _repository.getApod();
+  Future<Apod> call({String? date}) => _repository.getApod(date: date);
 }

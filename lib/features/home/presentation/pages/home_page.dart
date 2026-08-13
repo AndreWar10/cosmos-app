@@ -72,7 +72,13 @@ class _HomeContent extends StatelessWidget {
           children: [
             const SizedBox(height: 8),
             if (state.apod != null) ...[
-              ApodCard(apod: state.apod!),
+              GestureDetector(
+                onTap: () => Navigator.of(context).pushNamed(
+                  AppRoutes.apodDetail,
+                  arguments: state.apod,
+                ),
+                child: ApodCard(apod: state.apod!),
+              ),
               const SizedBox(height: 24),
             ],
             const SolarSystemSection(),
