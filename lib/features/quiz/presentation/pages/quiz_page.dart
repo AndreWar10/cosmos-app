@@ -137,17 +137,40 @@ const _categoryColors = <String, Color>{
   'curiosities': Color(0xFF00D4AA),
 };
 
-class _QuickPlayCard extends StatelessWidget {
+class _QuickPlayCard extends StatefulWidget {
   const _QuickPlayCard({required this.onTap});
 
   final VoidCallback onTap;
+
+  @override
+  State<_QuickPlayCard> createState() => _QuickPlayCardState();
+}
+
+class _QuickPlayCardState extends State<_QuickPlayCard>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _pulse;
+
+  @override
+  void initState() {
+    super.initState();
+    _pulse = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1200),
+    )..repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _pulse.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final t = context.translate;
 
     return GestureDetector(
-      onTap: onTap,
+      onTap: widget.onTap,
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.all(20),
@@ -168,14 +191,32 @@ class _QuickPlayCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Container(
-              width: 56,
-              height: 56,
-              decoration: BoxDecoration(
-                color: Colors.white.withValues(alpha: 0.2),
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: const Icon(Icons.bolt_rounded, size: 32, color: Colors.white),
+            AnimatedBuilder(
+              animation: _pulse,
+              builder: (context, child) {
+                final scale = 1.0 + (_pulse.value * 0.12);
+                return Transform.scale(
+                  scale: scale,
+                  child: Container(
+                    width: 56,
+                    height: 56,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(
+                          alpha: 0.2 + (_pulse.value * 0.1)),
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white.withValues(
+                              alpha: 0.15 * _pulse.value),
+                          blurRadius: 12 * _pulse.value,
+                        ),
+                      ],
+                    ),
+                    child: const Icon(
+                        Icons.bolt_rounded, size: 32, color: Colors.white),
+                  ),
+                );
+              },
             ),
             const SizedBox(width: 16),
             Expanded(
