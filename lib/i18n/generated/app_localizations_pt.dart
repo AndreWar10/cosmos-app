@@ -403,4 +403,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get quizExitConfirm => 'Sair';
+
+  @override
+  String get settingsAppVersion => 'Versão do app';
+
+  @override
+  String get settingsDeveloper => 'Desenvolvido por';
 }

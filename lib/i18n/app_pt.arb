@@ -134,5 +134,8 @@
   "quizExitTitle": "Sair do Quiz?",
   "quizExitMessage": "Seu progresso será perdido.",
   "quizExitCancel": "Cancelar",
-  "quizExitConfirm": "Sair"
+  "quizExitConfirm": "Sair",
+
+  "settingsAppVersion": "Versão do app",
+  "settingsDeveloper": "Desenvolvido por"
 }

@@ -51,21 +51,33 @@ abstract class AppTheme {
           surface: AppColors.lightSurface,
         ),
         appBarTheme: AppBarTheme(
-          backgroundColor: AppColors.lightBackground,
+          backgroundColor: AppColors.lightSurface,
           elevation: 0,
+          scrolledUnderElevation: 1,
+          shadowColor: Colors.black.withValues(alpha: 0.15),
+          surfaceTintColor: Colors.transparent,
           centerTitle: true,
           titleTextStyle: GoogleFonts.exo2(
             color: AppColors.lightTextPrimary,
             fontSize: 20,
             fontWeight: FontWeight.w600,
           ),
+          iconTheme: const IconThemeData(color: AppColors.lightTextPrimary),
         ),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           backgroundColor: AppColors.lightSurface,
           selectedItemColor: AppColors.primary,
           unselectedItemColor: AppColors.lightTextSecondary,
           type: BottomNavigationBarType.fixed,
-          elevation: 0,
+          elevation: 8,
+        ),
+        cardTheme: CardThemeData(
+          color: AppColors.lightSurface,
+          elevation: 1,
+          shadowColor: Colors.black.withValues(alpha: 0.08),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14),
+          ),
         ),
         dividerColor: AppColors.lightDivider,
       );

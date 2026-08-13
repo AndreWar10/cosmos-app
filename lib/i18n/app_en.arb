@@ -259,5 +259,10 @@
   "quizExitCancel": "Cancel",
   "@quizExitCancel": { "description": "Quiz exit dialog cancel" },
   "quizExitConfirm": "Leave",
-  "@quizExitConfirm": { "description": "Quiz exit dialog confirm" }
+  "@quizExitConfirm": { "description": "Quiz exit dialog confirm" },
+
+  "settingsAppVersion": "App version",
+  "@settingsAppVersion": { "description": "Settings: app version label" },
+  "settingsDeveloper": "Developed by",
+  "@settingsDeveloper": { "description": "Settings: developer label" }
 }

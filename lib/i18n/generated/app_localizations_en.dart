@@ -402,4 +402,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get quizExitConfirm => 'Leave';
+
+  @override
+  String get settingsAppVersion => 'App version';
+
+  @override
+  String get settingsDeveloper => 'Developed by';
 }

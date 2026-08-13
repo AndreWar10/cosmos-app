@@ -853,6 +853,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Leave'**
   String get quizExitConfirm;
+
+  /// Settings: app version label
+  ///
+  /// In en, this message translates to:
+  /// **'App version'**
+  String get settingsAppVersion;
+
+  /// Settings: developer label
+  ///
+  /// In en, this message translates to:
+  /// **'Developed by'**
+  String get settingsDeveloper;
 }
 
 class _AppLocalizationsDelegate
