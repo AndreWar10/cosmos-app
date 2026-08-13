@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/extensions/build_context_extensions.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/widgets/app_webview_page.dart';
 import '../../domain/entities/launch.dart';
 import '../widgets/launch_status_badge.dart';
 
@@ -187,22 +187,22 @@ class _LinksSection extends StatelessWidget {
       children: [
         if (links.webcast != null)
           FilledButton.icon(
-            onPressed: () => _openUrl(links.webcast!),
+            onPressed: () => _openWebView(context, links.webcast!, t.launchDetailWatchWebcast),
             icon: const Icon(Icons.play_circle_outline),
             label: Text(t.launchDetailWatchWebcast),
           ),
-        if (links.wikipedia != null) ...[
+        if (links.wikipedia != null && links.wikipedia!.isNotEmpty) ...[
           const SizedBox(height: 8),
           OutlinedButton.icon(
-            onPressed: () => _openUrl(links.wikipedia!),
+            onPressed: () => _openWebView(context, links.wikipedia!, 'Wikipedia'),
             icon: const Icon(Icons.language),
             label: const Text('Wikipedia'),
           ),
         ],
-        if (links.article != null) ...[
+        if (links.article != null && links.article!.isNotEmpty) ...[
           const SizedBox(height: 8),
           OutlinedButton.icon(
-            onPressed: () => _openUrl(links.article!),
+            onPressed: () => _openWebView(context, links.article!, 'Article'),
             icon: const Icon(Icons.article_outlined),
             label: const Text('Article'),
           ),
@@ -211,10 +211,11 @@ class _LinksSection extends StatelessWidget {
     );
   }
 
-  Future<void> _openUrl(String url) async {
-    final uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    }
+  void _openWebView(BuildContext context, String url, String title) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => AppWebViewPage(url: url, title: title),
+      ),
+    );
   }
 }
