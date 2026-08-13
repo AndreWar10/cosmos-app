@@ -8,6 +8,10 @@ Escolhi o **universo** — algo que sempre me fascinou — e construí o Cosmos:
 
 > **[Baixar APK](https://github.com/AndreWar10/cosmos-app/releases/latest)** — instale direto no Android para testar.
 
+## 🎬 Demo
+
+> **[Assistir no YouTube](https://youtube.com/shorts/K8Y4qUXZVXE)** — vídeo de demonstração do app em funcionamento.
+
 ## Screenshots
 
 ### Android
