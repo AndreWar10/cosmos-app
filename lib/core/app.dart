@@ -37,6 +37,14 @@ class CosmosApp extends StatelessWidget {
                 localizationsDelegates: AppLocalizations.localizationsDelegates,
                 initialRoute: AppRoutes.initial,
                 routes: AppRoutes.routes,
+                builder: (context, child) {
+                  return MediaQuery(
+                    data: MediaQuery.of(context).copyWith(
+                      textScaler: TextScaler.noScaling,
+                    ),
+                    child: child!,
+                  );
+                },
               );
             },
           );
