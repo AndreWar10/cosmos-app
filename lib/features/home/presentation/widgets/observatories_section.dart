@@ -1,10 +1,7 @@
 import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
-
 import '../../../../core/extensions/build_context_extensions.dart';
 import '../../../../core/routes/app_routes.dart';
-import '../../../../core/theme/app_colors.dart';
 import '../../domain/entities/observatory.dart';
 
 class ObservatoriesSection extends StatelessWidget {
