@@ -145,7 +145,7 @@ class _HomeLoadingSkeleton extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 32),
           // Solar System
           _SkeletonTitle(width: 120, color: divider),
           const SizedBox(height: 12),
@@ -179,7 +179,7 @@ class _HomeLoadingSkeleton extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 32),
           // Latest News
           _SkeletonTitle(width: 140, color: divider),
           const SizedBox(height: 12),
@@ -190,7 +190,7 @@ class _HomeLoadingSkeleton extends StatelessWidget {
             surface: surface,
             divider: divider,
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 32),
           // Observatories
           _SkeletonTitle(width: 180, color: divider),
           const SizedBox(height: 14),
