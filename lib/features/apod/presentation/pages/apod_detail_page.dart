@@ -58,7 +58,7 @@ class _ApodDetailView extends StatelessWidget {
                       AspectRatio(
                         aspectRatio: 16 / 9,
                         child: CachedNetworkImage(
-                          imageUrl: apod.hdUrl ?? apod.url,
+                          imageUrl: apod.url,
                           fit: BoxFit.cover,
                           placeholder: (_, _) => Container(
                             color: AppColors.primary.withValues(alpha: 0.05),
